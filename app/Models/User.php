@@ -10,12 +10,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -41,14 +37,8 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property int|null $current_team_id
- * @property-read Team|null $currentTeam
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection<int, Team> $ownedTeams
- * @property-read int|null $owned_teams_count
- * @property-read Collection<int, Team> $teams
- * @property-read int|null $teams_count
  * @property-read Collection<int, PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  *
@@ -57,7 +47,6 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
  * @method static Builder<static>|User newQuery()
  * @method static Builder<static>|User query()
  * @method static Builder<static>|User whereCreatedAt($value)
- * @method static Builder<static>|User whereCurrentTeamId($value)
  * @method static Builder<static>|User whereEmail($value)
  * @method static Builder<static>|User whereEmailVerifiedAt($value)
  * @method static Builder<static>|User whereId($value)

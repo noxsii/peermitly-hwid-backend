@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\Http\Controllers\ChangelogController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HelpController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PrivacyController;
@@ -17,9 +16,6 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/changelog', [ChangelogController::class, 'index'])->name('changelog.index');
-
-    Route::get('/help', [HelpController::class, 'index'])->name('help.index');
-    Route::get('/help/{article:slug}', [HelpController::class, 'show'])->name('help.show');
 
     Route::post('/notifications/{notification}/read', [NotificationController::class, 'markRead'])->name('notifications.read');
     Route::post('/notifications/read-all', [NotificationController::class, 'markAllRead'])->name('notifications.read-all');

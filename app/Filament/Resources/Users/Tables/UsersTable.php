@@ -36,10 +36,6 @@ final class UsersTable
                     ->dateTime('Y-m-d H:i')
                     ->placeholder('—')
                     ->sortable(),
-                TextColumn::make('currentTeam.name')
-                    ->label('Current team')
-                    ->searchable()
-                    ->placeholder('—'),
                 TextColumn::make('created_at')
                     ->label('Created at')
                     ->dateTime('Y-m-d H:i')
