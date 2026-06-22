@@ -6,6 +6,7 @@ export interface User {
     email: string;
     email_verified_at: string | null;
     role: UserRole;
+    is_active: boolean;
     created_at: string;
     updated_at: string;
 }

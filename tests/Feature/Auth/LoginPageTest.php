@@ -63,6 +63,23 @@ test('login post with correct credentials authenticates and redirects to dashboa
     expect(Auth::id())->toBe($user->id);
 });
 
+test('inactive user can log in and reach the dashboard', function (): void {
+    $user = User::factory()->create([
+        'email' => 'ada@example.com',
+        'password' => 'correct-password',
+        'is_active' => false,
+    ]);
+
+    $this->post('/login', [
+        'email' => 'ada@example.com',
+        'password' => 'correct-password',
+    ])->assertRedirect(route('dashboard'));
+
+    expect(Auth::id())->toBe($user->id);
+
+    $this->get('/dashboard')->assertOk();
+});
+
 test('login post with wrong password fails with auth error', function (): void {
     User::factory()->create([
         'email' => 'ada@example.com',
