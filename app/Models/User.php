@@ -53,6 +53,8 @@ use Spatie\LaravelPasskeys\Models\Passkey;
  * @property-read int|null $passkeys_count
  * @property-read Collection<int, Subscription> $subscriptions
  * @property-read int|null $subscriptions_count
+ * @property-read Collection<int, Backup> $backups
+ * @property-read int|null $backups_count
  * @property-read Collection<int, PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  *
@@ -120,6 +122,14 @@ final class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
     public function subscriptions(): HasMany
     {
         return $this->hasMany(Subscription::class);
+    }
+
+    /**
+     * @return HasMany<Backup, $this>
+     */
+    public function backups(): HasMany
+    {
+        return $this->hasMany(Backup::class);
     }
 
     /**
