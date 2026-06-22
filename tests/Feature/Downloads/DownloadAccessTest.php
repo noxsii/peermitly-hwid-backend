@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 use App\Actions\Subscriptions\GrantSubscriptionAction;
 use App\Enums\SubscriptionPlan;
+use App\Http\Middleware\HandleInertiaRequests;
 use App\Models\AppRelease;
 use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Testing\TestResponse;
 use Inertia\Testing\AssertableInertia;
 
 function subscribedUser(): User
@@ -16,6 +18,21 @@ function subscribedUser(): User
     resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::WEEK);
 
     return $user;
+}
+
+/**
+ * Partial reload that resolves the deferred `releases` prop.
+ */
+function loadDownloads(User $user): TestResponse
+{
+    $version = (string) resolve(HandleInertiaRequests::class)->version(request());
+
+    return test()->actingAs($user)->withHeaders([
+        'X-Inertia' => 'true',
+        'X-Inertia-Version' => $version,
+        'X-Inertia-Partial-Component' => 'downloads/Index',
+        'X-Inertia-Partial-Data' => 'releases',
+    ])->get('/downloads');
 }
 
 test('guests are redirected to login from the downloads page', function (): void {
@@ -42,7 +59,7 @@ test('users whose subscription expired cannot see downloads', function (): void 
     $this->actingAs($user)->get('/downloads')->assertForbidden();
 });
 
-test('active subscribed users see the downloads page with releases', function (): void {
+test('the downloads page loads with releases deferred', function (): void {
     AppRelease::factory()->create(['version' => 'v2.0.0']);
 
     $this->actingAs(subscribedUser())
@@ -50,9 +67,18 @@ test('active subscribed users see the downloads page with releases', function ()
         ->assertOk()
         ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('downloads/Index')
-            ->has('releases.data', 1)
-            ->where('releases.data.0.version', 'v2.0.0')
-            ->has('releases.data.0.download_url'));
+            ->missing('releases'));
+});
+
+test('active subscribed users resolve the deferred releases', function (): void {
+    AppRelease::factory()->create(['version' => 'v2.0.0']);
+
+    loadDownloads(subscribedUser())
+        ->assertOk()
+        ->assertJsonPath('component', 'downloads/Index')
+        ->assertJsonCount(1, 'props.releases.data')
+        ->assertJsonPath('props.releases.data.0.version', 'v2.0.0')
+        ->assertJsonPath('props.releases.data.0.download_url', fn (?string $value): bool => is_string($value));
 });
 
 test('active subscribed users can download a release file', function (): void {

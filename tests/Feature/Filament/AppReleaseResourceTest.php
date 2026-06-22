@@ -41,7 +41,7 @@ test('an admin can upload a new app version', function (): void {
     $release = AppRelease::query()->where('version', 'v4.0.0')->firstOrFail();
 
     expect($release->file_name)->toBe('peermitly-setup.exe')
-        ->and($release->file_size)->toBe(strlen($contents))
+        ->and($release->file_size)->toBe(mb_strlen($contents))
         ->and($release->notes)->toBe('First public build.');
 
     Storage::disk('local')->assertExists($release->file_path);
