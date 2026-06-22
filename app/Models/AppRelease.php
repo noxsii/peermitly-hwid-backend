@@ -16,10 +16,14 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $uuid
  * @property string $version
+ * @property string $platform
  * @property string|null $notes
+ * @property string|null $signature
  * @property string $file_path
  * @property string $file_name
  * @property int $file_size
+ * @property Carbon|null $published_at
+ * @property bool $is_active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
@@ -30,7 +34,7 @@ use Illuminate\Support\Carbon;
  *
  * @mixin Model
  */
-#[Fillable('version', 'notes', 'file_path', 'file_name', 'file_size')]
+#[Fillable('version', 'platform', 'notes', 'signature', 'file_path', 'file_name', 'file_size', 'published_at', 'is_active')]
 final class AppRelease extends Model
 {
     /** @use HasFactory<AppReleaseFactory> */
@@ -60,10 +64,14 @@ final class AppRelease extends Model
             'id' => 'integer',
             'uuid' => 'string',
             'version' => 'string',
+            'platform' => 'string',
             'notes' => 'string',
+            'signature' => 'string',
             'file_path' => 'string',
             'file_name' => 'string',
             'file_size' => 'integer',
+            'published_at' => 'datetime',
+            'is_active' => 'boolean',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];

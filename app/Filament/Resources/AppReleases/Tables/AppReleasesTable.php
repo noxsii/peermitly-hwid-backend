@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,17 @@ final class AppReleasesTable
                     ->badge()
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('platform')
+                    ->label('Platform')
+                    ->badge()
+                    ->color('gray'),
+                IconColumn::make('is_active')
+                    ->label('Active')
+                    ->boolean(),
+                IconColumn::make('signature')
+                    ->label('Signed')
+                    ->boolean()
+                    ->getStateUsing(fn (AppRelease $record): bool => filled($record->signature)),
                 TextColumn::make('file_name')
                     ->label('File')
                     ->limit(40)

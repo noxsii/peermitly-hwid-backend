@@ -17,7 +17,11 @@ final class DownloadController
     {
         return Inertia::render('downloads/Index', [
             'releases' => Inertia::defer(static fn () => AppReleaseResource::collection(
-                AppRelease::query()->latest()->get(),
+                AppRelease::query()
+                    ->where('is_active', true)
+                    ->orderByDesc('published_at')
+                    ->orderByDesc('created_at')
+                    ->get(),
             )),
         ]);
     }
