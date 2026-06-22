@@ -24,4 +24,14 @@ final class SubscriptionBuilder extends Builder
         return $this->where('status', SubscriptionStatus::ACTIVE->value)
             ->where('ends_at', '>=', now());
     }
+
+    /**
+     * Limit the query to subscriptions still flagged active whose term has
+     * already elapsed — i.e. those that should be expired.
+     */
+    public function wherePastDue(): static
+    {
+        return $this->where('status', SubscriptionStatus::ACTIVE->value)
+            ->where('ends_at', '<', now());
+    }
 }

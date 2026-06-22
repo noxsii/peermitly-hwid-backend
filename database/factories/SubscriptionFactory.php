@@ -54,6 +54,18 @@ final class SubscriptionFactory extends Factory
         });
     }
 
+    /**
+     * Still flagged active, but the term has already elapsed.
+     */
+    public function pastDue(): self
+    {
+        return $this->state(fn (): array => [
+            'status' => SubscriptionStatus::ACTIVE,
+            'starts_at' => now()->subDays(10),
+            'ends_at' => now()->subHour(),
+        ]);
+    }
+
     public function expired(): self
     {
         return $this->state(fn (): array => [
