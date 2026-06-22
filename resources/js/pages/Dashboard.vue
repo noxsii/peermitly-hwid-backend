@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { usePage } from "@inertiajs/vue3";
+import { Deferred, usePage } from "@inertiajs/vue3";
 import { CircleCheck, CircleSlash, Clock, KeyRound } from "@lucide/vue";
 import { computed } from "vue";
+import { Skeleton } from "@/components/ui/skeleton";
 import PageLayout from "@/layout/PageLayout.vue";
 import type { DashboardSubscription, PageProps } from "@/types";
 
@@ -69,53 +70,59 @@ const daysLabel = computed(() => {
                 </p>
             </div>
 
-            <!-- Subscription status -->
-            <div
-                class="bg-card text-card-foreground border-border/70 rounded-3xl border p-8 text-center shadow-sm"
-            >
+            <!-- Subscription status (deferred) -->
+            <Deferred data="subscription">
+                <template #fallback>
+                    <Skeleton class="min-h-56 w-full rounded-3xl" />
+                </template>
+
                 <div
-                    :class="[
-                        'mx-auto flex size-16 items-center justify-center rounded-2xl',
-                        hasSubscription
-                            ? 'bg-primary/10 text-primary'
-                            : 'bg-muted text-muted-foreground',
-                    ]"
-                    aria-hidden="true"
+                    class="bg-card text-card-foreground border-border/70 rounded-3xl border p-8 text-center shadow-sm"
                 >
-                    <KeyRound class="size-8" />
+                    <div
+                        :class="[
+                            'mx-auto flex size-16 items-center justify-center rounded-2xl',
+                            hasSubscription
+                                ? 'bg-primary/10 text-primary'
+                                : 'bg-muted text-muted-foreground',
+                        ]"
+                        aria-hidden="true"
+                    >
+                        <KeyRound class="size-8" />
+                    </div>
+
+                    <template v-if="hasSubscription">
+                        <h2 class="mt-5 text-xl font-semibold tracking-tight">
+                            {{ subscription?.plan }}
+                        </h2>
+                        <p
+                            class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
+                        >
+                            <Clock class="size-4" />
+                            {{ daysLabel }}
+                        </p>
+                        <p class="text-muted-foreground mt-1 text-xs">
+                            Valid until {{ expiresOn }}
+                        </p>
+                        <span
+                            class="bg-primary/10 text-primary mt-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+                        >
+                            <span class="bg-primary size-1.5 rounded-full" />
+                            Active subscription
+                        </span>
+                    </template>
+
+                    <template v-else>
+                        <h2 class="mt-5 text-xl font-semibold tracking-tight">
+                            No active subscription
+                        </h2>
+                        <p class="text-muted-foreground mt-2 text-sm leading-6">
+                            You don't have an active plan right now. Get access
+                            to start using the spoofer.
+                        </p>
+                    </template>
                 </div>
-
-                <template v-if="hasSubscription">
-                    <h2 class="mt-5 text-xl font-semibold tracking-tight">
-                        {{ subscription?.plan }}
-                    </h2>
-                    <p
-                        class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
-                    >
-                        <Clock class="size-4" />
-                        {{ daysLabel }}
-                    </p>
-                    <p class="text-muted-foreground mt-1 text-xs">
-                        Valid until {{ expiresOn }}
-                    </p>
-                    <span
-                        class="bg-primary/10 text-primary mt-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
-                    >
-                        <span class="bg-primary size-1.5 rounded-full" />
-                        Active subscription
-                    </span>
-                </template>
-
-                <template v-else>
-                    <h2 class="mt-5 text-xl font-semibold tracking-tight">
-                        No active subscription
-                    </h2>
-                    <p class="text-muted-foreground mt-2 text-sm leading-6">
-                        You don't have an active plan right now. Get access to
-                        start using the spoofer.
-                    </p>
-                </template>
-            </div>
+            </Deferred>
         </div>
     </PageLayout>
 </template>

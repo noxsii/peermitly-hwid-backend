@@ -14,15 +14,22 @@ final class DashboardController
     public function index(): Response
     {
         $user = auth()->user();
-        $subscription = $user instanceof User ? $user->activeSubscription : null;
 
         return Inertia::render('Dashboard', [
-            'subscription' => $subscription instanceof Subscription ? [
-                'plan' => $subscription->plan->label(),
-                'status' => $subscription->status->value,
-                'ends_at' => $subscription->ends_at->toIso8601String(),
-                'days_remaining' => max(0, (int) ceil(now()->diffInDays($subscription->ends_at))),
-            ] : null,
+            'subscription' => Inertia::defer(static function () use ($user): ?array {
+                $subscription = $user instanceof User ? $user->activeSubscription : null;
+
+                if (! $subscription instanceof Subscription) {
+                    return null;
+                }
+
+                return [
+                    'plan' => $subscription->plan->label(),
+                    'status' => $subscription->status->value,
+                    'ends_at' => $subscription->ends_at->toIso8601String(),
+                    'days_remaining' => max(0, (int) ceil(now()->diffInDays($subscription->ends_at))),
+                ];
+            }),
         ]);
     }
 }
