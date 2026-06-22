@@ -42,8 +42,26 @@ final class BackupFactory extends Factory
                     'disks' => [
                         [
                             'index' => 0,
-                            'model' => 'Samsung SSD 980 PRO',
+                            'vendor' => 'Samsung',
+                            'product' => 'SSD 980 PRO 2TB',
+                            'firmware_revision' => '5B2QGXA7',
                             'serial_number' => fake()->bothify('S#?#?#?#?#'),
+                            'bus_type' => 'NVMe',
+                            'removable' => false,
+                            'partition_style' => 'GPT',
+                            'mbr_signature' => null,
+                            'gpt_disk_id' => fake()->uuid(),
+                            'nvme_eui64' => fake()->bothify('################'),
+                            'nvme_nguid' => fake()->bothify('################################'),
+                            'device_ids' => [],
+                        ],
+                    ],
+                    'volumes' => [
+                        [
+                            'mount_point' => 'C:\\',
+                            'label' => 'Windows',
+                            'filesystem' => 'NTFS',
+                            'serial' => fake()->bothify('????-????'),
                         ],
                     ],
                 ],

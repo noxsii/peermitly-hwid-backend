@@ -81,6 +81,42 @@ test('unknown extensible fields are preserved in the json payload', function ():
         ->and($backup->data['network_adapters'][0]['mac'])->toBe('AA:BB:CC');
 });
 
+test('the richer disk identifiers and volumes are stored', function (): void {
+    $user = User::factory()->create();
+    Sanctum::actingAs($user, ['spoofer:use']);
+
+    $payload = backupPayload([
+        'snapshot' => [
+            'machine_guid' => 'GUID-123',
+            'disks' => [[
+                'index' => 0,
+                'vendor' => 'Samsung',
+                'product' => 'SSD 980 PRO 2TB',
+                'serial_number' => '0025_38B8',
+                'bus_type' => 'NVMe',
+                'nvme_eui64' => 'ABCDEF0123456789',
+                'nvme_nguid' => 'FEDCBA98765432100123456789ABCDEF',
+                'device_ids' => [['kind' => 'page83', 'value' => 'naa.5002...']],
+            ]],
+            'volumes' => [[
+                'mount_point' => 'C:\\',
+                'label' => 'Windows',
+                'filesystem' => 'NTFS',
+                'serial' => 'AB12-CD34',
+            ]],
+        ],
+    ]);
+
+    $this->postJson('/api/backups', $payload)->assertCreated();
+
+    $backup = Backup::query()->firstOrFail();
+
+    expect($backup->data['snapshot']['disks'][0]['nvme_eui64'])->toBe('ABCDEF0123456789')
+        ->and($backup->data['snapshot']['disks'][0]['device_ids'][0]['kind'])->toBe('page83')
+        ->and($backup->data['snapshot']['volumes'][0]['mount_point'])->toBe('C:\\')
+        ->and($backup->data['snapshot']['volumes'][0]['filesystem'])->toBe('NTFS');
+});
+
 test('re-sending the same backup id updates instead of duplicating', function (): void {
     $user = User::factory()->create();
     Sanctum::actingAs($user, ['spoofer:use']);

@@ -25,6 +25,7 @@ final class StoreBackupRequest extends FormRequest
             'snapshot' => ['nullable', 'array'],
             'snapshot.machine_guid' => ['nullable', 'string', 'max:255'],
             'snapshot.disks' => ['nullable', 'array'],
+            'snapshot.volumes' => ['nullable', 'array'],
             'restore_point' => ['nullable', 'array'],
             'file_size_bytes' => ['nullable', 'integer'],
         ];

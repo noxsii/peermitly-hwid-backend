@@ -39,11 +39,37 @@ final class BackupInfolist
                         RepeatableEntry::make('disks')
                             ->label('')
                             ->state(fn (Backup $record): array => self::asList(Arr::get($record->data, 'snapshot.disks')))
-                            ->columns(3)
+                            ->columns(4)
                             ->schema([
                                 TextEntry::make('index')->label('Index')->placeholder('—'),
-                                TextEntry::make('model')->label('Model')->placeholder('—'),
+                                TextEntry::make('vendor')->label('Vendor')->placeholder('—'),
+                                TextEntry::make('product')->label('Product')->placeholder('—'),
+                                TextEntry::make('bus_type')->label('Bus')->placeholder('—'),
                                 TextEntry::make('serial_number')->label('Serial')->placeholder('—')->copyable(),
+                                TextEntry::make('firmware_revision')->label('Firmware')->placeholder('—'),
+                                TextEntry::make('nvme_eui64')->label('NVMe EUI64')->placeholder('—')->copyable(),
+                                TextEntry::make('nvme_nguid')->label('NVMe NGUID')->placeholder('—')->copyable(),
+                                TextEntry::make('gpt_disk_id')->label('GPT disk ID')->placeholder('—')->copyable(),
+                                TextEntry::make('mbr_signature')->label('MBR signature')->placeholder('—'),
+                                TextEntry::make('partition_style')->label('Partitioning')->placeholder('—'),
+                                IconEntry::make('removable')->label('Removable')->boolean(),
+                            ]),
+                    ]),
+
+                Section::make('Volumes')
+                    ->collapsible()
+                    ->collapsed()
+                    ->visible(fn (Backup $record): bool => filled(Arr::get($record->data, 'snapshot.volumes')))
+                    ->schema([
+                        RepeatableEntry::make('volumes')
+                            ->label('')
+                            ->state(fn (Backup $record): array => self::asList(Arr::get($record->data, 'snapshot.volumes')))
+                            ->columns(4)
+                            ->schema([
+                                TextEntry::make('mount_point')->label('Mount')->placeholder('—'),
+                                TextEntry::make('label')->label('Label')->placeholder('—'),
+                                TextEntry::make('filesystem')->label('Filesystem')->placeholder('—'),
+                                TextEntry::make('serial')->label('Serial')->placeholder('—')->copyable(),
                             ]),
                     ]),
 
