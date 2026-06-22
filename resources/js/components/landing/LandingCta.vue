@@ -16,7 +16,9 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
             <div
                 class="border-primary/30 bg-card relative overflow-hidden rounded-3xl border px-6 py-16 text-center"
             >
-                <div class="landing-grid pointer-events-none absolute inset-0" />
+                <div
+                    class="landing-grid pointer-events-none absolute inset-0"
+                />
                 <div
                     class="bg-primary/25 pointer-events-none absolute -bottom-24 left-1/2 size-96 -translate-x-1/2 rounded-full blur-[100px]"
                 />
@@ -37,19 +39,14 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
                         class="mt-8 flex flex-wrap items-center justify-center gap-3"
                     >
                         <a href="#pricing">
-                            <Button
-                                size="lg"
-                                class="group h-11 px-5 text-base"
-                            >
+                            <Button size="lg" class="group h-11 px-5 text-base">
                                 Get access now
                                 <ArrowRight
                                     class="transition-transform group-hover:translate-x-0.5"
                                 />
                             </Button>
                         </a>
-                        <Link
-                            :href="isAuthenticated ? '/dashboard' : '/login'"
-                        >
+                        <Link :href="isAuthenticated ? '/dashboard' : '/login'">
                             <Button
                                 size="lg"
                                 variant="outline"

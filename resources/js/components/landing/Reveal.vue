@@ -17,7 +17,9 @@ const { target, isVisible } = useScrollReveal();
     <div
         ref="target"
         class="transition-all duration-700 ease-out motion-reduce:transition-none"
-        :class="isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+        :class="
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        "
         :style="{ transitionDelay: `${delay}ms` }"
     >
         <slot />

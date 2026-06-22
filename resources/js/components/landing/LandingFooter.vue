@@ -20,7 +20,9 @@ const links = [
                     <span class="font-semibold tracking-tight">Peermitly</span>
                 </Link>
 
-                <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+                <nav
+                    class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+                >
                     <a
                         v-for="link in links"
                         :key="link.href"
@@ -41,7 +43,10 @@ const links = [
             <div
                 class="border-border/60 text-muted-foreground mt-8 flex flex-col items-center justify-between gap-2 border-t pt-6 text-xs sm:flex-row"
             >
-                <span>© {{ new Date().getFullYear() }} Peermitly. All rights reserved.</span>
+                <span
+                    >© {{ new Date().getFullYear() }} Peermitly. All rights
+                    reserved.</span
+                >
                 <span>For educational and privacy purposes.</span>
             </div>
         </div>

@@ -47,154 +47,98 @@ const lastUpdated = "June 22, 2026";
             <article
                 class="prose prose-sm dark:prose-invert text-foreground/90 max-w-none [&_a]:text-primary [&_a]:underline [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:text-foreground [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-base [&_h3]:font-semibold [&_li]:my-1 [&_p]:my-3 [&_p]:leading-7 [&_ul]:my-3 [&_ul]:list-disc [&_ul]:pl-5"
             >
-                <h2>1. Controller</h2>
+                <h2>1. Who we are</h2>
                 <p>
-                    The operator of Peermitly is responsible for the data
-                    processing on this platform. For any privacy-related
-                    questions, contact us at
+                    Peermitly provides software that lets you manage your own
+                    hardware identity. This policy explains what data we process
+                    when you use our website and software. For any privacy
+                    question, contact us at
                     <a href="mailto:hello@peermitly.de">hello@peermitly.de</a>.
                 </p>
 
                 <h2>2. Overview</h2>
                 <p>
-                    Peermitly is an HWID spoofer service. We only process the
-                    data required to operate the service: account data,
-                    technical log data, and the spoof profiles you configure
-                    yourself.
+                    We keep data collection to the minimum needed to run the
+                    service: the account you create, your purchase and license
+                    status, and basic security information. We do not sell your
+                    data, and we do not track you across other sites.
                 </p>
 
                 <h2>3. Data we process</h2>
 
-                <h3>3.1 Account &amp; authentication</h3>
+                <h3>3.1 Account</h3>
                 <ul>
-                    <li>Name, email address, role</li>
-                    <li>Hashed password (bcrypt)</li>
-                    <li>
-                        Optionally registered passkeys (WebAuthn credentials)
-                    </li>
-                    <li>Session cookies and remember-me tokens for sign-in</li>
+                    <li>Name and email address</li>
+                    <li>An encrypted password and, optionally, a passkey</li>
+                    <li>Your license and subscription status</li>
                 </ul>
-                <p>Legal basis: performance of contract (Art. 6(1)(b) GDPR).</p>
+                <p>We use this to create and operate your account.</p>
 
-                <h3>3.2 Technical log data</h3>
+                <h3>3.2 Security data</h3>
                 <ul>
                     <li>
-                        Sign-in notifications via email containing IP and user
-                        agent to help detect suspicious sign-ins
+                        Sign-in alerts so you notice access you did not make
                     </li>
-                    <li>
-                        Activity logs for account changes (who changed what)
-                    </li>
+                    <li>A limited record of changes made to your account</li>
                 </ul>
+                <p>We use this to protect your account and prevent abuse.</p>
+
+                <h3>3.3 What we do not collect</h3>
                 <p>
-                    Legal basis: legitimate interest in security, abuse
-                    detection, and traceability (Art. 6(1)(f) GDPR).
+                    The software runs locally on your device. We do not upload
+                    or store your hardware identifiers, the values it generates,
+                    your files, or any game data. That information never leaves
+                    your computer.
                 </p>
 
-                <h2>4. Technologies in use</h2>
+                <h2>4. Cookies</h2>
+                <p>
+                    We only use cookies that are strictly necessary to keep you
+                    signed in and to secure forms. We do not use advertising,
+                    analytics, or third-party tracking cookies.
+                </p>
+
+                <h2>5. Service providers</h2>
+                <p>
+                    We rely on a small number of trusted providers to deliver
+                    email (such as sign-in alerts and password resets) and to
+                    process payments. They only receive the data needed for
+                    their specific task and may not use it for anything else.
+                </p>
+
+                <h2>6. Retention</h2>
                 <ul>
+                    <li>Account data: kept until you delete your account.</li>
                     <li>
-                        <strong>Laravel</strong> (PHP 8.4) as the backend
-                        framework.
-                    </li>
-                    <li>
-                        <strong>PostgreSQL</strong> as the database for all
-                        application data.
-                    </li>
-                    <li>
-                        <strong>Redis</strong> for sessions, cache, and the job
-                        queue (Laravel Horizon).
-                    </li>
-                    <li>
-                        <strong>Inertia.js + Vue 3</strong> for the frontend,
-                        without any external tracking scripts.
-                    </li>
-                    <li>
-                        <strong>Spatie Passkeys</strong> for passwordless
-                        sign-in via WebAuthn.
+                        Security records: kept for a limited period, then
+                        deleted automatically.
                     </li>
                 </ul>
 
-                <h2>5. Cookies &amp; local storage</h2>
-                <p>Only strictly necessary cookies are set:</p>
-                <ul>
-                    <li>
-                        <code>peermitly_session</code> — session cookie that
-                        keeps you signed in
-                    </li>
-                    <li>
-                        <code>XSRF-TOKEN</code> — protection against cross-site
-                        request forgery
-                    </li>
-                    <li>
-                        <code>remember_web_*</code> — optional, set when
-                        "Remember me" is enabled
-                    </li>
-                </ul>
-                <p>
-                    No analytics, marketing, or third-party tracking cookies are
-                    used.
-                </p>
-
-                <h2>6. Third-party services</h2>
-
-                <h3>6.1 Fonts (Bunny Fonts)</h3>
-                <p>
-                    Fonts are loaded via
-                    <a
-                        href="https://fonts.bunny.net"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >fonts.bunny.net</a
-                    >, a privacy-friendly alternative to Google Fonts. IP
-                    addresses are not logged there.
-                </p>
-
-                <h3>6.2 Email delivery</h3>
-                <p>
-                    Transactional emails (sign-in alerts, password resets) are
-                    sent via our mail provider. Recipient name and email address
-                    are processed in the course of delivery.
-                </p>
-
-                <h2>7. Retention periods</h2>
-                <ul>
-                    <li>Account data: until the account is deleted.</li>
-                    <li>
-                        Activity logs: 12 months, then automatically deleted.
-                    </li>
-                </ul>
-
-                <h2>8. Your rights</h2>
+                <h2>7. Your rights</h2>
                 <p>You have the right to:</p>
                 <ul>
-                    <li>Access (Art. 15 GDPR)</li>
-                    <li>Rectification (Art. 16 GDPR)</li>
-                    <li>Erasure (Art. 17 GDPR)</li>
-                    <li>Restriction of processing (Art. 18 GDPR)</li>
-                    <li>Data portability (Art. 20 GDPR)</li>
-                    <li>
-                        Object to processing based on legitimate interests (Art.
-                        21 GDPR)
-                    </li>
-                    <li>
-                        Lodge a complaint with a supervisory authority (Art. 77
-                        GDPR)
-                    </li>
+                    <li>Access your data (Art. 15 GDPR)</li>
+                    <li>Correct it (Art. 16 GDPR)</li>
+                    <li>Delete it (Art. 17 GDPR)</li>
+                    <li>Restrict processing (Art. 18 GDPR)</li>
+                    <li>Receive a copy (Art. 20 GDPR)</li>
+                    <li>Object to processing (Art. 21 GDPR)</li>
+                    <li>Complain to a supervisory authority (Art. 77 GDPR)</li>
                 </ul>
 
-                <h2>9. Security</h2>
+                <h2>8. Security</h2>
                 <p>
-                    All traffic is encrypted via HTTPS. Passwords are hashed
-                    with bcrypt. Passkeys are stored as WebAuthn credentials;
-                    your private keys never leave your device.
+                    All traffic is encrypted in transit. Passwords are stored
+                    only in hashed form, and passkeys never leave your device.
+                    We apply appropriate safeguards to protect your data.
                 </p>
 
-                <h2>10. Changes</h2>
+                <h2>9. Changes</h2>
                 <p>
-                    This policy may be updated when technical or legal
-                    conditions change. The current version is always available
-                    on this page.
+                    We may update this policy when the service or the law
+                    changes. The current version is always available on this
+                    page.
                 </p>
             </article>
         </main>

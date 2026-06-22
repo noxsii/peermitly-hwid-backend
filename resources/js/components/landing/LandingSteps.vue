@@ -25,7 +25,10 @@ const steps = [
 </script>
 
 <template>
-    <section id="how" class="bg-muted/30 scroll-mt-20 border-y border-border/60 py-24">
+    <section
+        id="how"
+        class="bg-muted/30 scroll-mt-20 border-y border-border/60 py-24"
+    >
         <div class="mx-auto max-w-6xl px-6">
             <Reveal class="mx-auto max-w-2xl text-center">
                 <span

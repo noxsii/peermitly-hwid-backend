@@ -51,9 +51,7 @@ const features = [
                 >
                     Features
                 </span>
-                <h2
-                    class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl"
-                >
+                <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
                     Everything you need to stay unbanned
                 </h2>
                 <p class="text-muted-foreground mt-4 text-lg">
@@ -81,9 +79,7 @@ const features = [
                         <h3 class="mt-5 text-lg font-semibold">
                             {{ feature.title }}
                         </h3>
-                        <p
-                            class="text-muted-foreground mt-2 text-sm leading-6"
-                        >
+                        <p class="text-muted-foreground mt-2 text-sm leading-6">
                             {{ feature.description }}
                         </p>
                     </div>

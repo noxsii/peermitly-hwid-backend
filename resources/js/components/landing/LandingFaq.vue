@@ -57,7 +57,9 @@ const faqs = [
                         :value="`item-${i}`"
                         class="border-border/60"
                     >
-                        <AccordionTrigger class="text-left text-base font-medium">
+                        <AccordionTrigger
+                            class="text-left text-base font-medium"
+                        >
                             {{ faq.q }}
                         </AccordionTrigger>
                         <AccordionContent

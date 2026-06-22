@@ -85,7 +85,9 @@ const games = [
                         class="h-11 px-5 text-base"
                     >
                         <ShieldCheck />
-                        {{ isAuthenticated ? "Open dashboard" : "Member login" }}
+                        {{
+                            isAuthenticated ? "Open dashboard" : "Member login"
+                        }}
                     </Button>
                 </Link>
             </div>
