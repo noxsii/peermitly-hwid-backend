@@ -127,7 +127,7 @@ const plans = [
             </div>
 
             <p class="text-muted-foreground mt-6 text-center text-xs">
-                Prices shown are examples. Payments via crypto, PayPal & card.
+                Prices shown are examples. Secure checkout powered by Stripe.
             </p>
         </div>
     </section>
