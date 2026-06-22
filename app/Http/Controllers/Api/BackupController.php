@@ -31,7 +31,7 @@ final class BackupController
 
         $backup = $store->handle($user, $request->payload());
 
-        return new BackupResource($backup)
+        return (new BackupResource($backup))
             ->response()
             ->setStatusCode($backup->wasRecentlyCreated ? 201 : 200);
     }
