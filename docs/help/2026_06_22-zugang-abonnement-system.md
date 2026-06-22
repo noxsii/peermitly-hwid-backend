@@ -56,3 +56,4 @@ Ein Kunde kauft (vorerst manuell freigegeben) einen Wochen-Zugang am 22.06.2026.
 - Zugang vergeben über `App\Actions\Subscriptions\GrantSubscriptionAction`.
 - Prüfung über die Relation `User::activeSubscription()` bzw. die Middleware-Alias `subscribed` (`App\Http\Middleware\EnsureActiveSubscription`).
 - Felder `stripe_subscription_id` und `stripe_customer_id` sind für die spätere Stripe-Anbindung reserviert.
+- Ablauf abgelaufener Zugänge: Der Befehl `subscriptions:expire` läuft stündlich (geplant in `routes/console.php`). Er holt alle Abonnements und feuert pro Abonnement einen Job `App\Jobs\ExpireSubscriptionJob`. Der Job ruft `App\Actions\Subscriptions\ExpireSubscriptionAction`, der ein einzelnes Abonnement nur dann auf „Expired" setzt, wenn es noch aktiv ist und die Laufzeit vorbei ist.

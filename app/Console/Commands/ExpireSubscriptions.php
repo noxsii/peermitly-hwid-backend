@@ -4,20 +4,30 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Jobs\ExpireSubscriptionsJob;
+use App\Jobs\ExpireSubscriptionJob;
+use App\Models\Subscription;
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Collection;
 
+#[Description('Expire subscriptions whose term has elapsed.')]
+#[Signature('subscriptions:expire')]
 final class ExpireSubscriptions extends Command
 {
-    protected $signature = 'subscriptions:expire';
-
-    protected $description = 'Expire subscriptions whose term has elapsed.';
-
     public function handle(): int
     {
-        ExpireSubscriptionsJob::dispatch();
+        $count = 0;
 
-        $this->info('Subscription expiry job dispatched.');
+        Subscription::query()->chunkById(200, function (Collection $subscriptions) use (&$count): void {
+            /** @var Subscription $subscription */
+            foreach ($subscriptions as $subscription) {
+                ExpireSubscriptionJob::dispatch($subscription);
+                $count++;
+            }
+        });
+
+        $this->info("Dispatched {$count} subscription expiry job(s).");
 
         return self::SUCCESS;
     }
