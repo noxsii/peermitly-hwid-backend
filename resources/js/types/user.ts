@@ -1,5 +1,3 @@
-import type { Team } from "./team";
-
 export type UserRole = "user" | "admin" | "super_admin";
 
 export interface User {
@@ -8,8 +6,6 @@ export interface User {
     email: string;
     email_verified_at: string | null;
     role: UserRole;
-    current_team_id: number | null;
-    current_team: Team | null;
     created_at: string;
     updated_at: string;
 }
