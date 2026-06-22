@@ -8,7 +8,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAppearance } from "@/composables/useAppearance";
-import HeaderSearch from "@/layout/HeaderSearch.vue";
 import Logo from "@/layout/Logo.vue";
 import NotificationBell from "@/layout/NotificationBell.vue";
 import UserMenu from "@/layout/UserMenu.vue";
@@ -35,9 +34,7 @@ const appearanceOptions: Array<{
             <Logo />
         </div>
 
-        <div class="min-w-0 flex-1 sm:mx-auto sm:max-w-2xl">
-            <HeaderSearch />
-        </div>
+        <div class="min-w-0 flex-1"></div>
 
         <div class="flex shrink-0 items-center gap-1 sm:gap-2">
             <DropdownMenu>

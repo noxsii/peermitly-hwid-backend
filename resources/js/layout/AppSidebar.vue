@@ -1,16 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
-import {
-    BookOpen,
-    KeyRound,
-    Layers,
-    LayoutDashboard,
-    LifeBuoy,
-    Newspaper,
-    Package,
-    Settings,
-    Users,
-} from "@lucide/vue";
+import { LayoutDashboard, Newspaper, Settings } from "@lucide/vue";
 import { computed } from "vue";
 import {
     Tooltip,
@@ -29,16 +19,10 @@ interface ExternalNavItem {
 
 const primary: NavItem[] = [
     { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { label: "License Keys", href: "/license-keys", icon: KeyRound },
-    { label: "Customers", href: "/license-keys/customers", icon: Users },
-    { label: "Products", href: "/license-keys/products", icon: Package },
-    { label: "Key Types", href: "/license-keys/types", icon: Layers },
 ];
 
 const secondary: (NavItem | ExternalNavItem)[] = [
     { label: "Changelog", href: "/changelog", icon: Newspaper },
-    { label: "API Docs", href: "/docs/api", icon: BookOpen, external: true },
-    { label: "Help", href: "/help", icon: LifeBuoy },
     { label: "Settings", href: "/settings", icon: Settings },
 ];
 

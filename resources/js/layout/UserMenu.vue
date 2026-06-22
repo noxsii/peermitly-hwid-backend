@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
-import { LogOut, Settings, Users } from "@lucide/vue";
+import { LogOut, Settings } from "@lucide/vue";
 import { computed } from "vue";
 import {
     DropdownMenu,
@@ -21,10 +21,6 @@ const initials = computed(() => {
         .map((part) => part.charAt(0).toUpperCase())
         .slice(0, 2)
         .join("");
-});
-const canManageTeam = computed(() => {
-    const role = user.value?.role;
-    return role === "admin" || role === "super_admin";
 });
 </script>
 
@@ -58,13 +54,6 @@ const canManageTeam = computed(() => {
                 <Link href="/settings" class="w-full">
                     <Settings class="size-4" />
                     Settings
-                </Link>
-            </DropdownMenuItem>
-
-            <DropdownMenuItem v-if="canManageTeam" as-child>
-                <Link href="/team" class="w-full">
-                    <Users class="size-4" />
-                    Team
                 </Link>
             </DropdownMenuItem>
 
