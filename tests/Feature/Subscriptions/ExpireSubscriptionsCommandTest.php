@@ -43,13 +43,13 @@ test('the command dispatches nothing when there are no subscriptions', function 
 test('the job expires its past-due subscription when handled', function (): void {
     $pastDue = Subscription::factory()->pastDue()->create();
 
-    (new ExpireSubscriptionJob($pastDue))->handle(resolve(ExpireSubscriptionAction::class));
+    new ExpireSubscriptionJob($pastDue)->handle(resolve(ExpireSubscriptionAction::class));
 
     expect($pastDue->refresh()->status)->toBe(SubscriptionStatus::EXPIRED);
 });
 
 test('the expiry command is scheduled hourly', function (): void {
-    $events = collect(app(Schedule::class)->events());
+    $events = collect(resolve(Schedule::class)->events());
 
     $event = $events->first(
         fn ($event): bool => str_contains((string) $event->command, 'subscriptions:expire'),

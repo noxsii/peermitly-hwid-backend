@@ -22,7 +22,7 @@ final class ExpireSubscriptions extends Command
         Subscription::query()->chunkById(200, function (Collection $subscriptions) use (&$count): void {
             /** @var Subscription $subscription */
             foreach ($subscriptions as $subscription) {
-                ExpireSubscriptionJob::dispatch($subscription);
+                dispatch(new ExpireSubscriptionJob($subscription));
                 $count++;
             }
         });
