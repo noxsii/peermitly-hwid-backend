@@ -1,0 +1,12 @@
+export interface NotificationItem {
+    id: string;
+    type: string;
+    data: Record<string, unknown>;
+    read_at: string | null;
+    created_at: string | null;
+}
+
+export interface NotificationsPayload {
+    items: NotificationItem[];
+    unread_count: number;
+}

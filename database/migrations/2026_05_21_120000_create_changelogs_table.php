@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('changelogs', static function (Blueprint $table): void {
+            $table->id();
+            $table->uuid()->unique();
+            $table->string('title');
+            $table->string('version')->nullable();
+            $table->text('content');
+            $table->timestamp('published_at')->nullable()->index();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('changelogs');
+    }
+};

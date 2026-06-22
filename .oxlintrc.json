@@ -1,0 +1,30 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": ["typescript", "unicorn", "oxc", "import", "vue"],
+    "categories": {
+        "correctness": "error",
+        "suspicious": "warn",
+        "perf": "warn"
+    },
+    "env": {
+        "browser": true,
+        "es2024": true
+    },
+    "ignorePatterns": [
+        "public/build/**",
+        "vendor/**",
+        "node_modules/**",
+        "storage/**",
+        "bootstrap/cache/**"
+    ],
+    "rules": {
+        "no-console": "warn",
+        "no-debugger": "error"
+    },
+    "overrides": [
+        {
+            "files": ["**/*.vue"],
+            "rules": {}
+        }
+    ]
+}
