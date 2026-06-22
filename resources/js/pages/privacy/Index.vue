@@ -1,18 +1,25 @@
 <script setup lang="ts">
-import { Head } from "@inertiajs/vue3";
-import LandingFooter from "@/components/landing/LandingFooter.vue";
-import LandingNav from "@/components/landing/LandingNav.vue";
+import { Head, Link } from "@inertiajs/vue3";
 
 defineOptions({ layout: "" });
 
-const lastUpdated = "May 27, 2026";
+const lastUpdated = "June 22, 2026";
 </script>
 
 <template>
     <Head title="Privacy — Peermitly" />
 
     <div class="bg-background text-foreground min-h-screen">
-        <LandingNav />
+        <header
+            class="mx-auto flex max-w-3xl items-center justify-between px-6 py-5"
+        >
+            <Link href="/" class="text-lg font-semibold tracking-tight"
+                >Peermitly</Link
+            >
+            <Link href="/login" class="text-muted-foreground hover:text-foreground text-sm"
+                >Log in</Link
+            >
+        </header>
 
         <main class="mx-auto max-w-3xl px-6 py-16 md:py-24">
             <header class="mb-12 space-y-3">
@@ -44,11 +51,10 @@ const lastUpdated = "May 27, 2026";
 
                 <h2>2. Overview</h2>
                 <p>
-                    Peermitly is a service for managing license keys and
-                    activations. We only process the data required to operate
-                    the service: account data, technical log data, and the
-                    content you enter yourself (license keys, products,
-                    customers, teams).
+                    Peermitly is an HWID spoofer service. We only process the
+                    data required to operate the service: account data,
+                    technical log data, and the spoof profiles you configure
+                    yourself.
                 </p>
 
                 <h2>3. Data we process</h2>
@@ -64,30 +70,14 @@ const lastUpdated = "May 27, 2026";
                 </ul>
                 <p>Legal basis: performance of contract (Art. 6(1)(b) GDPR).</p>
 
-                <h3>3.2 Application data</h3>
+                <h3>3.2 Technical log data</h3>
                 <ul>
-                    <li>Teams, products, customers, license keys</li>
-                    <li>
-                        Activations including optional hardware ID (HWID), if
-                        sent by the client during license activation
-                    </li>
-                    <li>Personal API tokens (hashes)</li>
-                </ul>
-                <p>Legal basis: performance of contract (Art. 6(1)(b) GDPR).</p>
-
-                <h3>3.3 Technical log data</h3>
-                <ul>
-                    <li>
-                        IP address, user agent, and timestamp on calls to the
-                        <code>/api</code> endpoint
-                    </li>
                     <li>
                         Sign-in notifications via email containing IP and user
                         agent to help detect suspicious sign-ins
                     </li>
                     <li>
-                        Activity logs for license key and user changes (who
-                        changed what)
+                        Activity logs for account changes (who changed what)
                     </li>
                 </ul>
                 <p>
@@ -116,10 +106,6 @@ const lastUpdated = "May 27, 2026";
                     <li>
                         <strong>Spatie Passkeys</strong> for passwordless
                         sign-in via WebAuthn.
-                    </li>
-                    <li>
-                        <strong>Laravel Sanctum</strong> for issuing personal
-                        API tokens.
                     </li>
                 </ul>
 
@@ -158,20 +144,7 @@ const lastUpdated = "May 27, 2026";
                     addresses are not logged there.
                 </p>
 
-                <h3>6.2 Status page (Better Stack)</h3>
-                <p>
-                    Our status page
-                    <a
-                        href="https://peermitly.betteruptime.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >peermitly.betteruptime.com</a
-                    >
-                    is operated by Better Stack. When you visit it, Better Stack
-                    processes data on its own infrastructure.
-                </p>
-
-                <h3>6.3 Email delivery</h3>
+                <h3>6.2 Email delivery</h3>
                 <p>
                     Transactional emails (sign-in alerts, password resets) are
                     sent via our mail provider. Recipient name and email address
@@ -182,14 +155,7 @@ const lastUpdated = "May 27, 2026";
                 <ul>
                     <li>Account data: until the account is deleted.</li>
                     <li>
-                        API request logs: 30 days, then automatically deleted.
-                    </li>
-                    <li>
                         Activity logs: 12 months, then automatically deleted.
-                    </li>
-                    <li>
-                        License and activation data: for as long as you use the
-                        service.
                     </li>
                 </ul>
 
@@ -227,6 +193,10 @@ const lastUpdated = "May 27, 2026";
             </article>
         </main>
 
-        <LandingFooter />
+        <footer
+            class="border-border/60 text-muted-foreground mx-auto max-w-3xl border-t px-6 py-8 text-sm"
+        >
+            © {{ new Date().getFullYear() }} Peermitly
+        </footer>
     </div>
 </template>

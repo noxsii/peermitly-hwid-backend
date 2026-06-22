@@ -16,19 +16,14 @@ final class ChangelogSeeder extends Seeder
         }
 
         Changelog::factory()
-            ->version('v1.4.0')
+            ->version('v0.2.0')
             ->publishedAt(now()->subDays(2))
-            ->create(['title' => 'Customer CRUD and Changelog']);
+            ->create(['title' => 'Spoof profiles and dashboard']);
 
         Changelog::factory()
-            ->version('v1.3.0')
+            ->version('v0.1.0')
             ->publishedAt(now()->subDays(14))
-            ->create(['title' => 'Landing page and sidebar refresh']);
-
-        Changelog::factory()
-            ->version('v1.2.0')
-            ->publishedAt(now()->subDays(30))
-            ->create(['title' => 'API request logging and Filament admin']);
+            ->create(['title' => 'Initial HWID spoofer backend']);
 
         Changelog::factory()
             ->unpublished()

@@ -6,8 +6,8 @@ test('landing page renders all sections without console errors', function (): vo
     $page = visit('/');
 
     $page->assertNoJavascriptErrors()
-        ->assertSee('How it works')
-        ->assertSee('One endpoint. Token-secured.')
-        ->assertSee('Desktop apps')
-        ->assertSee('Questions, answered.');
+        ->assertSee('Spoof your HWID. Stay in control.')
+        ->assertSee('HWID Spoofing')
+        ->assertSee('Safe by design')
+        ->assertSee('Instant apply');
 });
