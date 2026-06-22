@@ -2,6 +2,7 @@
 import { Form, Head, Link, usePage } from "@inertiajs/vue3";
 import { ArrowLeft, CircleCheckBig, Loader2 } from "@lucide/vue";
 import { computed } from "vue";
+import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,6 +23,9 @@ const status = computed(() => page.props.flash?.status ?? null);
         <div
             class="bg-card text-card-foreground w-full max-w-md rounded-2xl border p-8 shadow-sm"
         >
+            <Link href="/" class="mb-6 inline-flex" aria-label="Peermitly home">
+                <LogoMark size="size-11" />
+            </Link>
             <template v-if="status">
                 <div
                     class="mb-4 flex size-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600"

@@ -2,6 +2,7 @@
 import { Form, Head, Link } from "@inertiajs/vue3";
 import { ArrowLeft, Eye, EyeOff, Loader2 } from "@lucide/vue";
 import { ref } from "vue";
+import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,6 +26,9 @@ const showPassword = ref(false);
         <div
             class="bg-card text-card-foreground w-full max-w-md rounded-2xl border p-8 shadow-sm"
         >
+            <Link href="/" class="mb-6 inline-flex" aria-label="Peermitly home">
+                <LogoMark size="size-11" />
+            </Link>
             <div class="mb-6 space-y-1">
                 <h1 class="text-2xl font-semibold tracking-tight">
                     Choose a new password 🔒

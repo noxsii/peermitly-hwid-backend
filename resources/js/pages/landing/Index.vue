@@ -2,6 +2,7 @@
 import { Head, Link, usePage } from "@inertiajs/vue3";
 import { Cpu, Fingerprint, ShieldCheck, Zap } from "@lucide/vue";
 import { computed } from "vue";
+import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
 import type { PageProps } from "@/types";
 import type { LandingSeoProps } from "@/types/landing";
@@ -75,9 +76,12 @@ const features = [
         <header
             class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
         >
-            <span class="text-lg font-semibold tracking-tight">{{
-                siteName
-            }}</span>
+            <Link href="/" class="flex items-center gap-2.5">
+                <LogoMark size="size-9" />
+                <span class="text-lg font-semibold tracking-tight">{{
+                    siteName
+                }}</span>
+            </Link>
             <nav class="flex items-center gap-2">
                 <Link v-if="isAuthenticated" href="/dashboard">
                     <Button size="sm">Dashboard</Button>

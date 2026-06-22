@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link } from "@inertiajs/vue3";
+import LogoMark from "@/components/Logo.vue";
 
 defineOptions({ layout: "" });
 
@@ -13,9 +14,12 @@ const lastUpdated = "June 22, 2026";
         <header
             class="mx-auto flex max-w-3xl items-center justify-between px-6 py-5"
         >
-            <Link href="/" class="text-lg font-semibold tracking-tight"
-                >Peermitly</Link
-            >
+            <Link href="/" class="flex items-center gap-2.5">
+                <LogoMark size="size-9" />
+                <span class="text-lg font-semibold tracking-tight"
+                    >Peermitly</span
+                >
+            </Link>
             <Link
                 href="/login"
                 class="text-muted-foreground hover:text-foreground text-sm"

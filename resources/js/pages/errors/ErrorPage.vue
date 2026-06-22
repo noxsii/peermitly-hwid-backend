@@ -2,6 +2,7 @@
 import { Head, Link, usePage } from "@inertiajs/vue3";
 import { ArrowLeft, RefreshCcw } from "@lucide/vue";
 import { computed } from "vue";
+import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
 import type { PageProps } from "@/types";
 
@@ -98,6 +99,13 @@ const reload = () => {
         class="bg-background text-foreground flex min-h-screen items-center justify-center px-6 py-12"
     >
         <div class="w-full max-w-xl text-center">
+            <Link
+                href="/"
+                class="mx-auto mb-8 inline-flex"
+                aria-label="Peermitly home"
+            >
+                <LogoMark size="size-12" />
+            </Link>
             <div
                 :class="[
                     'mx-auto flex size-24 items-center justify-center rounded-3xl text-5xl shadow-sm',
