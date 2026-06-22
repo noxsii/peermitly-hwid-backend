@@ -1,4 +1,5 @@
 export type { Appearance } from "./appearance";
+export type { AppRelease } from "./app-release";
 export type { Changelog } from "./changelog";
 export type { DashboardSubscription } from "./dashboard";
 export type { AuthUser, User, UserRole } from "./user";

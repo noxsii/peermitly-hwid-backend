@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\EnsureActiveAccess;
 use App\Http\Middleware\EnsureActiveSubscription;
 use App\Http\Middleware\EnsureUserRole;
 use App\Http\Middleware\HandleInertiaRequests;
@@ -26,6 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => EnsureUserRole::class,
             'subscribed' => EnsureActiveSubscription::class,
+            'access' => EnsureActiveAccess::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
