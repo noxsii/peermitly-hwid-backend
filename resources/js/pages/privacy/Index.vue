@@ -16,7 +16,9 @@ const lastUpdated = "June 22, 2026";
             <Link href="/" class="text-lg font-semibold tracking-tight"
                 >Peermitly</Link
             >
-            <Link href="/login" class="text-muted-foreground hover:text-foreground text-sm"
+            <Link
+                href="/login"
+                class="text-muted-foreground hover:text-foreground text-sm"
                 >Log in</Link
             >
         </header>

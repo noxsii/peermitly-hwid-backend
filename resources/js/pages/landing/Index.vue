@@ -96,9 +96,7 @@ const features = [
                     <Fingerprint class="size-3.5" />
                     Hardware identity, on your terms
                 </span>
-                <h1
-                    class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl"
-                >
+                <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
                     Spoof your HWID. Stay in control.
                 </h1>
                 <p class="text-muted-foreground mx-auto mt-5 max-w-xl text-lg">

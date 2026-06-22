@@ -25,7 +25,7 @@ final class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => fn () => $request->user(),
+                'user' => $request->user(...),
             ],
             'notifications' => fn (): array => $this->notificationPayload($request->user()),
             'flash' => fn (): array => [
