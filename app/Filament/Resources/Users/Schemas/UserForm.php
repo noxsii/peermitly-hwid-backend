@@ -47,11 +47,6 @@ final class UserForm
                     ->dehydrated(fn (?string $state): bool => filled($state))
                     ->required(fn (string $operation): bool => $operation === 'create')
                     ->minLength(8),
-                Select::make('current_team_id')
-                    ->label('Current team')
-                    ->relationship('currentTeam', 'name')
-                    ->searchable()
-                    ->preload(),
             ]);
     }
 }
