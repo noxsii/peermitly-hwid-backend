@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
-import { Download, LayoutDashboard, Newspaper, Settings } from "@lucide/vue";
+import { LayoutDashboard, Newspaper, Settings } from "@lucide/vue";
 import { computed } from "vue";
-import { useAccess } from "@/composables/useAccess";
 import {
     Tooltip,
     TooltipContent,
@@ -18,14 +17,9 @@ interface ExternalNavItem {
     external: true;
 }
 
-const { hasAccess } = useAccess();
-
-const primary = computed<NavItem[]>(() => [
+const primary: NavItem[] = [
     { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    ...(hasAccess.value
-        ? [{ label: "Downloads", href: "/downloads", icon: Download }]
-        : []),
-]);
+];
 
 const secondary: (NavItem | ExternalNavItem)[] = [
     { label: "Changelog", href: "/changelog", icon: Newspaper },
