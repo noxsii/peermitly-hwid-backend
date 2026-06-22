@@ -51,6 +51,20 @@ test('an authenticated client can store a backup', function (): void {
         ->and($backup->data['snapshot']['disks'])->toHaveCount(1);
 });
 
+test('a single posted entry is stored as one object, never an array', function (): void {
+    $user = User::factory()->create();
+    Sanctum::actingAs($user, ['spoofer:use']);
+
+    $this->postJson('/api/backups', backupPayload())->assertCreated();
+
+    $backup = Backup::query()->firstOrFail();
+
+    expect(array_is_list($backup->data))->toBeFalse()
+        ->and($backup->data)->toHaveKey('id')
+        ->and($backup->data['snapshot']['disks'])->toHaveCount(1)
+        ->and(Backup::query()->count())->toBe(1);
+});
+
 test('unknown extensible fields are preserved in the json payload', function (): void {
     $user = User::factory()->create();
     Sanctum::actingAs($user, ['spoofer:use']);
