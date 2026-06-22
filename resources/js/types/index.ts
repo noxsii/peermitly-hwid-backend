@@ -1,6 +1,5 @@
 export type { Appearance } from "./appearance";
 export type { Changelog } from "./changelog";
-export type { DashboardStats } from "./dashboard";
 export type { AuthUser, User, UserRole } from "./user";
 export type { LucideIcon, NavItem } from "./navigation";
 export type { NotificationItem, NotificationsPayload } from "./notification";
