@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -66,7 +67,6 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
     'role',
     'is_active',
     'remember_token',
-    'current_team_id',
 )]
 #[Hidden([
     'password',
@@ -86,7 +86,6 @@ final class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
                 'role',
                 'is_active',
                 'email_verified_at',
-                'current_team_id',
             ])
             ->logOnlyDirty()
             ->dontLogEmptyChanges()
@@ -114,34 +113,9 @@ final class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
             'password' => 'hashed',
             'role' => UserRole::class,
             'is_active' => 'boolean',
-            'current_team_id' => 'integer',
             'remember_token' => 'string',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
-    }
-
-    /**
-     * @return BelongsTo<Team, $this>
-     */
-    public function currentTeam(): BelongsTo
-    {
-        return $this->belongsTo(Team::class, 'current_team_id');
-    }
-
-    /**
-     * @return BelongsToMany<Team, $this>
-     */
-    public function teams(): BelongsToMany
-    {
-        return $this->belongsToMany(Team::class, 'team_user')->withTimestamps();
-    }
-
-    /**
-     * @return HasMany<Team, $this>
-     */
-    public function ownedTeams(): HasMany
-    {
-        return $this->hasMany(Team::class, 'owner_id');
     }
 }

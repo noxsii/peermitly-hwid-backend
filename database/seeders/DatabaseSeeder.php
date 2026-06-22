@@ -10,7 +10,6 @@ final class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(LicenseKeyTypeSeeder::class);
         $this->call(ChangelogSeeder::class);
     }
 }
