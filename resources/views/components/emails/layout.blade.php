@@ -21,39 +21,42 @@
         }
     </style>
 </head>
-<body style="margin:0; padding:0; background-color:#f8fafc; color:#0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+<body style="margin:0; padding:0; background-color:#faf7f4; color:#1c1917; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 <!-- preheader -->
-<div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#f8fafc;">
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#faf7f4;">
     {{ $preheader ?? 'Peermitly' }}
 </div>
 
-<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f8fafc" style="background-color:#f8fafc;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#faf7f4" style="background-color:#faf7f4;">
     <tr>
         <td align="center" style="padding:40px 16px;">
             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" class="container" style="width:600px; max-width:600px;">
 
                 <!-- header -->
                 <tr>
-                    <td align="left" style="padding:0 0 24px 0;">
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td bgcolor="#0f172a" style="background-color:#0f172a; width:36px; height:36px; border-radius:8px; color:#ffffff; font-family: Arial, Helvetica, sans-serif; font-weight:700; font-size:14px; text-align:center; vertical-align:middle;" align="center" valign="middle">P</td>
-                                <td style="padding-left:12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:16px; font-weight:600; color:#0f172a; vertical-align:middle;" valign="middle">Peermitly</td>
-                            </tr>
-                        </table>
+                    <td align="center" style="padding:0 0 28px 0;">
+                        <img src="{{ asset('images/logo.svg') }}" width="44" height="44" alt="Peermitly" style="display:inline-block; vertical-align:middle; border:0; outline:none; text-decoration:none;" />
+                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:18px; font-weight:700; color:#1c1917; vertical-align:middle; padding-left:10px; letter-spacing:-0.01em;">Peermitly</span>
+                    </td>
+                </tr>
+
+                <!-- accent bar -->
+                <tr>
+                    <td style="padding:0;">
+                        <div style="height:3px; background-color:#ea580c; border-radius:999px 999px 0 0; font-size:0; line-height:0;">&nbsp;</div>
                     </td>
                 </tr>
 
                 <!-- card -->
                 <tr>
-                    <td bgcolor="#ffffff" class="py-md px-md" style="background-color:#ffffff; border-radius:16px; border:1px solid #e2e8f0; padding:40px;">
+                    <td bgcolor="#ffffff" class="py-md px-md" style="background-color:#ffffff; border-radius:0 0 16px 16px; border:1px solid #ece7e1; border-top:0; padding:40px;">
                         {{ $slot }}
                     </td>
                 </tr>
 
                 <!-- footer -->
                 <tr>
-                    <td align="center" style="padding:24px 8px 0 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:12px; line-height:18px; color:#64748b;">
+                    <td align="center" style="padding:24px 8px 0 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:12px; line-height:18px; color:#78716c;">
                         © {{ date('Y') }} Peermitly. This is an automated security notification.
                     </td>
                 </tr>
