@@ -6,8 +6,8 @@ test('landing page renders all sections without console errors', function (): vo
     $page = visit('/');
 
     $page->assertNoJavascriptErrors()
-        ->assertSee('Spoof your HWID. Stay in control.')
-        ->assertSee('HWID Spoofing')
-        ->assertSee('Safe by design')
-        ->assertSee('Instant apply');
+        ->assertSee('Stay invisible.')
+        ->assertSee('Truly undetectable')
+        ->assertSee('How it works')
+        ->assertSee('Questions, answered');
 });
