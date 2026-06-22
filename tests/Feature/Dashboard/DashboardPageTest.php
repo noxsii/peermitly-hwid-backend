@@ -8,22 +8,6 @@ use App\Models\Subscription;
 use App\Models\User;
 use Inertia\Testing\AssertableInertia;
 
-/**
- * Issue the partial reload Inertia performs to resolve the deferred
- * `subscription` prop.
- */
-function loadDashboard(User $user): Illuminate\Testing\TestResponse
-{
-    $version = (string) app(App\Http\Middleware\HandleInertiaRequests::class)->version(request());
-
-    return test()->actingAs($user)->withHeaders([
-        'X-Inertia' => 'true',
-        'X-Inertia-Version' => $version,
-        'X-Inertia-Partial-Component' => 'Dashboard',
-        'X-Inertia-Partial-Data' => 'subscription',
-    ])->get('/dashboard');
-}
-
 test('unauthenticated visitor is redirected to login', function (): void {
     $this->get('/dashboard')->assertRedirect('/login');
 });
@@ -41,7 +25,7 @@ test('dashboard route is named dashboard', function (): void {
     expect(route('dashboard', absolute: false))->toBe('/dashboard');
 });
 
-test('the subscription prop is deferred on the initial load', function (): void {
+test('the active subscription is shared on the auth payload', function (): void {
     $user = User::factory()->create();
     resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::WEEK);
 
@@ -49,36 +33,27 @@ test('the subscription prop is deferred on the initial load', function (): void 
         ->get('/dashboard')
         ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('Dashboard')
-            ->missing('subscription'));
+            ->where('auth.subscription.plan', 'Weekly')
+            ->where('auth.subscription.status', 'active')
+            ->where('auth.subscription.days_remaining', 7)
+            ->has('auth.subscription.ends_at'));
 });
 
-test('dashboard resolves the active subscription with remaining days', function (): void {
-    $user = User::factory()->create();
-    resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::WEEK);
-
-    loadDashboard($user)
-        ->assertOk()
-        ->assertJsonPath('component', 'Dashboard')
-        ->assertJsonPath('props.subscription.plan', 'Weekly')
-        ->assertJsonPath('props.subscription.status', 'active')
-        ->assertJsonPath('props.subscription.days_remaining', 7)
-        ->assertJsonPath('props.subscription.ends_at', fn (?string $value): bool => is_string($value));
-});
-
-test('dashboard resolves no subscription when the user has none', function (): void {
+test('no subscription is shared when the user has none', function (): void {
     $user = User::factory()->create();
 
-    loadDashboard($user)
-        ->assertOk()
-        ->assertJsonPath('component', 'Dashboard')
-        ->assertJsonPath('props.subscription', null);
+    $this->actingAs($user)
+        ->get('/dashboard')
+        ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
+            ->where('auth.subscription', null));
 });
 
-test('an expired subscription is not resolved as active access', function (): void {
+test('an expired subscription is not shared as active access', function (): void {
     $user = User::factory()->create();
     Subscription::factory()->for($user)->expired()->create();
 
-    loadDashboard($user)
-        ->assertOk()
-        ->assertJsonPath('props.subscription', null);
+    $this->actingAs($user)
+        ->get('/dashboard')
+        ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
+            ->where('auth.subscription', null));
 });

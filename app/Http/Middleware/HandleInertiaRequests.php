@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -26,6 +27,7 @@ final class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(...),
+                'subscription' => fn (): ?array => $this->subscriptionPayload($request->user()),
             ],
             'notifications' => fn (): array => $this->notificationPayload($request->user()),
             'flash' => fn (): array => [
@@ -33,6 +35,28 @@ final class HandleInertiaRequests extends Middleware
                 'success' => $request->session()->get('success'),
                 'error' => $request->session()->get('error'),
             ],
+        ];
+    }
+
+    /**
+     * The user's currently active subscription, shared on every request so the
+     * frontend can gate access. Null when there is none.
+     *
+     * @return array{plan: string, status: string, ends_at: string, days_remaining: int}|null
+     */
+    private function subscriptionPayload(?User $user): ?array
+    {
+        $subscription = $user instanceof User ? $user->activeSubscription : null;
+
+        if (! $subscription instanceof Subscription) {
+            return null;
+        }
+
+        return [
+            'plan' => $subscription->plan->label(),
+            'status' => $subscription->status->value,
+            'ends_at' => $subscription->ends_at->toIso8601String(),
+            'days_remaining' => max(0, (int) ceil(now()->diffInDays($subscription->ends_at))),
         ];
     }
 
