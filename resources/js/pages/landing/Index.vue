@@ -54,7 +54,7 @@ const features = [
         />
         <link rel="canonical" :href="canonical" head-key="canonical" />
         <meta name="robots" content="index, follow" head-key="robots" />
-        <meta name="theme-color" content="#6366f1" head-key="theme-color" />
+        <meta name="theme-color" content="#f97316" head-key="theme-color" />
 
         <meta property="og:type" content="website" head-key="og:type" />
         <meta
