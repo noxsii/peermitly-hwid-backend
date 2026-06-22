@@ -51,6 +51,22 @@ test('regular user cannot list users in filament', function (): void {
         ->assertForbidden();
 });
 
+test('super admin can list subscriptions in filament', function (): void {
+    $user = User::factory()->create(['role' => UserRole::SUPER_ADMIN]);
+
+    $this->actingAs($user)
+        ->get('/admin/subscriptions')
+        ->assertOk();
+});
+
+test('regular user cannot list subscriptions in filament', function (): void {
+    $user = User::factory()->create(['role' => UserRole::USER]);
+
+    $this->actingAs($user)
+        ->get('/admin/subscriptions')
+        ->assertForbidden();
+});
+
 test('super admin can list changelogs in filament', function (): void {
     $user = User::factory()->create(['role' => UserRole::SUPER_ADMIN]);
 
