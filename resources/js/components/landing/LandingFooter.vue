@@ -37,6 +37,20 @@ const links = [
                     >
                         Privacy
                     </Link>
+<!--                    <Link-->
+<!--                        href="/imprint"-->
+<!--                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"-->
+<!--                    >-->
+<!--                        Imprint-->
+<!--                    </Link>-->
+                    <a
+                        href="https://peermitly.betteruptime.com/"
+                        target="_blank"
+                        rel="noopener"
+                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                        Status
+                    </a>
                 </nav>
             </div>
 
@@ -47,7 +61,19 @@ const links = [
                     >© {{ new Date().getFullYear() }} Peermitly. All rights
                     reserved.</span
                 >
-                <span>For educational and privacy purposes.</span>
+                <span
+                    class="border-border/60 bg-background/60 text-foreground/70 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-medium"
+                >
+                    <span
+                        class="flex h-3 w-4 flex-col overflow-hidden rounded-[2px]"
+                        aria-hidden="true"
+                    >
+                        <span class="flex-1 bg-black" />
+                        <span class="flex-1 bg-[#dd0000]" />
+                        <span class="flex-1 bg-[#ffce00]" />
+                    </span>
+                    Made in Germany
+                </span>
             </div>
         </div>
     </footer>

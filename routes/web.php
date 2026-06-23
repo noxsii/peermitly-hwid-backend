@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\ChangelogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ImprintController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PrivacyController;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'show'])->name('home');
 Route::get('/privacy', [PrivacyController::class, 'show'])->name('privacy');
+Route::get('/imprint', [ImprintController::class, 'show'])->name('imprint');
 
 Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
