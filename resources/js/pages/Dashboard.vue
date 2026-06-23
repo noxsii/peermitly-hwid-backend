@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { usePage } from "@inertiajs/vue3";
-import { CircleCheck, CircleSlash, Clock, KeyRound } from "@lucide/vue";
+import {
+    CircleCheck,
+    CircleSlash,
+    Clock,
+    KeyRound,
+    ShieldCheck,
+} from "@lucide/vue";
 import { computed } from "vue";
 import { useAccess } from "@/composables/useAccess";
 import PageLayout from "@/layout/PageLayout.vue";
 import type { PageProps } from "@/types";
 
-const page = usePage<PageProps>();
+const page = usePage<PageProps & { securityCode: string | null }>();
 const { isActive, subscription, hasSubscription } = useAccess();
+
+const securityCode = computed(() => page.props.securityCode ?? "");
 
 const greeting = computed(() => {
     const name = page.props.auth?.user?.name ?? "";
@@ -109,6 +117,32 @@ const daysLabel = computed(() => {
                         start using the spoofer.
                     </p>
                 </template>
+            </div>
+
+            <!-- Security code -->
+            <div
+                v-if="securityCode"
+                class="bg-card text-card-foreground border-border/70 rounded-3xl border p-8 text-center shadow-sm sm:col-span-2"
+            >
+                <div
+                    class="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-2xl"
+                    aria-hidden="true"
+                >
+                    <ShieldCheck class="size-8" />
+                </div>
+
+                <h2 class="mt-5 text-xl font-semibold tracking-tight">
+                    Your security code
+                </h2>
+                <p
+                    class="text-primary mt-3 font-mono text-3xl font-bold tracking-[0.3em]"
+                >
+                    {{ securityCode }}
+                </p>
+                <p class="text-muted-foreground mt-3 text-sm leading-6">
+                    Keep this code private. Support will ask for it to confirm
+                    your identity when you open a ticket.
+                </p>
             </div>
         </div>
     </PageLayout>

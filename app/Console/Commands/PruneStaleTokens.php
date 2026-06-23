@@ -9,7 +9,7 @@ use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 use Laravel\Sanctum\PersonalAccessToken;
 
 #[Description('Delete personal access tokens that are unused or older than three days.')]
@@ -18,7 +18,7 @@ final class PruneStaleTokens extends Command
 {
     public function handle(): int
     {
-        $threshold = Carbon::now()->subDays(3);
+        $threshold = Date::now()->subDays(3);
         $count = 0;
 
         PersonalAccessToken::query()

@@ -35,6 +35,11 @@ final class UserForm
                     ->options(UserRole::class)
                     ->default(UserRole::USER->value)
                     ->required(),
+                TextInput::make('security_code')
+                    ->label('Security code')
+                    ->helperText('Used to verify the user when they open a support ticket. Auto-generated on creation.')
+                    ->maxLength(4)
+                    ->dehydrated(fn (?string $state): bool => filled($state)),
                 Toggle::make('is_active')
                     ->label('Active')
                     ->helperText('Inactive users are blocked from every authenticated request.')

@@ -6,10 +6,12 @@ namespace App\Models;
 
 use App\Enums\UserRole;
 use App\Models\Builders\SubscriptionBuilder;
+use App\Observers\UserObserver;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -38,6 +40,7 @@ use Spatie\LaravelPasskeys\Models\Passkey;
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property UserRole $role
+ * @property string|null $security_code
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -75,12 +78,14 @@ use Spatie\LaravelPasskeys\Models\Passkey;
  *
  * @mixin Model
  */
+#[ObservedBy(UserObserver::class)]
 #[Fillable(
     'name',
     'email',
     'email_verified_at',
     'password',
     'role',
+    'security_code',
     'is_active',
     'remember_token',
 )]
@@ -162,6 +167,7 @@ final class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'role' => UserRole::class,
+            'security_code' => 'encrypted',
             'is_active' => 'boolean',
             'remember_token' => 'string',
             'created_at' => 'datetime',

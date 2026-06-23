@@ -27,6 +27,16 @@ test('dashboard route is named dashboard', function (): void {
     expect(route('dashboard', absolute: false))->toBe('/dashboard');
 });
 
+test('the security code is shared with the dashboard', function (): void {
+    $user = User::factory()->create(['security_code' => 'AB23']);
+
+    $this->actingAs($user)
+        ->get('/dashboard')
+        ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
+            ->component('Dashboard')
+            ->where('securityCode', 'AB23'));
+});
+
 test('the active subscription is shared on the auth payload', function (): void {
     $user = User::factory()->create();
     resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::WEEK);

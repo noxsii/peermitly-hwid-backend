@@ -27,6 +27,11 @@ final class UsersTable
                     ->label('Email')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('security_code')
+                    ->label('Security code')
+                    ->badge()
+                    ->copyable()
+                    ->placeholder('—'),
                 TextColumn::make('role')
                     ->label('Role')
                     ->badge()

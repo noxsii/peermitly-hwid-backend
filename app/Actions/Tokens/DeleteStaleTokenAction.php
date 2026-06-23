@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Tokens;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 use Laravel\Sanctum\PersonalAccessToken;
 
 final readonly class DeleteStaleTokenAction
@@ -15,7 +15,7 @@ final readonly class DeleteStaleTokenAction
      */
     public function handle(PersonalAccessToken $token): bool
     {
-        if ($token->last_used_at !== null && $token->last_used_at->greaterThan(Carbon::now()->subDays(3))) {
+        if ($token->last_used_at !== null && $token->last_used_at->greaterThan(Date::now()->subDays(3))) {
             return false;
         }
 
