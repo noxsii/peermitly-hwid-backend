@@ -56,7 +56,7 @@ final class HandleInertiaRequests extends Middleware
             'plan' => $subscription->plan->label(),
             'status' => $subscription->status->value,
             'ends_at' => $subscription->ends_at->toIso8601String(),
-            'days_remaining' => max(0, (int) ceil(now()->diffInDays($subscription->ends_at))),
+            'days_remaining' => max(0, (int) round(today()->diffInDays($subscription->ends_at->copy()->startOfDay()))),
         ];
     }
 
