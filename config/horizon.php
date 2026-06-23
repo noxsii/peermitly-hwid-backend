@@ -102,7 +102,6 @@ return [
         'redis:default' => 60,
         'redis:notifications' => 30,
         'redis:mail' => 30,
-        'redis:bulk' => 300,
     ],
 
     /*
@@ -228,18 +227,6 @@ return [
             'tries' => 3,
             'timeout' => 30,
         ],
-
-        'supervisor-bulk' => [
-            'connection' => 'redis',
-            'queue' => ['bulk'],
-            'balance' => 'auto',
-            'autoScalingStrategy' => 'time',
-            'minProcesses' => 1,
-            'maxProcesses' => 2,
-            'memory' => 512,
-            'tries' => 1,
-            'timeout' => 600,
-        ],
     ],
 
     'environments' => [
@@ -252,9 +239,6 @@ return [
             'supervisor-notifications' => [
                 'maxProcesses' => 5,
             ],
-            'supervisor-bulk' => [
-                'maxProcesses' => 3,
-            ],
         ],
 
         'local' => [
@@ -262,9 +246,6 @@ return [
                 'maxProcesses' => 2,
             ],
             'supervisor-notifications' => [
-                'maxProcesses' => 1,
-            ],
-            'supervisor-bulk' => [
                 'maxProcesses' => 1,
             ],
         ],
