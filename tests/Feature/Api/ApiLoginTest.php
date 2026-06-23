@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 use App\Actions\Subscriptions\GrantSubscriptionAction;
 use App\Enums\SubscriptionPlan;
+use App\Enums\SubscriptionStatus;
 use App\Models\Subscription;
 use App\Models\User;
+use Illuminate\Support\Facades\Date;
 
 beforeEach(function (): void {
     // Reset the throttle counters between tests.
@@ -46,6 +48,28 @@ test('active user with an active subscription receives a token, user and subscri
         'tokenable_id' => $user->id,
         'name' => 'Gaming Rig',
     ]);
+});
+
+test('login days_remaining counts calendar days and is not inflated by time of day', function (): void {
+    $this->travelTo(Date::parse('2026-06-23 08:00:00'));
+
+    $user = User::factory()->create([
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'is_active' => true,
+    ]);
+    Subscription::factory()->for($user)->create([
+        'status' => SubscriptionStatus::ACTIVE,
+        'starts_at' => now()->subDay(),
+        'ends_at' => Date::parse('2026-07-22 09:00:00'),
+    ]);
+
+    $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+    ])->assertOk()->assertJsonPath('subscription.days_remaining', 29);
+
+    $this->travelBack();
 });
 
 test('the issued token authenticates subsequent requests', function (): void {

@@ -24,7 +24,7 @@ final class SubscriptionResource extends JsonResource
             'status' => $this->status->value,
             'starts_at' => $this->starts_at->toIso8601String(),
             'ends_at' => $this->ends_at->toIso8601String(),
-            'days_remaining' => max(0, (int) ceil(now()->diffInDays($this->ends_at))),
+            'days_remaining' => max(0, (int) round(today()->diffInDays($this->ends_at->copy()->startOfDay()))),
         ];
     }
 }
