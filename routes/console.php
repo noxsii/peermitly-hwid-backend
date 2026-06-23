@@ -9,3 +9,9 @@ Schedule::command('subscriptions:expire')
     ->runInBackground()
     ->withoutOverlapping()
     ->onOneServer();
+
+Schedule::command('tokens:prune')
+    ->dailyAt('00:01')
+    ->runInBackground()
+    ->withoutOverlapping()
+    ->onOneServer();
