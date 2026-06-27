@@ -34,7 +34,7 @@ test('storing a backup requires authentication', function (): void {
 
 test('an authenticated client can store a backup', function (): void {
     $user = User::factory()->create();
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $this->postJson('/api/backups', backupPayload())
         ->assertCreated()
@@ -53,7 +53,7 @@ test('an authenticated client can store a backup', function (): void {
 
 test('a single posted entry is stored as one object, never an array', function (): void {
     $user = User::factory()->create();
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $this->postJson('/api/backups', backupPayload())->assertCreated();
 
@@ -67,7 +67,7 @@ test('a single posted entry is stored as one object, never an array', function (
 
 test('unknown extensible fields are preserved in the json payload', function (): void {
     $user = User::factory()->create();
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $payload = backupPayload();
     $payload['snapshot']['gpus'] = [['index' => 0, 'name' => 'RTX 4090']];
@@ -83,7 +83,7 @@ test('unknown extensible fields are preserved in the json payload', function ():
 
 test('the richer disk identifiers and volumes are stored', function (): void {
     $user = User::factory()->create();
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $payload = backupPayload([
         'snapshot' => [
@@ -119,7 +119,7 @@ test('the richer disk identifiers and volumes are stored', function (): void {
 
 test('re-sending the same backup id updates instead of duplicating', function (): void {
     $user = User::factory()->create();
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $this->postJson('/api/backups', backupPayload(['label' => 'first']))->assertCreated();
     $this->postJson('/api/backups', backupPayload(['label' => 'second']))->assertOk();
@@ -130,7 +130,7 @@ test('re-sending the same backup id updates instead of duplicating', function ()
 
 test('backup id is required', function (): void {
     $user = User::factory()->create();
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $this->postJson('/api/backups', backupPayload(['id' => null]))
         ->assertStatus(422)
@@ -142,7 +142,7 @@ test('clients only see their own backups', function (): void {
     Backup::factory()->count(2)->for($user)->create();
     Backup::factory()->for(User::factory())->create();
 
-    Sanctum::actingAs($user, ['spoofer:use']);
+    Sanctum::actingAs($user, ['app:use']);
 
     $this->getJson('/api/backups')
         ->assertOk()

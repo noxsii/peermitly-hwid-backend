@@ -35,7 +35,7 @@ final readonly class AuthenticateApiUserAction
             'You need an active subscription to sign in.',
         );
 
-        $token = $user->createToken($deviceName, ['spoofer:use'])->plainTextToken;
+        $token = $user->createToken($deviceName, ['app:use'])->plainTextToken;
 
         return new ApiAuthResult($user, $token);
     }
