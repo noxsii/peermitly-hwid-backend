@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\BackupController;
 use App\Http\Controllers\Api\Health\HealthCheckController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +15,4 @@ Route::post('/login', [AuthController::class, 'login'])
 
 Route::middleware('auth:sanctum')->group(function (): void {
     Route::get('/user', static fn (Request $request) => $request->user());
-
-    Route::get('/backups', [BackupController::class, 'index'])->name('api.backups.index');
-    Route::post('/backups', [BackupController::class, 'store'])->name('api.backups.store');
 });

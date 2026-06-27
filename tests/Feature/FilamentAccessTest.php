@@ -51,22 +51,6 @@ test('regular user cannot list users in filament', function (): void {
         ->assertForbidden();
 });
 
-test('super admin can list backups in filament', function (): void {
-    $user = User::factory()->create(['role' => UserRole::SUPER_ADMIN]);
-
-    $this->actingAs($user)
-        ->get('/admin/backups')
-        ->assertOk();
-});
-
-test('regular user cannot list backups in filament', function (): void {
-    $user = User::factory()->create(['role' => UserRole::USER]);
-
-    $this->actingAs($user)
-        ->get('/admin/backups')
-        ->assertForbidden();
-});
-
 test('super admin can list api tokens in filament', function (): void {
     $user = User::factory()->create(['role' => UserRole::SUPER_ADMIN]);
 
