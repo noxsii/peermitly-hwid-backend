@@ -27,13 +27,13 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
                     <h2
                         class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl"
                     >
-                        Ready to disappear from the ban list?
+                        Ready to ditch your old dev setup?
                     </h2>
                     <p
                         class="text-muted-foreground mx-auto mt-4 max-w-xl text-lg"
                     >
-                        Join 12,000+ players running undetected with Peermitly.
-                        Instant access, unlimited spoofs.
+                        Join 12,000+ developers building faster with Peermitly.
+                        Instant setup, every stack.
                     </p>
                     <div
                         class="mt-8 flex flex-wrap items-center justify-center gap-3"

@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { Download, MousePointerClick, Rocket } from "@lucide/vue";
+import { Download, FolderPlus, Rocket } from "@lucide/vue";
 import Reveal from "@/components/landing/Reveal.vue";
 
 const steps = [
     {
         icon: Download,
-        title: "Download the tool",
+        title: "Install Peermitly",
         description:
-            "Buy a plan and get instant access. Download the spoofer from your dashboard in under a minute.",
+            "Grab the app for macOS, Windows or Linux and install it in under a minute. No dependencies to set up.",
     },
     {
-        icon: MousePointerClick,
-        title: "Click spoof",
+        icon: FolderPlus,
+        title: "Add your project",
         description:
-            "Run it as admin and hit Spoof. Every hardware identifier is rewritten and old traces are cleaned.",
+            "Point Peermitly at your code folder. It detects the stack and serves it on a .test domain instantly.",
     },
     {
         icon: Rocket,
-        title: "Launch & play",
+        title: "Start building",
         description:
-            "Your machine now looks brand new. Start your game and play — no ban, no trace, no stress.",
+            "Open the site — databases, mail and HTTPS are already wired up. Just code, no setup overhead.",
     },
 ];
 </script>
@@ -37,7 +37,7 @@ const steps = [
                     How it works
                 </span>
                 <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                    Back in the game in three steps
+                    Up and running in three steps
                 </h2>
             </Reveal>
 

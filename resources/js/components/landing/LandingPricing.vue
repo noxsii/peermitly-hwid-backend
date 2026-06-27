@@ -5,10 +5,10 @@ import Reveal from "@/components/landing/Reveal.vue";
 import { Button } from "@/components/ui/button";
 
 const baseFeatures = [
-    "Full HWID spoofer",
-    "All supported games",
-    "Trace cleaner included",
-    "Unlimited spoofs",
+    "Unlimited local sites",
+    "All stacks & services",
+    "Secure .test HTTPS",
+    "Local databases",
 ];
 
 const plans = [
@@ -16,7 +16,7 @@ const plans = [
         name: "Day Pass",
         price: "€4.99",
         period: "/ 24 hours",
-        description: "Try it out for a single session.",
+        description: "Try it out for a single day.",
         features: baseFeatures,
         popular: false,
     },
@@ -24,7 +24,7 @@ const plans = [
         name: "Weekly",
         price: "€14.99",
         period: "/ 7 days",
-        description: "For the on-and-off player.",
+        description: "For the occasional side project.",
         features: [...baseFeatures, "Priority support"],
         popular: false,
     },
@@ -32,12 +32,12 @@ const plans = [
         name: "Monthly",
         price: "€29.99",
         period: "/ 30 days",
-        description: "Best value for regulars.",
+        description: "Best value for daily drivers.",
         features: [
             ...baseFeatures,
             "Priority support",
             "Early updates",
-            "All future games",
+            "All future features",
         ],
         popular: true,
     },

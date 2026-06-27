@@ -4,10 +4,10 @@ import LandingCta from "@/components/landing/LandingCta.vue";
 import LandingFaq from "@/components/landing/LandingFaq.vue";
 import LandingFeatures from "@/components/landing/LandingFeatures.vue";
 import LandingFooter from "@/components/landing/LandingFooter.vue";
-import LandingGames from "@/components/landing/LandingGames.vue";
 import LandingHero from "@/components/landing/LandingHero.vue";
 import LandingNav from "@/components/landing/LandingNav.vue";
 import LandingPricing from "@/components/landing/LandingPricing.vue";
+import LandingStacks from "@/components/landing/LandingStacks.vue";
 import LandingStats from "@/components/landing/LandingStats.vue";
 import LandingSteps from "@/components/landing/LandingSteps.vue";
 import type { LandingSeoProps } from "@/types/landing";
@@ -15,9 +15,9 @@ import type { LandingSeoProps } from "@/types/landing";
 defineProps<LandingSeoProps>();
 defineOptions({ layout: "" });
 
-const title = "Peermitly — Undetectable HWID Spoofer for CoD, Valorant & More";
+const title = "Peermitly — The fast, beautiful local dev environment";
 const description =
-    "Peermitly is an undetectable HWID spoofer. Mask and rotate every hardware identifier, beat HWID bans and get back in the game in seconds. 20+ games supported.";
+    "Peermitly is a blazing-fast local development environment for macOS, Windows and Linux. PHP, Node, Python, Ruby and Go, databases and services — zero config, instant .test domains with automatic HTTPS.";
 </script>
 
 <template>
@@ -67,7 +67,7 @@ const description =
             <LandingStats />
             <LandingFeatures />
             <LandingSteps />
-            <LandingGames />
+            <LandingStacks />
             <LandingPricing />
             <LandingFaq />
             <LandingCta />

@@ -9,28 +9,28 @@ import {
 
 const faqs = [
     {
-        q: "Is the spoofer really undetectable?",
-        a: "Yes. Peermitly rewrites every hardware identifier and clears the traces anti-cheats use to link your old machine. We update continuously to stay ahead of detection.",
+        q: "Which platforms does Peermitly run on?",
+        a: "macOS (Apple Silicon and Intel), Windows 11 and Linux. The same projects and .test domains work identically across all three.",
     },
     {
-        q: "Do I need to spoof after every ban?",
-        a: "Spoof once before you play. If you ever catch a new HWID ban, just run the spoofer again — you get unlimited rotations on every plan.",
+        q: "Do I need Docker or a virtual machine?",
+        a: "No. Peermitly runs services natively for much faster cold starts and lower memory use — no containers, no VM, no Docker Desktop required.",
     },
     {
-        q: "Which games are supported?",
-        a: "20+ titles including Valorant, Call of Duty, Fortnite, Apex Legends, Rust, PUBG, CS2 and more. New games are added every month.",
+        q: "Which frameworks are supported?",
+        a: "20+ stacks including Laravel, Symfony, WordPress, Statamic, Node.js, Next.js, Django, Rails and more. Peermitly auto-detects the stack in your project folder.",
     },
     {
-        q: "Is it safe for my PC?",
-        a: "Every change is backed up automatically and fully reversible. You can restore your original identifiers at any time with one click.",
+        q: "Can I run multiple PHP or Node versions?",
+        a: "Yes. Switch the runtime version per project with one click — different sites can run on different versions side by side without conflicts.",
     },
     {
-        q: "How do I get the tool after paying?",
+        q: "Is local HTTPS included?",
+        a: "Yes. Every site gets a secure .test domain with a trusted local certificate automatically — no manual cert setup, no browser warnings.",
+    },
+    {
+        q: "How do I get started after signing up?",
         a: "Instantly. Right after checkout the download and your license appear in your dashboard — no waiting, no manual activation.",
-    },
-    {
-        q: "What are the system requirements?",
-        a: "Windows 11 (64-bit) with administrator rights. That's it.",
     },
 ];
 </script>

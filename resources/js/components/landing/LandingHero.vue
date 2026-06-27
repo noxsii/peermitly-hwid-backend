@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
-import { ArrowRight, ShieldCheck } from "@lucide/vue";
+import { ArrowRight, Terminal } from "@lucide/vue";
 import { computed } from "vue";
 import { Button } from "@/components/ui/button";
 import type { PageProps } from "@/types";
@@ -8,15 +8,15 @@ import type { PageProps } from "@/types";
 const page = usePage<PageProps>();
 const isAuthenticated = computed(() => page.props.auth?.user != null);
 
-const games = [
-    "Valorant",
-    "Call of Duty",
-    "Fortnite",
-    "Apex Legends",
-    "Rust",
-    "PUBG",
-    "CS2",
-    "Rainbow Six",
+const frameworks = [
+    "Laravel",
+    "Symfony",
+    "WordPress",
+    "Node.js",
+    "Next.js",
+    "Django",
+    "Rails",
+    "Statamic",
 ];
 </script>
 
@@ -46,33 +46,33 @@ const games = [
                         class="relative inline-flex size-2 rounded-full bg-emerald-500"
                     />
                 </span>
-                Status: Undetected
+                Local-first · v1.0
             </span>
 
             <h1
                 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-6xl"
             >
-                Stay invisible.
+                Your whole dev stack.
                 <span
                     class="from-primary bg-gradient-to-r to-orange-400 bg-clip-text text-transparent"
                 >
-                    Spoof your HWID
+                    Running in seconds.
                 </span>
-                in one click.
             </h1>
 
             <p
                 class="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg text-pretty"
             >
-                Peermitly masks and rotates every hardware identifier on your
-                machine — disk, network, GPU and board. Beat HWID bans, stay
-                undetected, and get back in the game in seconds.
+                Peermitly is a blazing-fast local development environment for
+                every stack. PHP, Node, Python, Ruby and Go, databases and
+                services — zero config, instant .test domains and automatic
+                HTTPS.
             </p>
 
             <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
                 <a href="#pricing">
                     <Button size="lg" class="group h-11 px-5 text-base">
-                        Get access now
+                        Get started
                         <ArrowRight
                             class="transition-transform group-hover:translate-x-0.5"
                         />
@@ -84,7 +84,7 @@ const games = [
                         variant="outline"
                         class="h-11 px-5 text-base"
                     >
-                        <ShieldCheck />
+                        <Terminal />
                         {{
                             isAuthenticated ? "Open dashboard" : "Member login"
                         }}
@@ -93,25 +93,25 @@ const games = [
             </div>
 
             <p class="text-muted-foreground mt-4 text-xs">
-                Instant delivery · Built for Windows 11 · 24/7 support
+                macOS · Windows · Linux · Zero config
             </p>
 
-            <!-- supported games strip -->
+            <!-- supported frameworks strip -->
             <div class="mt-14">
                 <p
                     class="text-muted-foreground text-xs font-medium tracking-[0.2em] uppercase"
                 >
-                    Trusted across
+                    Works with
                 </p>
                 <div
                     class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
                 >
                     <span
-                        v-for="game in games"
-                        :key="game"
+                        v-for="framework in frameworks"
+                        :key="framework"
                         class="text-foreground/50 hover:text-foreground text-sm font-semibold transition-colors"
                     >
-                        {{ game }}
+                        {{ framework }}
                     </span>
                 </div>
             </div>

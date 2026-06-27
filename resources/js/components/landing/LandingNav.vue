@@ -15,7 +15,7 @@ const scrolled = computed(() => y.value > 16);
 const links = [
     { label: "Features", href: "#features" },
     { label: "How it works", href: "#how" },
-    { label: "Games", href: "#games" },
+    { label: "Stacks", href: "#stacks" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
 ];

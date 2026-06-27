@@ -1,43 +1,43 @@
 <script setup lang="ts">
-import { Cpu, EyeOff, Lock, RefreshCw, Trash2, Zap } from "@lucide/vue";
+import { Boxes, Database, Gauge, Globe, Lock, Zap } from "@lucide/vue";
 import Reveal from "@/components/landing/Reveal.vue";
 
 const features = [
     {
-        icon: EyeOff,
-        title: "Truly undetectable",
-        description:
-            "Engineered to stay ahead of anti-cheat HWID checks so your new identity reads as a fresh machine.",
-    },
-    {
         icon: Zap,
-        title: "Instant spoof",
+        title: "Instant sites",
         description:
-            "One click rewrites every identifier in seconds. No reboot juggling, no manual registry edits.",
+            "Drop a project in your folder and it's live on a .test domain in under a second. No config, no restarts.",
     },
     {
-        icon: Cpu,
-        title: "Full hardware coverage",
+        icon: Boxes,
+        title: "Every stack, one app",
         description:
-            "Disk, network adapter, GPU, motherboard, BIOS and more — all components spoofed together.",
+            "PHP, Node, Python, Ruby and Go side by side. Switch runtime versions per project with a single click.",
     },
     {
-        icon: Trash2,
-        title: "Trace cleaner",
+        icon: Database,
+        title: "Databases & services",
         description:
-            "Wipes leftover ban traces and logs the anti-cheat uses to link your old hardware to the new one.",
-    },
-    {
-        icon: RefreshCw,
-        title: "Unlimited rotations",
-        description:
-            "Spoof as often as you need. Every session can run on a brand-new, randomized identity.",
+            "MySQL, PostgreSQL, Redis, Mailpit, MinIO and more — spin them up and manage them from one dashboard.",
     },
     {
         icon: Lock,
-        title: "Safe & reversible",
+        title: "Secure .test domains",
         description:
-            "Automatic backups let you restore your original identifiers any time, with zero risk to your system.",
+            "Automatic local HTTPS with trusted certificates. Share any site over a secure tunnel in seconds.",
+    },
+    {
+        icon: Gauge,
+        title: "Built for speed",
+        description:
+            "Native performance, not containers. Cold starts and page loads that leave Docker setups behind.",
+    },
+    {
+        icon: Globe,
+        title: "Zero config",
+        description:
+            "Sensible defaults out of the box. No YAML, no Dockerfiles, no terminal gymnastics to get running.",
     },
 ];
 </script>
@@ -52,10 +52,11 @@ const features = [
                     Features
                 </span>
                 <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                    Everything you need to stay unbanned
+                    Everything you need to ship locally
                 </h2>
                 <p class="text-muted-foreground mt-4 text-lg">
-                    A complete spoofing toolkit, wrapped in one calm dashboard.
+                    A complete local dev environment, wrapped in one calm
+                    dashboard.
                 </p>
             </Reveal>
 

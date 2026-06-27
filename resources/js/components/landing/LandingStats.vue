@@ -2,10 +2,10 @@
 import Reveal from "@/components/landing/Reveal.vue";
 
 const stats = [
-    { value: "200+", label: "Days undetected" },
-    { value: "12,000+", label: "Active users" },
-    { value: "20+", label: "Supported games" },
-    { value: "99.9%", label: "Uptime" },
+    { value: "10×", label: "Faster cold starts" },
+    { value: "12,000+", label: "Active developers" },
+    { value: "20+", label: "Services & stacks" },
+    { value: "0", label: "Config files" },
 ];
 </script>
 
