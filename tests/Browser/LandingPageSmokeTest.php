@@ -6,8 +6,8 @@ test('landing page renders all sections without console errors', function (): vo
     $page = visit('/');
 
     $page->assertNoJavascriptErrors()
-        ->assertSee('Stay invisible.')
-        ->assertSee('Truly undetectable')
+        ->assertSee('Your whole dev stack.')
+        ->assertSee('Instant sites')
         ->assertSee('How it works')
         ->assertSee('Questions, answered');
 });
