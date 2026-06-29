@@ -32,6 +32,12 @@ const links = [
                         {{ link.label }}
                     </a>
                     <Link
+                        href="/guide"
+                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                        Docs
+                    </Link>
+                    <Link
                         href="/privacy"
                         class="text-muted-foreground hover:text-foreground text-sm transition-colors"
                     >
