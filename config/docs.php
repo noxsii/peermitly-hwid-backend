@@ -15,5 +15,11 @@ return [
                 ['slug' => 'introduction', 'title' => 'Introduction'],
             ],
         ],
+        [
+            'title' => 'Troubleshooting',
+            'items' => [
+                ['slug' => 'homebrew-php-path', 'title' => 'Shell is not using the Homebrew PHP'],
+            ],
+        ],
     ],
 ];
