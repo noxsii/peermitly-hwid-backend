@@ -1,5 +1,12 @@
 export type { Appearance } from "./appearance";
 export type { Changelog } from "./changelog";
+export type {
+    DocHeading,
+    DocMeta,
+    DocNavItem,
+    DocPage,
+    DocSection,
+} from "./docs";
 export type { DashboardSubscription } from "./dashboard";
 export type { AuthUser, User, UserRole } from "./user";
 export type { LucideIcon, NavItem } from "./navigation";

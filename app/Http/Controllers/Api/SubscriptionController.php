@@ -10,14 +10,13 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-use function assert;
-
 final class SubscriptionController
 {
     public function show(Request $request): JsonResponse
     {
         $user = $request->user();
-        assert($user instanceof User);
+
+        abort_unless($user instanceof User, 401);
 
         $subscription = $user->activeSubscription;
         $isValid = $user->is_active && $subscription instanceof Subscription;

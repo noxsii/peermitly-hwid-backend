@@ -4,9 +4,11 @@ import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import inertia from '@inertiajs/vite'
 import path from "node:path";
+import docs from "./vite-plugin-docs.mjs";
 
 export default defineConfig({
     plugins: [
+        docs(),
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.ts'],
             refresh: true,
