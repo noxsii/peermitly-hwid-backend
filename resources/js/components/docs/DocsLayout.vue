@@ -34,7 +34,7 @@ watch(
     <div class="bg-background text-foreground min-h-screen">
         <!-- top bar -->
         <header
-            class="border-border/60 bg-background/80 sticky top-0 z-40 border-b backdrop-blur-xl"
+            class="border-border/60 bg-background/80 transform-gpu sticky top-0 z-40 transform border-b backdrop-blur-xl [will-change:transform]"
         >
             <div
                 class="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6"

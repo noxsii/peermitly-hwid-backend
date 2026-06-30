@@ -40,11 +40,12 @@ function go(slug: string): void {
 <template>
     <button
         type="button"
-        class="border-border/60 bg-muted/40 text-muted-foreground hover:border-primary/40 hover:text-foreground flex h-9 w-full items-center gap-2 rounded-lg border px-3 text-sm transition-colors sm:w-64"
+        aria-label="Search docs"
+        class="border-border/60 bg-muted/40 text-muted-foreground hover:border-primary/40 hover:text-foreground flex h-9 w-9 items-center justify-center gap-2 rounded-lg border text-sm transition-colors sm:w-64 sm:justify-start sm:px-3"
         @click="open = true"
     >
-        <Search class="size-4" />
-        <span class="flex-1 text-left">Search docs…</span>
+        <Search class="size-4 shrink-0" />
+        <span class="hidden flex-1 text-left sm:inline">Search docs…</span>
         <kbd
             class="border-border/60 bg-background text-muted-foreground hidden rounded border px-1.5 py-0.5 text-[10px] font-medium sm:inline"
         >
@@ -66,7 +67,7 @@ function go(slug: string): void {
                     type="text"
                     placeholder="Search docs…"
                     autofocus
-                    class="h-12 w-full bg-transparent text-sm outline-none"
+                    class="h-12 w-full bg-transparent text-base outline-none sm:text-sm"
                 />
             </div>
 
