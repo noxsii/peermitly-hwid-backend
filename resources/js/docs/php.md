@@ -5,11 +5,11 @@ description: Install, switch and configure PHP versions in Peermitly — run mul
 
 # 🐘 PHP
 
-Peermitly manages PHP for you through **Homebrew**. You can install several PHP versions, switch the active one with a single click, run PHP-FPM, and tune the most important `php.ini` settings per version — all from the **PHP** screen, no terminal required.
+Peermitly manages PHP for you. You can install several PHP versions, switch the active one with a single click, run PHP-FPM, and tune the most important `php.ini` settings per version — all from the **PHP** screen, no terminal required.
 
 ## 🧩 What Peermitly does with PHP
 
-- **Installs and removes PHP versions** via Homebrew (e.g. 8.1, 8.2, 8.3, 8.4).
+- **Installs and removes PHP versions** (e.g. 8.1, 8.2, 8.3, 8.4).
 - **Switches the active version** so the `php` command and your sites use the one you pick.
 - **Runs multiple versions side by side** — different projects can use different PHP versions.
 - **Manages PHP-FPM** — shows whether the FPM process is running and lets you restart it.
@@ -24,18 +24,18 @@ On the **PHP** screen you see every supported PHP version. To add one:
 
 1. Find the version you want in the list.
 2. Click **Install**.
-3. Peermitly installs it through Homebrew and shows the progress live.
+3. Peermitly installs it and shows the progress live.
 
 Once finished, the version is ready to activate. You can install as many versions as you need.
 
-> The first install of a version can take a little longer because Homebrew compiles and links it. Later actions are much faster.
+> The first install of a version can take a little longer while it is compiled and linked. Later actions are much faster.
 
 ## ✅ Activate the version you want
 
 Only one PHP version is the **active** one at a time. The active version is what your terminal's `php` command and your sites use by default.
 
 1. Click **Activate** (or **Default**) on the version you want.
-2. Peermitly links it into Homebrew's bin directory at `/opt/homebrew/bin/php`.
+2. Peermitly activates it for your whole system.
 3. The version is now marked **Active**.
 
 Verify it in a terminal:
@@ -80,11 +80,11 @@ To change them:
 
 ## 🔄 Update a version
 
-When a new patch release of a PHP version is available, an **Update** action appears. Click it to update that version through Homebrew. Your settings are preserved.
+When a new patch release of a PHP version is available, an **Update** action appears. Click it to update that version. Your settings are preserved.
 
 ## 🗑️ Remove a version
 
-No longer need a version? Click **Remove**. Peermitly uninstalls it via Homebrew. If you remove the currently active version, activate another one afterwards so your `php` command keeps working.
+No longer need a version? Click **Remove**. Peermitly uninstalls it. If you remove the currently active version, activate another one afterwards so your `php` command keeps working.
 
 ## 🧪 Verify everything works
 
@@ -112,4 +112,4 @@ If `which php` does not point to `/opt/homebrew/bin/php`, your shell `PATH` need
 
 ## Requirements
 
-PHP management relies on **Homebrew**. If you have not set it up yet, see the [Setup](/guide/setup) guide first.
+PHP management needs Peermitly to be set up first. If you have not done that yet, see the [Setup](/guide/setup) guide.

@@ -22,9 +22,10 @@ return [
             ],
         ],
         [
-            'title' => 'Languages',
+            'title' => 'Binaries',
             'items' => [
                 ['slug' => 'php', 'title' => 'PHP versions & settings'],
+                ['slug' => 'node', 'title' => 'Node versions'],
             ],
         ],
         [
