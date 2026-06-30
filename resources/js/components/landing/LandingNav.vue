@@ -24,18 +24,22 @@ const links = [
 
 <template>
     <header
-        class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+        class="fixed inset-x-0 top-0 z-50 transform-gpu transition-all duration-300 [will-change:transform]"
         :class="
             scrolled
-                ? 'border-border/60 bg-background/80 border-b backdrop-blur-xl'
+                ? 'border-border/50 bg-background/70 border-b backdrop-blur-xl'
                 : 'border-b border-transparent'
         "
     >
         <div
             class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6"
         >
-            <Link href="/" class="flex items-center gap-2.5">
-                <LogoMark size="size-9" />
+            <Link href="/" class="group flex items-center gap-2.5">
+                <span
+                    class="ring-border/60 group-hover:ring-primary/40 flex size-9 items-center justify-center rounded-xl ring-1 transition-all group-hover:scale-105"
+                >
+                    <LogoMark size="size-9" />
+                </span>
                 <span class="text-lg font-semibold tracking-tight"
                     >Peermitly</span
                 >

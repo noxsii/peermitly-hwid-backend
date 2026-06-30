@@ -40,11 +40,14 @@ const faqs = [
         <div class="mx-auto max-w-3xl px-6">
             <Reveal class="text-center">
                 <span
-                    class="text-primary text-xs font-semibold tracking-[0.2em] uppercase"
+                    class="text-primary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase"
                 >
+                    <span class="bg-primary/60 size-1.5 rounded-full" />
                     FAQ
                 </span>
-                <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                <h2
+                    class="from-foreground to-primary/70 mt-3 bg-gradient-to-br bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
+                >
                     Questions, answered
                 </h2>
             </Reveal>

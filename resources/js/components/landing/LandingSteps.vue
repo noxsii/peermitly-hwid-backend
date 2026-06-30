@@ -32,11 +32,14 @@ const steps = [
         <div class="mx-auto max-w-6xl px-6">
             <Reveal class="mx-auto max-w-2xl text-center">
                 <span
-                    class="text-primary text-xs font-semibold tracking-[0.2em] uppercase"
+                    class="text-primary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase"
                 >
+                    <span class="bg-primary/60 size-1.5 rounded-full" />
                     How it works
                 </span>
-                <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                <h2
+                    class="from-foreground to-primary/70 mt-3 bg-gradient-to-br bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
+                >
                     Up and running in three steps
                 </h2>
             </Reveal>
@@ -54,7 +57,7 @@ const steps = [
                             {{ i + 1 }}
                         </span>
                         <div
-                            class="bg-card border-border/60 relative h-full rounded-2xl border p-6"
+                            class="bg-card border-border/60 hover:border-primary/40 hover:shadow-primary/5 relative h-full rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                         >
                             <span
                                 class="bg-primary/10 text-primary inline-flex size-11 items-center justify-center rounded-xl"

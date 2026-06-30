@@ -25,7 +25,7 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
 
                 <div class="relative">
                     <h2
-                        class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl"
+                        class="from-foreground to-primary/70 mx-auto max-w-2xl bg-gradient-to-br bg-clip-text text-3xl font-bold tracking-tight text-balance text-transparent sm:text-4xl"
                     >
                         Ready to ditch your old dev setup?
                     </h2>
