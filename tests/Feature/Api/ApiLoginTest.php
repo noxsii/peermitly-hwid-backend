@@ -204,6 +204,23 @@ test('a login from the bound device is allowed and revokes the previous session'
         ->assertUnauthorized();
 });
 
+test('the user endpoint never exposes the security code or hwid', function (): void {
+    activeApiUser();
+
+    $token = $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'hwid' => 'hwid-first',
+    ])->json('token');
+
+    $this->withToken($token)
+        ->withHeader('X-HWID', 'hwid-first')
+        ->getJson('/api/user')
+        ->assertOk()
+        ->assertJsonMissingPath('security_code')
+        ->assertJsonMissingPath('hwid');
+});
+
 test('an authed request with a mismatched hwid header is rejected', function (): void {
     activeApiUser();
 
