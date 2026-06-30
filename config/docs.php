@@ -22,6 +22,12 @@ return [
             ],
         ],
         [
+            'title' => 'Languages',
+            'items' => [
+                ['slug' => 'php', 'title' => 'PHP versions & settings'],
+            ],
+        ],
+        [
             'title' => 'Troubleshooting',
             'items' => [
                 ['slug' => 'homebrew-php-path', 'title' => 'Shell is not using the Homebrew PHP'],
