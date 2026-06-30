@@ -47,44 +47,26 @@ defineOptions({ layout: "" });
             >
                 <h2>Service provider</h2>
                 <p>
-                    <!-- Name / company + legal form -->
-                    <br />
-                    <!-- Street, number -->
-                    <br />
-                    <!-- Postal code, city -->
-                    <br />
-                    <!-- Country -->
+                    Dennis Schirra <br />
+                    Bernkasteler Str. 34 <br />
+                    54484 Maring-Noviand <br />
+                    Germany
                 </p>
 
                 <h2>Contact</h2>
                 <p>
-                    Phone: <br />
-                    Email: <br />
-                    Web: <br />
-                </p>
-
-                <h2>Represented by</h2>
-                <p>
-                    <!-- Authorised representative (e.g. managing director) -->
-                </p>
-
-                <h2>Register entry</h2>
-                <p>
-                    Registering court: <br />
-                    Registration number: <br />
-                </p>
-
-                <h2>VAT ID</h2>
-                <p>
-                    VAT identification number pursuant to § 27 a of the German
-                    VAT Act: <br />
+                    Email:
+                    <a href="mailto:hello@peermitly.de">hello@peermitly.de</a>
+                    <br />
+                    Web: <a href="https://peermitly.de">peermitly.de</a>
                 </p>
 
                 <h2>Responsible for the content under § 18 (2) MStV</h2>
                 <p>
-                    <!-- Name -->
-                    <br />
-                    <!-- Address -->
+                    Dennis Schirra <br />
+                    Bernkasteler Str. 34 <br />
+                    54484 Maring-Noviand <br />
+                    Germany
                 </p>
 
                 <h2>EU dispute resolution</h2>

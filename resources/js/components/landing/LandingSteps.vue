@@ -13,7 +13,7 @@ const steps = [
         icon: FolderPlus,
         title: "Add your project",
         description:
-            "Point Peermitly at your code folder. It detects the stack and serves it on a .test domain instantly.",
+            "Point Peermitly at your code folder. It detects the stack and serves it on a .peer domain instantly.",
     },
     {
         icon: Rocket,

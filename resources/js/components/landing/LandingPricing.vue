@@ -8,7 +8,7 @@ const features = [
     "Unlimited local sites",
     "Every stack & runtime",
     "Databases & services",
-    "Secure .test HTTPS",
+    "Secure .peer HTTPS",
     "macOS, Windows & Linux",
     "All future features",
     "Priority support",

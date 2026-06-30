@@ -65,7 +65,7 @@ const frameworks = [
             >
                 Peermitly is a blazing-fast local development environment for
                 every stack. PHP, Node, Python, Ruby and Go, databases and
-                services — zero config, instant .test domains and automatic
+                services — zero config, instant .peer domains and automatic
                 HTTPS.
             </p>
 

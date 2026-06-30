@@ -7,7 +7,7 @@ const features = [
         icon: Zap,
         title: "Instant sites",
         description:
-            "Drop a project in your folder and it's live on a .test domain in under a second. No config, no restarts.",
+            "Drop a project in your folder and it's live on a .peer domain in under a second. No config, no restarts.",
     },
     {
         icon: Boxes,
@@ -23,7 +23,7 @@ const features = [
     },
     {
         icon: Lock,
-        title: "Secure .test domains",
+        title: "Secure .peer domains",
         description:
             "Automatic local HTTPS with trusted certificates. Share any site over a secure tunnel in seconds.",
     },

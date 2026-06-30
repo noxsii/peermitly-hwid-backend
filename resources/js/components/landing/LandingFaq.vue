@@ -10,7 +10,7 @@ import {
 const faqs = [
     {
         q: "Which platforms does Peermitly run on?",
-        a: "macOS (Apple Silicon and Intel), Windows 11 and Linux. The same projects and .test domains work identically across all three.",
+        a: "macOS (Apple Silicon and Intel), Windows 11 and Linux. The same projects and .peer domains work identically across all three.",
     },
     {
         q: "Do I need Docker or a virtual machine?",
@@ -26,7 +26,7 @@ const faqs = [
     },
     {
         q: "Is local HTTPS included?",
-        a: "Yes. Every site gets a secure .test domain with a trusted local certificate automatically — no manual cert setup, no browser warnings.",
+        a: "Yes. Every site gets a secure .peer domain with a trusted local certificate automatically — no manual cert setup, no browser warnings.",
     },
     {
         q: "How do I get started after signing up?",

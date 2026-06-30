@@ -43,12 +43,12 @@ const links = [
                     >
                         Privacy
                     </Link>
-                    <!--                    <Link-->
-                    <!--                        href="/imprint"-->
-                    <!--                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"-->
-                    <!--                    >-->
-                    <!--                        Imprint-->
-                    <!--                    </Link>-->
+                    <Link
+                        href="/imprint"
+                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                        Imprint
+                    </Link>
                     <a
                         href="https://peermitly.betteruptime.com/"
                         target="_blank"
