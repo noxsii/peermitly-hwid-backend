@@ -10,6 +10,12 @@ return [
      */
     'sections' => [
         [
+            'title' => 'Setup',
+            'items' => [
+                ['slug' => 'setup', 'title' => 'Setup'],
+            ],
+        ],
+        [
             'title' => 'Getting Started',
             'items' => [
                 ['slug' => 'introduction', 'title' => 'Introduction'],

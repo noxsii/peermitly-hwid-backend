@@ -9,7 +9,7 @@ test('the docs index renders the first page', function (): void {
         ->assertOk()
         ->assertInertia(fn ($page) => $page
             ->component('docs/Show')
-            ->where('slug', 'introduction')
+            ->where('slug', 'setup')
             ->has('sections'),
         );
 });
