@@ -33,10 +33,13 @@ const next = computed<DocNavItem | null>(() =>
         <Link
             v-if="previous"
             :href="`/guide/${previous.slug}`"
-            class="border-border/60 hover:border-primary/40 hover:bg-muted/40 group flex flex-col gap-1 rounded-xl border p-4 transition-colors"
+            class="border-border/60 hover:border-primary/40 hover:bg-muted/40 hover:shadow-primary/5 group flex flex-col gap-1 rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
         >
             <span class="text-muted-foreground flex items-center gap-1 text-xs">
-                <ArrowLeft class="size-3" /> Previous
+                <ArrowLeft
+                    class="size-3 transition-transform group-hover:-translate-x-0.5"
+                />
+                Previous
             </span>
             <span
                 class="group-hover:text-primary font-medium transition-colors"
@@ -49,12 +52,15 @@ const next = computed<DocNavItem | null>(() =>
         <Link
             v-if="next"
             :href="`/guide/${next.slug}`"
-            class="border-border/60 hover:border-primary/40 hover:bg-muted/40 group flex flex-col gap-1 rounded-xl border p-4 text-right transition-colors sm:col-start-2"
+            class="border-border/60 hover:border-primary/40 hover:bg-muted/40 hover:shadow-primary/5 group flex flex-col gap-1 rounded-xl border p-4 text-right transition-all hover:-translate-y-0.5 hover:shadow-lg sm:col-start-2"
         >
             <span
                 class="text-muted-foreground flex items-center justify-end gap-1 text-xs"
             >
-                Next <ArrowRight class="size-3" />
+                Next
+                <ArrowRight
+                    class="size-3 transition-transform group-hover:translate-x-0.5"
+                />
             </span>
             <span
                 class="group-hover:text-primary font-medium transition-colors"

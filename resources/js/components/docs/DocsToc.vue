@@ -46,11 +46,12 @@ onBeforeUnmount(() => observer?.disconnect());
 <template>
     <div v-if="items.length" class="space-y-3">
         <p
-            class="text-muted-foreground text-xs font-semibold tracking-[0.14em] uppercase"
+            class="text-muted-foreground flex items-center gap-2 text-xs font-semibold tracking-[0.14em] uppercase"
         >
+            <span class="bg-primary/60 size-1.5 rounded-full" />
             On this page
         </p>
-        <ul class="space-y-1.5 text-sm">
+        <ul class="border-border/50 space-y-0.5 border-l text-sm">
             <li
                 v-for="heading in items"
                 :key="heading.id"
@@ -58,11 +59,11 @@ onBeforeUnmount(() => observer?.disconnect());
             >
                 <a
                     :href="`#${heading.id}`"
-                    class="block transition-colors"
+                    class="-ml-px block border-l-2 py-1 pl-3 transition-all"
                     :class="
                         activeId === heading.id
-                            ? 'text-primary font-medium'
-                            : 'text-muted-foreground hover:text-foreground'
+                            ? 'border-primary text-primary font-medium'
+                            : 'text-muted-foreground hover:text-foreground hover:border-border border-transparent'
                     "
                 >
                     {{ heading.text }}
