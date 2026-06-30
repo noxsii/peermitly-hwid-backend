@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Middleware\EnsureActiveSubscription;
+use App\Http\Middleware\EnsureMatchingHwid;
 use App\Http\Middleware\EnsureUserRole;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Application;
@@ -26,6 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => EnsureUserRole::class,
             'subscribed' => EnsureActiveSubscription::class,
+            'hwid' => EnsureMatchingHwid::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

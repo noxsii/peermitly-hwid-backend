@@ -22,6 +22,7 @@ final class LoginRequest extends FormRequest
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
             'device_name' => ['nullable', 'string', 'max:255'],
+            'hwid' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -30,5 +31,10 @@ final class LoginRequest extends FormRequest
         $device = $this->string('device_name')->trim()->value();
 
         return $device !== '' ? $device : 'Windows App';
+    }
+
+    public function hwid(): string
+    {
+        return $this->string('hwid')->trim()->toString();
     }
 }

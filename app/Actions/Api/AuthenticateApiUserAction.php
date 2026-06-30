@@ -16,9 +16,13 @@ final readonly class AuthenticateApiUserAction
      * Sanctum token. Sign-in requires an active account AND an active
      * subscription.
      *
+     * The account is locked to the first device's hardware id (hwid). Once
+     * bound, sign-in from any other device is rejected. Each successful login
+     * revokes the account's previous tokens, leaving a single active session.
+     *
      * @throws ValidationException
      */
-    public function handle(string $email, string $password, string $deviceName): ApiAuthResult
+    public function handle(string $email, string $password, string $deviceName, string $hwid): ApiAuthResult
     {
         $user = User::query()->where('email', $email)->first();
 
@@ -34,6 +38,14 @@ final readonly class AuthenticateApiUserAction
             403,
             'You need an active subscription to sign in.',
         );
+
+        if ($user->hwid === null) {
+            $user->forceFill(['hwid' => $hwid])->save();
+        } elseif (! hash_equals($user->hwid, $hwid)) {
+            abort(403, 'This account is locked to another device.');
+        }
+
+        $user->tokens()->delete();
 
         $token = $user->createToken($deviceName, ['app:use'])->plainTextToken;
 

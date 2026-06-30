@@ -41,6 +41,7 @@ use Spatie\LaravelPasskeys\Models\Passkey;
  * @property string $password
  * @property UserRole $role
  * @property string|null $security_code
+ * @property string|null $hwid
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -84,6 +85,7 @@ use Spatie\LaravelPasskeys\Models\Passkey;
     'password',
     'role',
     'security_code',
+    'hwid',
     'is_active',
     'remember_token',
 )]

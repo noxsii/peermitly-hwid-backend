@@ -40,6 +40,11 @@ final class UserForm
                     ->helperText('Used to verify the user when they open a support ticket. Auto-generated on creation.')
                     ->maxLength(4)
                     ->dehydrated(fn (?string $state): bool => filled($state)),
+                TextInput::make('hwid')
+                    ->label('Gerät (HWID)')
+                    ->helperText('Hardware-ID, an die das Konto gebunden ist. Feld leeren, um die Bindung aufzuheben und Anmeldung von einem neuen Gerät zu erlauben.')
+                    ->maxLength(255)
+                    ->dehydrated(),
                 Toggle::make('is_active')
                     ->label('Active')
                     ->helperText('Inactive users are blocked from every authenticated request.')

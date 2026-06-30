@@ -33,6 +33,7 @@ test('active user with an active subscription receives a token, user and subscri
         'email' => 'player@example.com',
         'password' => 'correct-password',
         'device_name' => 'Gaming Rig',
+        'hwid' => 'hwid-abc',
     ]);
 
     $response->assertOk()
@@ -67,6 +68,7 @@ test('login days_remaining counts calendar days and is not inflated by time of d
     $this->postJson('/api/login', [
         'email' => 'player@example.com',
         'password' => 'correct-password',
+        'hwid' => 'hwid-abc',
     ])->assertOk()->assertJsonPath('subscription.days_remaining', 29);
 
     $this->travelBack();
@@ -78,9 +80,11 @@ test('the issued token authenticates subsequent requests', function (): void {
     $token = $this->postJson('/api/login', [
         'email' => 'player@example.com',
         'password' => 'correct-password',
+        'hwid' => 'hwid-abc',
     ])->json('token');
 
     $this->withToken($token)
+        ->withHeader('X-HWID', 'hwid-abc')
         ->getJson('/api/user')
         ->assertOk()
         ->assertJsonPath('email', 'player@example.com');
@@ -92,6 +96,7 @@ test('wrong credentials are rejected', function (): void {
     $this->postJson('/api/login', [
         'email' => 'player@example.com',
         'password' => 'wrong-password',
+        'hwid' => 'hwid-abc',
     ])->assertStatus(422)->assertJsonValidationErrors('email');
 });
 
@@ -99,6 +104,7 @@ test('unknown email is rejected', function (): void {
     $this->postJson('/api/login', [
         'email' => 'ghost@example.com',
         'password' => 'whatever',
+        'hwid' => 'hwid-abc',
     ])->assertStatus(422)->assertJsonValidationErrors('email');
 });
 
@@ -113,6 +119,7 @@ test('inactive users cannot sign in even with a subscription', function (): void
     $this->postJson('/api/login', [
         'email' => 'player@example.com',
         'password' => 'correct-password',
+        'hwid' => 'hwid-abc',
     ])->assertForbidden();
 });
 
@@ -126,6 +133,7 @@ test('active users without a subscription cannot sign in', function (): void {
     $this->postJson('/api/login', [
         'email' => 'player@example.com',
         'password' => 'correct-password',
+        'hwid' => 'hwid-abc',
     ])->assertForbidden();
 });
 
@@ -140,13 +148,75 @@ test('an expired subscription does not grant sign in', function (): void {
     $this->postJson('/api/login', [
         'email' => 'player@example.com',
         'password' => 'correct-password',
+        'hwid' => 'hwid-abc',
     ])->assertForbidden();
 });
 
 test('login validates required fields', function (): void {
     $this->postJson('/api/login', [])
         ->assertStatus(422)
-        ->assertJsonValidationErrors(['email', 'password']);
+        ->assertJsonValidationErrors(['email', 'password', 'hwid']);
+});
+
+test('the first login binds the account to the supplied hwid', function (): void {
+    $user = activeApiUser();
+
+    $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'hwid' => 'hwid-first',
+    ])->assertOk();
+
+    expect($user->refresh()->hwid)->toBe('hwid-first');
+});
+
+test('a login from a different device is rejected once bound', function (): void {
+    $user = activeApiUser();
+    $user->forceFill(['hwid' => 'hwid-first'])->save();
+
+    $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'hwid' => 'hwid-second',
+    ])->assertForbidden();
+});
+
+test('a login from the bound device is allowed and revokes the previous session', function (): void {
+    $user = activeApiUser();
+
+    $first = $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'hwid' => 'hwid-first',
+    ])->json('token');
+
+    $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'hwid' => 'hwid-first',
+    ])->assertOk();
+
+    expect($user->tokens()->count())->toBe(1);
+
+    $this->withToken($first)
+        ->withHeader('X-HWID', 'hwid-first')
+        ->getJson('/api/user')
+        ->assertUnauthorized();
+});
+
+test('an authed request with a mismatched hwid header is rejected', function (): void {
+    activeApiUser();
+
+    $token = $this->postJson('/api/login', [
+        'email' => 'player@example.com',
+        'password' => 'correct-password',
+        'hwid' => 'hwid-first',
+    ])->json('token');
+
+    $this->withToken($token)
+        ->withHeader('X-HWID', 'hwid-other')
+        ->getJson('/api/user')
+        ->assertForbidden();
 });
 
 test('login is rate limited', function (): void {

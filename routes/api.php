@@ -14,7 +14,7 @@ Route::post('/login', [AuthController::class, 'login'])
     ->middleware('throttle:6,1')
     ->name('login');
 
-Route::middleware('auth:sanctum')->group(function (): void {
+Route::middleware(['auth:sanctum', 'hwid'])->group(function (): void {
     Route::get('/user', static fn (Request $request) => $request->user());
 
     Route::get('/subscription', [SubscriptionController::class, 'show'])

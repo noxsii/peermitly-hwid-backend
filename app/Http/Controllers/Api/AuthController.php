@@ -18,6 +18,7 @@ final class AuthController
             $request->string('email')->toString(),
             $request->string('password')->toString(),
             $request->deviceName(),
+            $request->hwid(),
         );
 
         return response()->json([

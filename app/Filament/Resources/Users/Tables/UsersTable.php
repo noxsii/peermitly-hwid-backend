@@ -32,6 +32,13 @@ final class UsersTable
                     ->badge()
                     ->copyable()
                     ->placeholder('—'),
+                TextColumn::make('hwid')
+                    ->label('Gerät (HWID)')
+                    ->badge()
+                    ->copyable()
+                    ->limit(16)
+                    ->placeholder('Nicht gebunden')
+                    ->toggleable(),
                 TextColumn::make('role')
                     ->label('Role')
                     ->badge()
