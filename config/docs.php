@@ -19,6 +19,7 @@ return [
             'title' => 'Getting Started',
             'items' => [
                 ['slug' => 'introduction', 'title' => 'Introduction'],
+                ['slug' => 'starter', 'title' => 'Starter guide'],
             ],
         ],
         [
