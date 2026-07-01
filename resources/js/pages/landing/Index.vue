@@ -17,7 +17,8 @@ defineOptions({ layout: "" });
 
 const title = "Peermitly — The fast, beautiful local dev environment";
 const description =
-    "Peermitly is a blazing-fast local development environment for macOS, Windows and Linux. PHP, Node, Python, Ruby and Go, databases and services — zero config, instant .peer domains with automatic HTTPS.";
+    "Peermitly is a blazing-fast local development environment for macOS. PHP, Node, Python, Ruby and Go, databases and services — zero config, instant .peer domains with automatic HTTPS.";
+const imageAlt = "Peermitly — a fast, beautiful local development environment for macOS";
 </script>
 
 <template>
@@ -32,6 +33,7 @@ const description =
         <meta name="theme-color" content="#f97316" head-key="theme-color" />
 
         <meta property="og:type" content="website" head-key="og:type" />
+        <meta property="og:locale" content="en_US" head-key="og:locale" />
         <meta
             property="og:site_name"
             :content="siteName"
@@ -45,6 +47,21 @@ const description =
         />
         <meta property="og:url" :content="canonical" head-key="og:url" />
         <meta property="og:image" :content="ogImage" head-key="og:image" />
+        <meta
+            property="og:image:width"
+            content="1200"
+            head-key="og:image:width"
+        />
+        <meta
+            property="og:image:height"
+            content="630"
+            head-key="og:image:height"
+        />
+        <meta
+            property="og:image:alt"
+            :content="imageAlt"
+            head-key="og:image:alt"
+        />
 
         <meta
             name="twitter:card"
@@ -58,6 +75,11 @@ const description =
             head-key="tw:description"
         />
         <meta name="twitter:image" :content="ogImage" head-key="tw:image" />
+        <meta
+            name="twitter:image:alt"
+            :content="imageAlt"
+            head-key="tw:image:alt"
+        />
     </Head>
 
     <div class="bg-background text-foreground min-h-screen">

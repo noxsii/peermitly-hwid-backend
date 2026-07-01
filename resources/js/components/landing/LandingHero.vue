@@ -93,7 +93,7 @@ const frameworks = [
             </div>
 
             <p class="text-muted-foreground mt-4 text-xs">
-                macOS · Windows · Linux · Zero config
+                macOS · Apple Silicon &amp; Intel · Zero config
             </p>
 
             <!-- supported frameworks strip -->

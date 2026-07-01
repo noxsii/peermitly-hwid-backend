@@ -7,7 +7,7 @@ const steps = [
         icon: Download,
         title: "Install Peermitly",
         description:
-            "Grab the app for macOS, Windows or Linux and install it in under a minute. No dependencies to set up.",
+            "Grab the app for macOS and install it in under a minute. No dependencies to set up.",
     },
     {
         icon: FolderPlus,

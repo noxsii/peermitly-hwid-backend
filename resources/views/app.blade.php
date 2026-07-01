@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,6 +6,7 @@
 
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo.svg') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
     <script>
         (function () {
@@ -16,6 +17,22 @@
                 if (isDark) document.documentElement.classList.add('dark');
             } catch (e) {}
         })();
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "SoftwareApplication",
+            "name": "Peermitly",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "macOS",
+            "url": "{{ config('app.url') }}",
+            "offers": {
+                "@@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        }
     </script>
 
     @vite(['resources/css/app.css', 'resources/js/app.ts'])

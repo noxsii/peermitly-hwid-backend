@@ -10,7 +10,7 @@ import {
 const faqs = [
     {
         q: "Which platforms does Peermitly run on?",
-        a: "macOS (Apple Silicon and Intel), Windows 11 and Linux. The same projects and .peer domains work identically across all three.",
+        a: "macOS — both Apple Silicon and Intel Macs. A native app built specifically for the Mac.",
     },
     {
         q: "Do I need Docker or a virtual machine?",
