@@ -31,7 +31,9 @@ Make sure `/opt/homebrew/bin` comes first in your `PATH`. If the app later warns
 
 ## 🎼 3. Install Composer
 
-Composer is required to create and manage PHP/Laravel projects.
+You only need Composer if you work on **PHP projects** such as Laravel or Symfony — it's the package manager those frameworks use. Building only with Node, static sites or other stacks? You can skip this step.
+
+Composer is required to create and manage PHP projects.
 
 ```bash
 brew install composer
