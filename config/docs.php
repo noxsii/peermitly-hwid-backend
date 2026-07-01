@@ -30,6 +30,13 @@ return [
             ],
         ],
         [
+            'title' => 'Services',
+            'items' => [
+                ['slug' => 'nginx', 'title' => 'nginx'],
+                ['slug' => 'dns', 'title' => 'DNS'],
+            ],
+        ],
+        [
             'title' => 'Troubleshooting',
             'items' => [
                 ['slug' => 'homebrew-php-path', 'title' => 'Shell is not using the Homebrew PHP'],
