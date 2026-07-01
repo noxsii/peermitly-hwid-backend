@@ -17,7 +17,7 @@ At the top of the app, in the header, there is a **server icon** with a small st
 - 🟠 **Amber** — something is installed but not running, or DNS isn't set up yet.
 - 🟢 **Green** — everything is installed, running and resolving. You're ready to build.
 
-![The services indicator in the header](/screenshots/services_header.png)
+![The services indicator in the header](/images/screenshots/services_header.png)
 
 Your goal for this guide is simple: **make that dot green.**
 
