@@ -42,6 +42,7 @@ return [
             'items' => [
                 ['slug' => 'laravel', 'title' => 'Laravel'],
                 ['slug' => 'symfony', 'title' => 'Symfony'],
+                ['slug' => 'vue', 'title' => 'Vue'],
             ],
         ],
         [
