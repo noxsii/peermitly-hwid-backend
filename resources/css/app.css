@@ -329,13 +329,12 @@
 
     .docs-prose table {
         width: 100%;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
         font-size: 0.875rem;
-        display: block;
-        overflow-x: auto;
+        border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
         border-radius: 0.75rem;
-        box-shadow: 0 0 0 1px
-            color-mix(in oklch, var(--border) 70%, transparent);
+        overflow: hidden;
     }
 
     .docs-prose th,

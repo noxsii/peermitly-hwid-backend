@@ -34,6 +34,7 @@ return [
             'items' => [
                 ['slug' => 'nginx', 'title' => 'nginx'],
                 ['slug' => 'dns', 'title' => 'DNS'],
+                ['slug' => 'mail', 'title' => 'Mail'],
             ],
         ],
         [
