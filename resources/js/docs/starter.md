@@ -49,7 +49,7 @@ DNS is what makes your `.peer` domains resolve locally, so `my-app.peer` points 
 
 Go back to the header. With **nginx running** and **DNS working**, the services dot turns **green**.
 
-> If it stays amber, open the services menu and check which item is still **Stopped** or **Not set up** — start that one. The dot only turns green when *everything* is ready.
+> If it stays amber, open the services menu and check which item is still **Stopped** or **Not set up** — start that one. The dot only turns green when _everything_ is ready.
 
 ## 🎉 You're ready
 

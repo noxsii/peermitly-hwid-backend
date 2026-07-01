@@ -62,12 +62,12 @@ If a site stops responding or you changed a setting that needs a fresh start, cl
 
 Each version has its own settings, editable from the **Settings** dialog. Peermitly reads the current values from `php.ini` and writes your changes back safely.
 
-| Setting | What it controls | Typical value |
-|---|---|---|
-| `memory_limit` | Maximum memory a single script may use | `256M` – `512M` |
-| `upload_max_filesize` | Largest single file that can be uploaded | `64M` |
-| `post_max_size` | Largest total size of a POST request (must be ≥ upload size) | `64M` – `128M` |
-| `max_execution_time` | Seconds a script may run before timing out | `30` – `60` |
+| Setting               | What it controls                                             | Typical value   |
+| --------------------- | ------------------------------------------------------------ | --------------- |
+| `memory_limit`        | Maximum memory a single script may use                       | `256M` – `512M` |
+| `upload_max_filesize` | Largest single file that can be uploaded                     | `64M`           |
+| `post_max_size`       | Largest total size of a POST request (must be ≥ upload size) | `64M` – `128M`  |
+| `max_execution_time`  | Seconds a script may run before timing out                   | `30` – `60`     |
 
 To change them:
 

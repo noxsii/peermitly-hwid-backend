@@ -18,9 +18,9 @@ The **Mail** service is a local mail catcher built on **Mailpit**. Every email y
 
 Mailpit runs two local endpoints:
 
-| Endpoint | Address | Purpose |
-|---|---|---|
-| **SMTP** | `127.0.0.1:1025` | Your app sends mail here |
+| Endpoint   | Address          | Purpose                                    |
+| ---------- | ---------------- | ------------------------------------------ |
+| **SMTP**   | `127.0.0.1:1025` | Your app sends mail here                   |
 | **Web UI** | `127.0.0.1:8025` | View caught mail (also visible in the app) |
 
 Your app talks to the SMTP endpoint; Mailpit stores what it receives and shows it in the inbox. The SMTP port defaults to **1025** and can be changed (see below).

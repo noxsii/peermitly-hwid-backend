@@ -86,11 +86,13 @@ const features = [
                 </div>
             </Reveal>
 
-            <div class="mx-auto mt-8 flex max-w-md flex-col items-center text-center">
+            <div
+                class="mx-auto mt-8 flex max-w-md flex-col items-center text-center"
+            >
                 <p class="text-muted-foreground text-sm">
                     Peermitly is currently in an open
-                    <span class="text-foreground font-medium">test phase</span> —
-                    free to use while we're in beta. Got feedback or need a
+                    <span class="text-foreground font-medium">test phase</span>
+                    — free to use while we're in beta. Got feedback or need a
                     hand?
                 </p>
                 <a

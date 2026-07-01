@@ -15,13 +15,13 @@ defineOptions({ layout: "" });
             <Link href="/" class="flex items-center gap-2.5">
                 <LogoMark size="size-9" />
                 <span class="text-lg font-semibold tracking-tight"
-                >Peermitly</span
+                    >Peermitly</span
                 >
             </Link>
             <Link
                 href="/login"
                 class="text-muted-foreground hover:text-foreground text-sm"
-            >Log in</Link
+                >Log in</Link
             >
         </header>
 

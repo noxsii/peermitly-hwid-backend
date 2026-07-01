@@ -18,7 +18,8 @@ defineOptions({ layout: "" });
 const title = "Peermitly — The fast, beautiful local dev environment";
 const description =
     "Peermitly is a blazing-fast local development environment for macOS. PHP, Node, Python, Ruby and Go, databases and services — zero config, instant .peer domains with automatic HTTPS.";
-const imageAlt = "Peermitly — a fast, beautiful local development environment for macOS";
+const imageAlt =
+    "Peermitly — a fast, beautiful local development environment for macOS";
 </script>
 
 <template>
