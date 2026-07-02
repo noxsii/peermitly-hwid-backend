@@ -48,6 +48,12 @@ return [
             ],
         ],
         [
+            'title' => 'Search',
+            'items' => [
+                ['slug' => 'meilisearch', 'title' => 'Meilisearch'],
+            ],
+        ],
+        [
             'title' => 'Tools',
             'items' => [
                 ['slug' => 'debug', 'title' => 'Debug'],
