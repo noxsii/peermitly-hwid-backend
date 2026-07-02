@@ -24,12 +24,12 @@ const frameworks = [
     <section class="relative overflow-hidden">
         <!-- background grid -->
         <div class="landing-grid pointer-events-none absolute inset-0" />
-        <!-- glow blobs -->
+        <!-- glow blobs (decorative — hidden on mobile for scroll performance) -->
         <div
-            class="bg-primary/25 pointer-events-none absolute -top-32 left-1/2 size-[40rem] -translate-x-1/2 rounded-full blur-[120px]"
+            class="bg-primary/25 pointer-events-none absolute -top-32 left-1/2 hidden size-[40rem] -translate-x-1/2 rounded-full blur-[120px] sm:block"
         />
         <div
-            class="pointer-events-none absolute top-40 -right-20 size-80 rounded-full bg-cyan-400/15 blur-[100px]"
+            class="pointer-events-none absolute top-40 -right-20 hidden size-80 rounded-full bg-cyan-400/15 blur-[100px] sm:block"
         />
 
         <div

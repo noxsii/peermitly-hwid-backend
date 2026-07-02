@@ -27,7 +27,9 @@ export function useScrollReveal(): {
                 stop();
             }
         },
-        { threshold: 0.15 },
+        // Reveal a little before the element scrolls into view so content is
+        // never blank on fast mobile scrolling.
+        { threshold: 0, rootMargin: "0px 0px 20% 0px" },
     );
 
     return { target, isVisible };

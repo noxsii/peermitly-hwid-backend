@@ -43,10 +43,10 @@ watch(
             aria-hidden="true"
         >
             <div
-                class="bg-primary/15 absolute -top-40 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full blur-[120px]"
+                class="bg-primary/15 absolute -top-40 left-1/2 hidden h-[34rem] w-[34rem] -translate-x-1/2 rounded-full blur-[120px] sm:block"
             />
             <div
-                class="bg-primary/10 absolute top-1/3 -right-40 h-[26rem] w-[26rem] rounded-full blur-[120px]"
+                class="bg-primary/10 absolute top-1/3 -right-40 hidden h-[26rem] w-[26rem] rounded-full blur-[120px] sm:block"
             />
             <div
                 class="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,color-mix(in_oklch,var(--border)_60%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklch,var(--border)_60%,transparent)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"

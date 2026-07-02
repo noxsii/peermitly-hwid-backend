@@ -20,7 +20,7 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
                     class="landing-grid pointer-events-none absolute inset-0"
                 />
                 <div
-                    class="bg-primary/25 pointer-events-none absolute -bottom-24 left-1/2 size-96 -translate-x-1/2 rounded-full blur-[100px]"
+                    class="bg-primary/25 pointer-events-none absolute -bottom-24 left-1/2 hidden size-96 -translate-x-1/2 rounded-full blur-[100px] sm:block"
                 />
 
                 <div class="relative">
