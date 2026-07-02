@@ -18,13 +18,13 @@ When you create a React site, Peermitly runs the official **`npm create vite@lat
 Pick exactly what goes into your project — these map to the create-vite React template and common add-ons:
 
 - **TypeScript** — set the project up with TypeScript.
-- **SWC** — use the SWC compiler for faster builds (instead of Babel).
+- **React Compiler** — enable the React Compiler for automatic optimization.
 - **React Router** — add client-side routing.
 - **Redux Toolkit** — add Redux Toolkit for state management.
+- **TanStack Query** — add TanStack Query for server-state and data fetching.
 - **Vitest** — set up unit testing with Vitest.
 - **ESLint** — add linting.
 - **Prettier** — add code formatting.
-- **React DevTools** — include the React DevTools helper.
 
 Choose only the pieces you want; leave the rest off for a leaner setup.
 

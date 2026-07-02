@@ -44,6 +44,7 @@ return [
                 ['slug' => 'symfony', 'title' => 'Symfony'],
                 ['slug' => 'vue', 'title' => 'Vue'],
                 ['slug' => 'react', 'title' => 'React'],
+                ['slug' => 'astro', 'title' => 'Astro'],
             ],
         ],
         [
