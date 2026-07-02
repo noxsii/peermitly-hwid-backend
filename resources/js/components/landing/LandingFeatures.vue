@@ -1,5 +1,14 @@
 <script setup lang="ts">
-import { Boxes, Database, Gauge, Globe, Lock, Zap } from "@lucide/vue";
+import {
+    Boxes,
+    Bug,
+    Database,
+    Gauge,
+    Globe,
+    Lock,
+    Sparkles,
+    Zap,
+} from "@lucide/vue";
 import Reveal from "@/components/landing/Reveal.vue";
 
 const features = [
@@ -38,6 +47,18 @@ const features = [
         title: "Zero config",
         description:
             "Sensible defaults out of the box. No YAML, no Dockerfiles, no terminal gymnastics to get running.",
+    },
+    {
+        icon: Sparkles,
+        title: "Scaffold new apps",
+        description:
+            "Spin up fresh Vue, React or Astro projects in a click — dependencies installed, Vite wired up, served on HTTPS.",
+    },
+    {
+        icon: Bug,
+        title: "Live debug tool",
+        description:
+            "Call dd(), dump() or peer() in any PHP site and see the values live in a searchable window. No package to install.",
     },
 ];
 </script>

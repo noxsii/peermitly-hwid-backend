@@ -18,11 +18,19 @@ const faqs = [
     },
     {
         q: "Which frameworks are supported?",
-        a: "20+ stacks including Laravel, Symfony, WordPress, Statamic, Node.js, Next.js, Django, Rails and more. Peermitly auto-detects the stack in your project folder.",
+        a: "20+ stacks including Laravel, Symfony, WordPress, Statamic, Vue, React, Astro, Node.js, Next.js, Django, Rails and more. Peermitly auto-detects the stack in your project folder.",
     },
     {
         q: "Can I run multiple PHP or Node versions?",
         a: "Yes. Switch the runtime version per project with one click — different sites can run on different versions side by side without conflicts.",
+    },
+    {
+        q: "Can Peermitly scaffold new front-end apps?",
+        a: "Yes. Create a fresh Vue, React or Astro project from the app — Peermitly runs the official scaffolder, installs dependencies, configures Vite and serves it on a secure .peer domain with hot reload.",
+    },
+    {
+        q: "Is there a built-in way to debug my code?",
+        a: "Yes. Turn on the Debug tool and call dd(), dump() or peer() in any PHP site — values appear live in a searchable window, tagged with the site, request and exact file and line. No package to install.",
     },
     {
         q: "Is local HTTPS included?",
