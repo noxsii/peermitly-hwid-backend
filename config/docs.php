@@ -48,6 +48,12 @@ return [
             ],
         ],
         [
+            'title' => 'Tools',
+            'items' => [
+                ['slug' => 'debug', 'title' => 'Debug'],
+            ],
+        ],
+        [
             'title' => 'Troubleshooting',
             'items' => [
                 ['slug' => 'homebrew-php-path', 'title' => 'Shell is not using the Homebrew PHP'],
