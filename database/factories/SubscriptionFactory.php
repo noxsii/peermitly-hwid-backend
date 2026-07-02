@@ -25,7 +25,11 @@ final class SubscriptionFactory extends Factory
      */
     public function definition(): array
     {
-        $plan = fake()->randomElement(SubscriptionPlan::cases());
+        $plan = fake()->randomElement([
+            SubscriptionPlan::DAY,
+            SubscriptionPlan::WEEK,
+            SubscriptionPlan::MONTH,
+        ]);
         // Keep the default subscription reliably active: the start is recent
         // enough that even a one-day plan still expires in the future.
         $start = now()->subHours(fake()->numberBetween(0, 12));

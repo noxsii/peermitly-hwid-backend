@@ -28,6 +28,33 @@ test('returns valid true with subscription data for an active subscriber', funct
         ]);
 });
 
+test('a trial subscription reports 14 days and the trial flag', function (): void {
+    $user = User::factory()->create(['is_active' => true]);
+    resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::TRIAL);
+    Sanctum::actingAs($user, ['app:use']);
+
+    $this->getJson('/api/subscription')
+        ->assertOk()
+        ->assertJsonPath('valid', true)
+        ->assertJsonPath('subscription.plan', 'trial')
+        ->assertJsonPath('subscription.is_trial', true)
+        ->assertJsonPath('subscription.is_lifetime', false)
+        ->assertJsonPath('subscription.days_remaining', 14);
+});
+
+test('a lifetime subscription is valid with a null days_remaining', function (): void {
+    $user = User::factory()->create(['is_active' => true]);
+    resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::LIFETIME);
+    Sanctum::actingAs($user, ['app:use']);
+
+    $this->getJson('/api/subscription')
+        ->assertOk()
+        ->assertJsonPath('valid', true)
+        ->assertJsonPath('subscription.plan', 'lifetime')
+        ->assertJsonPath('subscription.is_lifetime', true)
+        ->assertJsonPath('subscription.days_remaining', null);
+});
+
 test('returns valid false and null subscription when none is active', function (): void {
     $user = User::factory()->create(['is_active' => true]);
     Subscription::factory()->for($user)->expired()->create();
