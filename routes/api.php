@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\AppUpdateController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ChangelogController;
 use App\Http\Controllers\Api\Health\HealthCheckController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Resources\UserResource;
@@ -23,4 +24,7 @@ Route::middleware(['auth:sanctum', 'hwid'])->group(function (): void {
 
     Route::get('/subscription', [SubscriptionController::class, 'show'])
         ->name('api.subscription.status');
+
+    Route::get('/changelogs', [ChangelogController::class, 'index'])
+        ->name('api.changelogs.index');
 });
