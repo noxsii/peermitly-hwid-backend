@@ -1,11 +1,11 @@
 ---
 title: Debug
-description: The Peermitly Debug tool — dump values from any PHP site with dd(), dump() or peer() and see them live in a searchable window, no packages to install.
+description: The Peermitly Debug tool — dump values from any PHP or front-end site with dd(), dump(), peer() or console.log and see them live in a searchable window, no packages to install.
 ---
 
 # 🐛 Debug
 
-The **Debug** tool gives you **live insights from your PHP sites**. Call `dd()`, `dump()` or `peer()` anywhere in your PHP code and the value shows up instantly in the Debug window — fully expandable, searchable, and tagged with where it came from. No Composer package, no config, no browser extension: it works in **every** Peermitly PHP site out of the box.
+The **Debug** tool gives you **live insights from your sites**. Call `dd()`, `dump()` or `peer()` anywhere in your PHP code — or `peer()` and `console.log` in your Vue, React and Astro sites — and the value shows up instantly in the Debug window, fully expandable, searchable, and tagged with where it came from. No Composer package, no npm package, no config, no browser extension: it works in **every** Peermitly site out of the box.
 
 Think of it as a built-in dump viewer. Instead of dumping into the middle of your HTML response (and breaking the page), your values are sent to a separate window where you can read them in peace.
 
@@ -38,15 +38,39 @@ You use the tool straight from your PHP code with one of three functions. Pass i
 
 You can pass **several values at once** — `dd($user, $order, $total)` — and each one appears in the entry.
 
+## 🟨 JavaScript (Vue / React / Astro sites)
+
+Debug isn't just for PHP — it also captures from the browser on your front-end sites. In **any** component or file, `peer()` is available **globally**, so there is nothing to import:
+
+```js
+// your own call (recommended, orange badge):
+peer(user);
+peer("checkout state", cart, total);
+
+// or just keep logging as usual — it's captured automatically:
+console.log("hello", { a: 1 });
+console.warn("careful");
+console.error(new Error("boom"));
+```
+
+Then open the page in your browser at **`http://your-site.peer`** — this only works over the **`.peer` domain**, not `localhost:5173`, because the capture script is injected by Peermitly's proxy. Every log then lands **live** in the Debug window with a yellow **JS** badge, the matching `peer` / `console.log` badge, and the `file.js:line` it came from.
+
+> **TypeScript complaining about `peer(...)`?** Add a one-liner to the site's `src/vite-env.d.ts`:
+>
+> ```ts
+> declare function peer(...vars: unknown[]): unknown;
+> ```
+
 ## 🔎 What each dump shows
 
 Every entry in the Debug window is tagged so you always know where it came from:
 
 - **Time** — when the dump was sent (e.g. `13:13:27`).
-- **Function** — which call produced it: `dd()`, `dump()` or `peer()`.
+- **Language** — a badge showing where it came from: PHP, or a yellow **JS** badge for browser dumps.
+- **Function** — which call produced it: `dd()`, `dump()`, `peer()` on the PHP side, or `peer()` / `console.log` / `console.warn` / `console.error` in the browser.
 - **Site** — the site that sent it, e.g. `meine-laravel-app.peer`.
 - **Request** — the HTTP method and path, e.g. `GET /`.
-- **Source** — the exact file and line the call sits on, e.g. `routes/web.php:8` — so you can jump straight back to it.
+- **Source** — the exact file and line the call sits on, e.g. `routes/web.php:8` or `App.vue:12` — so you can jump straight back to it.
 
 The value itself is shown as an **expandable tree**. Arrays, Collections, objects and enums are typed and can be folded open and closed. Long strings and very large/deeply nested structures are trimmed so the window stays fast.
 
@@ -89,6 +113,6 @@ dd($request->all());
 ## 💡 Notes
 
 - **For local development.** Debug is a development helper. Remove your `dd()` / `dump()` / `peer()` calls before shipping — and if any are left, turning Debug **off** stops them from doing anything.
-- **Works everywhere.** Laravel, Symfony or plain PHP — the functions are available in every Peermitly PHP site while Debug is on.
+- **Works everywhere.** Laravel, Symfony or plain PHP — the functions are available in every Peermitly PHP site while Debug is on. On Vue, React and Astro sites, `peer()` and your `console` logs are captured too — as long as you open the site over its `.peer` domain.
 - **`dd()` really stops.** Like the framework `dd()`, it ends the request. The browser will show a blank/partial page — that's expected; check the Debug window for the value.
 - **Nothing showing up?** Make sure Debug is switched **on**, that the code path actually runs, and reload the page.
