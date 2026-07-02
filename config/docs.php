@@ -43,6 +43,7 @@ return [
                 ['slug' => 'laravel', 'title' => 'Laravel'],
                 ['slug' => 'symfony', 'title' => 'Symfony'],
                 ['slug' => 'vue', 'title' => 'Vue'],
+                ['slug' => 'react', 'title' => 'React'],
             ],
         ],
         [
