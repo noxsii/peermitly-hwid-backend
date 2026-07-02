@@ -42,7 +42,7 @@ status page, and a clean "Made in Germany" badge was placed in the footer.
 
 - `routes/web.php`
 - `app/Http/Controllers/ImprintController.php`
-- `../../resources/js/pages/imprint/Index_REAL.vue`
+- `../../resources/js/pages/imprint/Index.vue`
 - `resources/js/components/landing/LandingFooter.vue`
 
 ## Wichtige Hinweise

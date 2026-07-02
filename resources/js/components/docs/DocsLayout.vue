@@ -55,7 +55,7 @@ watch(
 
         <!-- top bar -->
         <header
-            class="border-border/50 bg-background/70 transform-gpu sticky top-0 z-40 transform border-b backdrop-blur-xl [will-change:transform]"
+            class="border-border/50 bg-background/70 sticky top-0 z-40 border-b backdrop-blur-xl"
         >
             <div
                 class="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6"

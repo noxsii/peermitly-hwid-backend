@@ -42,7 +42,51 @@ defineOptions({ layout: "" });
                 </p>
             </header>
 
-            ...
+            <article
+                class="prose prose-sm dark:prose-invert text-foreground/90 max-w-none [&_a]:text-primary [&_a]:underline [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:text-foreground [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-base [&_h3]:font-semibold [&_li]:my-1 [&_p]:my-3 [&_p]:leading-7 [&_ul]:my-3 [&_ul]:list-disc [&_ul]:pl-5"
+            >
+                <h2>Service provider</h2>
+                <p>
+                    Dennis Schirra <br />
+                    Bernkasteler Str. 34 <br />
+                    54484 Maring-Noviand <br />
+                    Germany
+                </p>
+
+                <h2>Contact</h2>
+                <p>
+                    Email:
+                    <a href="mailto:hello@peermitly.de">hello@peermitly.de</a>
+                    <br />
+                    Web: <a href="https://peermitly.de">peermitly.de</a>
+                </p>
+
+                <h2>Responsible for the content under § 18 (2) MStV</h2>
+                <p>
+                    Dennis Schirra <br />
+                    Bernkasteler Str. 34 <br />
+                    54484 Maring-Noviand <br />
+                    Germany
+                </p>
+
+                <h2>EU dispute resolution</h2>
+                <p>
+                    The European Commission provides a platform for online
+                    dispute resolution (ODR):
+                    <a
+                        href="https://ec.europa.eu/consumers/odr/"
+                        target="_blank"
+                        rel="noopener"
+                        >https://ec.europa.eu/consumers/odr/</a
+                    >. You can find our email address above in this imprint.
+                </p>
+
+                <h2>Consumer dispute resolution</h2>
+                <p>
+                    We are not willing or obliged to participate in dispute
+                    resolution proceedings before a consumer arbitration board.
+                </p>
+            </article>
         </main>
 
         <footer

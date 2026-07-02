@@ -25,11 +25,11 @@ defineEmits<{
                 <li v-for="item in section.items" :key="item.slug">
                     <Link
                         :href="`/guide/${item.slug}`"
-                        class="group relative block rounded-lg px-3 py-1.5 text-sm transition-all"
+                        class="group relative block rounded-lg px-3 py-1.5 text-sm transition-colors"
                         :class="
                             item.slug === currentSlug
                                 ? 'from-primary/12 text-primary bg-gradient-to-r to-transparent font-medium'
-                                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:translate-x-0.5'
+                                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                         "
                         @click="$emit('navigate')"
                     >
