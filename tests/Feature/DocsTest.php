@@ -77,6 +77,15 @@ test('the sidebar editor guide slug renders', function (): void {
         );
 });
 
+test('the typesense guide slug renders', function (): void {
+    get('/guide/typesense')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'typesense'),
+        );
+});
+
 test('an unknown doc slug returns 404', function (): void {
     get('/guide/does-not-exist')->assertNotFound();
 });

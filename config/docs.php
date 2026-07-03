@@ -34,7 +34,7 @@ return [
             'items' => [
                 ['slug' => 'nginx', 'title' => 'nginx'],
                 ['slug' => 'dns', 'title' => 'DNS'],
-                ['slug' => 'mail', 'title' => 'Mail'],
+                ['slug' => 'mail', 'title' => 'Mail', 'pro' => true],
             ],
         ],
         [
@@ -52,6 +52,7 @@ return [
             'title' => 'Search',
             'items' => [
                 ['slug' => 'meilisearch', 'title' => 'Meilisearch'],
+                ['slug' => 'typesense', 'title' => 'Typesense'],
             ],
         ],
         [
