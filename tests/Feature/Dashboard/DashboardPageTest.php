@@ -48,7 +48,19 @@ test('the active subscription is shared on the auth payload', function (): void 
             ->where('auth.subscription.plan', 'Weekly')
             ->where('auth.subscription.status', 'active')
             ->where('auth.subscription.days_remaining', 7)
+            ->where('auth.subscription.is_lifetime', false)
             ->has('auth.subscription.ends_at'));
+});
+
+test('a lifetime subscription is flagged as lifetime', function (): void {
+    $user = User::factory()->create();
+    resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::LIFETIME);
+
+    $this->actingAs($user)
+        ->get('/dashboard')
+        ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
+            ->where('auth.subscription.plan', 'Lifetime')
+            ->where('auth.subscription.is_lifetime', true));
 });
 
 test('days_remaining counts calendar days and is not inflated by time of day', function (): void {

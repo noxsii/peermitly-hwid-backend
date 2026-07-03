@@ -91,15 +91,25 @@ const daysLabel = computed(() => {
                     <h2 class="mt-5 text-xl font-semibold tracking-tight">
                         {{ subscription?.plan }}
                     </h2>
-                    <p
-                        class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
-                    >
-                        <Clock class="size-4" />
-                        {{ daysLabel }}
-                    </p>
-                    <p class="text-muted-foreground mt-1 text-xs">
-                        Valid until {{ expiresOn }}
-                    </p>
+                    <template v-if="subscription?.is_lifetime">
+                        <p
+                            class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
+                        >
+                            <Clock class="size-4" />
+                            Never expires
+                        </p>
+                    </template>
+                    <template v-else>
+                        <p
+                            class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
+                        >
+                            <Clock class="size-4" />
+                            {{ daysLabel }}
+                        </p>
+                        <p class="text-muted-foreground mt-1 text-xs">
+                            Valid until {{ expiresOn }}
+                        </p>
+                    </template>
                     <span
                         class="bg-primary/10 text-primary mt-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
                     >

@@ -42,7 +42,7 @@ final class HandleInertiaRequests extends Middleware
      * The user's currently active subscription, shared on every request so the
      * frontend can gate access. Null when there is none.
      *
-     * @return array{plan: string, status: string, ends_at: string, days_remaining: int}|null
+     * @return array{plan: string, status: string, ends_at: string, days_remaining: int, is_lifetime: bool}|null
      */
     private function subscriptionPayload(?User $user): ?array
     {
@@ -57,6 +57,7 @@ final class HandleInertiaRequests extends Middleware
             'status' => $subscription->status->value,
             'ends_at' => $subscription->ends_at->toIso8601String(),
             'days_remaining' => max(0, (int) round(today()->diffInDays($subscription->ends_at->copy()->startOfDay()))),
+            'is_lifetime' => $subscription->plan->isLifetime(),
         ];
     }
 

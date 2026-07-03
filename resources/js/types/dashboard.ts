@@ -3,4 +3,5 @@ export interface DashboardSubscription {
     status: string;
     ends_at: string;
     days_remaining: number;
+    is_lifetime: boolean;
 }
