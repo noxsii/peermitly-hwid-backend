@@ -21,6 +21,7 @@ export interface DocPage {
 export interface DocNavItem {
     slug: string;
     title: string;
+    pro?: boolean;
 }
 
 export interface DocSection {

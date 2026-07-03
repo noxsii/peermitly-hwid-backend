@@ -16,13 +16,13 @@ final class DocsController
      */
     public function show(GetDocSlugsAction $getSlugs, ?string $slug = null): Response
     {
-        /** @var array<int, array{title: string, items: array<int, array{slug: string, title: string}>}> $sections */
+        /** @var array<int, array{title: string, items: array<int, array{slug: string, title: string, pro?: bool}>}> $sections */
         $sections = config('docs.sections');
 
         $slugs = $getSlugs->handle($sections);
         $slug ??= $slugs->first();
 
-        abort_unless($slugs->contains($slug), 404);
+        abort_unless(is_string($slug) && $slugs->contains($slug), 404);
 
         return Inertia::render('docs/Show', [
             'slug' => $slug,

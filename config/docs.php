@@ -56,7 +56,7 @@ return [
         [
             'title' => 'Tools',
             'items' => [
-                ['slug' => 'debug', 'title' => 'Debug'],
+                ['slug' => 'debug', 'title' => 'Debug', 'pro' => true],
             ],
         ],
         [

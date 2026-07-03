@@ -37,7 +37,15 @@ defineEmits<{
                             v-if="item.slug === currentSlug"
                             class="bg-primary absolute top-1/2 left-0 h-4 w-0.5 -translate-y-1/2 rounded-full"
                         />
-                        {{ item.title }}
+                        <span class="inline-flex items-center gap-1.5">
+                            {{ item.title }}
+                            <span
+                                v-if="item.pro"
+                                class="from-primary to-orange-400 text-primary-foreground rounded-full bg-gradient-to-r px-1.5 py-0.5 text-[9px] font-bold tracking-wide uppercase"
+                            >
+                                Pro
+                            </span>
+                        </span>
                     </Link>
                 </li>
             </ul>
