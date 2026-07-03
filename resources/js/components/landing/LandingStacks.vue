@@ -19,6 +19,9 @@ const stacks = [
     "Vite",
     "Astro",
     "Go",
+    "Meilisearch",
+    "Typesense",
+    "Redis",
 ];
 
 // Duplicate the list so the marquee loops seamlessly.

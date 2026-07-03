@@ -6,6 +6,7 @@ import {
     Gauge,
     Globe,
     Lock,
+    Search,
     Sparkles,
     Zap,
 } from "@lucide/vue";
@@ -28,7 +29,7 @@ const features = [
         icon: Database,
         title: "Databases & services",
         description:
-            "MySQL, PostgreSQL, Redis, Mailpit, MinIO and more — spin them up and manage them from one dashboard.",
+            "MySQL, PostgreSQL, MongoDB, Redis, Meilisearch, Typesense and more — spin them up and manage them from one dashboard.",
     },
     {
         icon: Lock,
@@ -52,7 +53,13 @@ const features = [
         icon: Sparkles,
         title: "Scaffold new apps",
         description:
-            "Spin up fresh Vue, React or Astro projects in a click — dependencies installed, Vite wired up, served on HTTPS.",
+            "Spin up fresh Vue, React, Nuxt or Astro projects in a click — dependencies installed, Vite wired up, served on HTTPS.",
+    },
+    {
+        icon: Search,
+        title: "Built-in search engines",
+        description:
+            "Run Meilisearch or Typesense as a managed service — install a version, start it and connect your app in seconds.",
     },
     {
         icon: Bug,

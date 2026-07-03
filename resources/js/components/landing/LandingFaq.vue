@@ -18,7 +18,7 @@ const faqs = [
     },
     {
         q: "Which frameworks are supported?",
-        a: "20+ stacks including Laravel, Symfony, WordPress, Statamic, Vue, React, Astro, Node.js, Next.js, Django, Rails and more. Peermitly auto-detects the stack in your project folder.",
+        a: "20+ stacks including Laravel, Symfony, WordPress, Statamic, Vue, React, Nuxt, Astro, Node.js, Next.js, Django, Rails and more. Peermitly auto-detects the stack in your project folder.",
     },
     {
         q: "Can I run multiple PHP or Node versions?",
@@ -26,7 +26,11 @@ const faqs = [
     },
     {
         q: "Can Peermitly scaffold new front-end apps?",
-        a: "Yes. Create a fresh Vue, React or Astro project from the app — Peermitly runs the official scaffolder, installs dependencies, configures Vite and serves it on a secure .peer domain with hot reload.",
+        a: "Yes. Create a fresh Vue, React, Nuxt or Astro project from the app — Peermitly runs the official scaffolder, installs dependencies, configures Vite and serves it on a secure .peer domain with hot reload.",
+    },
+    {
+        q: "Does Peermitly support search engines?",
+        a: "Yes. Meilisearch and Typesense are built in as managed services — pick a version, start it with a click, and connect your app with the ready-made .env values. No Docker, no manual setup.",
     },
     {
         q: "Is there a built-in way to debug my code?",
