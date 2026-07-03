@@ -22,6 +22,6 @@ test('the stats widget renders the headline numbers', function (): void {
         ->assertSee('Benutzer')
         ->assertSee('Aktive Abonnements')
         ->assertSee('API-Schlüssel')
-        ->assertSee((string) User::count())
+        ->assertSee((string) User::query()->count())
         ->assertSee('1');
 });

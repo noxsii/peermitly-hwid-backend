@@ -24,9 +24,11 @@ final class SubscriptionResource extends JsonResource
             'status' => $this->status->value,
             'is_trial' => $this->plan->isTrial(),
             'is_lifetime' => $this->plan->isLifetime(),
+            'is_free' => $this->plan->isFree(),
+            'is_pro' => $this->plan->isPro(),
             'starts_at' => $this->starts_at->toIso8601String(),
             'ends_at' => $this->ends_at->toIso8601String(),
-            'days_remaining' => $this->plan->isLifetime()
+            'days_remaining' => $this->plan->isPerpetual()
                 ? null
                 : max(0, (int) round(today()->diffInDays($this->ends_at->copy()->startOfDay()))),
         ];

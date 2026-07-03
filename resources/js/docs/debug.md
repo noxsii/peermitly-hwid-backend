@@ -31,10 +31,10 @@ You use the tool straight from your PHP code with one of three functions. Pass i
 - **`peer($value)` — the Peermitly dump.** Works exactly like `dump()` (sends and continues, returns the value) and is guaranteed to be the Peermitly function even if a framework defines its own `dump()`. Use `peer()` when you always want the value in this window.
 
 | Function | Sends to Debug | Stops the script | Returns the value |
-|----------|:--------------:|:----------------:|:-----------------:|
-| `dd()`   | ✅ | ✅ (dies) | — |
-| `dump()` | ✅ | ❌ | ✅ |
-| `peer()` | ✅ | ❌ | ✅ |
+| -------- | :------------: | :--------------: | :---------------: |
+| `dd()`   |       ✅       |    ✅ (dies)     |         —         |
+| `dump()` |       ✅       |        ❌        |        ✅         |
+| `peer()` |       ✅       |        ❌        |        ✅         |
 
 You can pass **several values at once** — `dd($user, $order, $total)` — and each one appears in the entry.
 

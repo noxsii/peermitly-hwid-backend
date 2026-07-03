@@ -49,6 +49,8 @@ test('the active subscription is shared on the auth payload', function (): void 
             ->where('auth.subscription.status', 'active')
             ->where('auth.subscription.days_remaining', 7)
             ->where('auth.subscription.is_lifetime', false)
+            ->where('auth.subscription.is_pro', true)
+            ->where('auth.subscription.is_free', false)
             ->has('auth.subscription.ends_at'));
 });
 
@@ -60,7 +62,22 @@ test('a lifetime subscription is flagged as lifetime', function (): void {
         ->get('/dashboard')
         ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->where('auth.subscription.plan', 'Lifetime')
-            ->where('auth.subscription.is_lifetime', true));
+            ->where('auth.subscription.is_lifetime', true)
+            ->where('auth.subscription.is_pro', true)
+            ->where('auth.subscription.days_remaining', null));
+});
+
+test('a free subscription is flagged as free and non-pro without expiry', function (): void {
+    $user = User::factory()->create();
+    resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::FREE);
+
+    $this->actingAs($user)
+        ->get('/dashboard')
+        ->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
+            ->where('auth.subscription.plan', 'Free')
+            ->where('auth.subscription.is_free', true)
+            ->where('auth.subscription.is_pro', false)
+            ->where('auth.subscription.days_remaining', null));
 });
 
 test('days_remaining counts calendar days and is not inflated by time of day', function (): void {

@@ -6,10 +6,13 @@ namespace App\Filament\Widgets;
 
 use App\Models\Subscription;
 use App\Models\User;
+use Carbon\CarbonInterface;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Laravel\Sanctum\PersonalAccessToken;
 
 final class StatsOverview extends StatsOverviewWidget
@@ -21,19 +24,19 @@ final class StatsOverview extends StatsOverviewWidget
         $tokenTrend = $this->trend(PersonalAccessToken::query());
 
         return [
-            Stat::make('Benutzer', User::count())
+            Stat::make('Benutzer', User::query()->count())
                 ->description($this->weekLabel($userTrend))
                 ->descriptionIcon(Heroicon::ArrowTrendingUp)
                 ->chart($userTrend)
                 ->color('primary'),
 
             Stat::make('Aktive Abonnements', Subscription::whereActive()->count())
-                ->description('von '.Subscription::count().' insgesamt')
+                ->description('von '.Subscription::query()->count().' insgesamt')
                 ->descriptionIcon(Heroicon::CreditCard)
                 ->chart($subscriptionTrend)
                 ->color('success'),
 
-            Stat::make('API-Schlüssel', PersonalAccessToken::count())
+            Stat::make('API-Schlüssel', PersonalAccessToken::query()->count())
                 ->description($this->weekLabel($tokenTrend))
                 ->descriptionIcon(Heroicon::Key)
                 ->chart($tokenTrend)
@@ -44,7 +47,7 @@ final class StatsOverview extends StatsOverviewWidget
     /**
      * New records per day over the last 7 days, oldest first.
      *
-     * @param  Builder<covariant \Illuminate\Database\Eloquent\Model>  $query
+     * @param  Builder<covariant Model>  $query
      * @return list<float>
      */
     private function trend(Builder $query): array
@@ -52,7 +55,7 @@ final class StatsOverview extends StatsOverviewWidget
         $since = now()->subDays(6)->startOfDay();
         $buckets = array_fill(0, 7, 0.0);
 
-        /** @var \Illuminate\Support\Collection<int, \Carbon\CarbonInterface> $dates */
+        /** @var Collection<int, CarbonInterface> $dates */
         $dates = (clone $query)
             ->where('created_at', '>=', $since)
             ->pluck('created_at');

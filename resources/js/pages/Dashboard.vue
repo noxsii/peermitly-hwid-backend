@@ -36,6 +36,10 @@ const daysLabel = computed(() => {
     const days = subscription.value?.days_remaining ?? 0;
     return days === 1 ? "1 day left" : `${days} days left`;
 });
+
+const neverExpires = computed(
+    () => subscription.value?.is_lifetime || subscription.value?.is_free,
+);
 </script>
 
 <template>
@@ -91,7 +95,7 @@ const daysLabel = computed(() => {
                     <h2 class="mt-5 text-xl font-semibold tracking-tight">
                         {{ subscription?.plan }}
                     </h2>
-                    <template v-if="subscription?.is_lifetime">
+                    <template v-if="neverExpires">
                         <p
                             class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
                         >

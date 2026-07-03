@@ -21,11 +21,28 @@ test('returns valid true with subscription data for an active subscriber', funct
         ->assertJsonPath('subscription.plan', 'week')
         ->assertJsonPath('subscription.status', 'active')
         ->assertJsonPath('subscription.days_remaining', 7)
+        ->assertJsonPath('subscription.is_pro', true)
+        ->assertJsonPath('subscription.is_free', false)
         ->assertJsonStructure([
             'valid',
             'is_active',
-            'subscription' => ['plan', 'plan_label', 'status', 'starts_at', 'ends_at', 'days_remaining'],
+            'subscription' => ['plan', 'plan_label', 'status', 'is_trial', 'is_lifetime', 'is_free', 'is_pro', 'starts_at', 'ends_at', 'days_remaining'],
         ]);
+});
+
+test('a free subscription is valid, non-pro and never expires', function (): void {
+    $user = User::factory()->create(['is_active' => true]);
+    resolve(GrantSubscriptionAction::class)->handle($user, SubscriptionPlan::FREE);
+    Sanctum::actingAs($user, ['app:use']);
+
+    $this->getJson('/api/subscription')
+        ->assertOk()
+        ->assertJsonPath('valid', true)
+        ->assertJsonPath('subscription.plan', 'free')
+        ->assertJsonPath('subscription.is_free', true)
+        ->assertJsonPath('subscription.is_pro', false)
+        ->assertJsonPath('subscription.is_lifetime', false)
+        ->assertJsonPath('subscription.days_remaining', null);
 });
 
 test('a trial subscription reports 14 days and the trial flag', function (): void {
