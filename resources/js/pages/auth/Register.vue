@@ -1,35 +1,23 @@
 <script setup lang="ts">
-import { Form, Head, Link, usePage } from "@inertiajs/vue3";
-import { Eye, EyeOff, Fingerprint, Loader2 } from "@lucide/vue";
-import { computed, ref } from "vue";
-import { usePasskeyAuth } from "@/composables/usePasskeyAuth";
+import { Form, Head, Link } from "@inertiajs/vue3";
+import { Eye, EyeOff, Loader2 } from "@lucide/vue";
+import { ref } from "vue";
 import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 
 defineOptions({ layout: "" });
 
-const page = usePage<{ flash?: { status?: string | null } }>();
-const status = computed(() => page.props.flash?.status ?? null);
-
 const showPassword = ref(false);
-const remember = ref(false);
-
-const {
-    passkeysSupported,
-    processing: passkeyProcessing,
-    error: passkeyError,
-    loginWithPasskey,
-} = usePasskeyAuth();
+const showConfirm = ref(false);
 </script>
 
 <template>
-    <Head title="Sign in" />
+    <Head title="Create your account" />
 
     <main
-        class="bg-muted/40 flex min-h-screen items-center justify-center px-4"
+        class="bg-muted/40 flex min-h-screen items-center justify-center px-4 py-10"
     >
         <div
             class="bg-card text-card-foreground w-full max-w-md rounded-2xl border p-8 shadow-sm"
@@ -39,26 +27,35 @@ const {
             </Link>
             <div class="mb-6 space-y-1">
                 <h1 class="text-2xl font-semibold tracking-tight">
-                    Sign in 👋
+                    Create your account 🚀
                 </h1>
                 <p class="text-muted-foreground text-sm">
-                    Enter your email and password to continue.
+                    It's free to get started. We'll email you a link to confirm
+                    your address.
                 </p>
             </div>
 
-            <p
-                v-if="status"
-                class="mb-5 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm text-emerald-600"
-            >
-                {{ status }}
-            </p>
-
             <Form
-                action="/login"
+                action="/register"
                 method="post"
                 class="space-y-5"
                 #default="{ errors, processing }"
             >
+                <div class="space-y-2">
+                    <Label for="name">Name</Label>
+                    <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        required
+                        :aria-invalid="!!errors.name"
+                    />
+                    <p v-if="errors.name" class="text-destructive text-sm">
+                        {{ errors.name }}
+                    </p>
+                </div>
+
                 <div class="space-y-2">
                     <Label for="email">Email</Label>
                     <Input
@@ -81,7 +78,7 @@ const {
                             id="password"
                             name="password"
                             :type="showPassword ? 'text' : 'password'"
-                            autocomplete="current-password"
+                            autocomplete="new-password"
                             required
                             class="pr-10"
                             :aria-invalid="!!errors.password"
@@ -104,70 +101,45 @@ const {
                     </p>
                 </div>
 
-                <div class="flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <Switch
-                            id="remember"
-                            v-model:checked="remember"
-                            name="remember"
-                            value="1"
+                <div class="space-y-2">
+                    <Label for="password_confirmation">Confirm password</Label>
+                    <div class="relative">
+                        <Input
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            :type="showConfirm ? 'text' : 'password'"
+                            autocomplete="new-password"
+                            required
+                            class="pr-10"
                         />
-                        <Label for="remember" class="cursor-pointer">
-                            Remember me
-                        </Label>
+                        <button
+                            type="button"
+                            :aria-label="
+                                showConfirm ? 'Hide password' : 'Show password'
+                            "
+                            :aria-pressed="showConfirm"
+                            class="text-muted-foreground hover:text-foreground focus-visible:ring-ring/50 absolute inset-y-0 right-0 flex items-center justify-center rounded-md px-3 outline-none focus-visible:ring-2"
+                            @click="showConfirm = !showConfirm"
+                        >
+                            <EyeOff v-if="showConfirm" class="size-4" />
+                            <Eye v-else class="size-4" />
+                        </button>
                     </div>
-
-                    <Link
-                        href="/forgot-password"
-                        class="text-primary text-xs font-medium hover:underline"
-                    >
-                        Forgot password?
-                    </Link>
                 </div>
 
                 <Button type="submit" class="w-full" :disabled="processing">
                     <Loader2 v-if="processing" class="size-4 animate-spin" />
-                    Sign in
+                    Create account
                 </Button>
             </Form>
 
-            <div v-if="passkeysSupported" class="mt-6 space-y-3">
-                <div
-                    class="text-muted-foreground flex items-center gap-3 text-xs"
-                >
-                    <span class="border-border flex-1 border-t" />
-                    <span>or</span>
-                    <span class="border-border flex-1 border-t" />
-                </div>
-                <Button
-                    type="button"
-                    variant="outline"
-                    class="w-full"
-                    :disabled="passkeyProcessing"
-                    @click="loginWithPasskey"
-                >
-                    <Loader2
-                        v-if="passkeyProcessing"
-                        class="size-4 animate-spin"
-                    />
-                    <Fingerprint v-else class="size-4" />
-                    Sign in with passkey
-                </Button>
-                <p
-                    v-if="passkeyError"
-                    class="text-destructive text-center text-xs"
-                >
-                    {{ passkeyError }}
-                </p>
-            </div>
-
             <p class="text-muted-foreground mt-6 text-center text-sm">
-                Don't have an account?
+                Already have an account?
                 <Link
-                    href="/register"
+                    href="/login"
                     class="text-primary font-medium hover:underline"
                 >
-                    Sign up
+                    Sign in
                 </Link>
             </p>
         </div>

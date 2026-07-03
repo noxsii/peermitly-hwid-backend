@@ -58,7 +58,7 @@ While Meilisearch is running, Peermitly shows its **CPU and memory usage** live,
 
 Point your application at the local Meilisearch instance. For a Laravel app using **Scout**, add this to your `.env`:
 
-```env
+```ini
 SCOUT_DRIVER=meilisearch
 MEILISEARCH_HOST=http://127.0.0.1:7700
 MEILISEARCH_KEY=
