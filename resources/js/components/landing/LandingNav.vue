@@ -64,9 +64,9 @@ const links = [
                     <Link href="/login" class="hidden sm:block">
                         <Button size="sm" variant="ghost">Log in</Button>
                     </Link>
-                    <a href="#pricing">
-                        <Button size="sm">Get access</Button>
-                    </a>
+                    <Link href="/register">
+                        <Button size="sm">Sign up free</Button>
+                    </Link>
                 </template>
             </div>
         </div>

@@ -38,14 +38,18 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
                     <div
                         class="mt-8 flex flex-wrap items-center justify-center gap-3"
                     >
-                        <a href="#pricing">
+                        <Link :href="isAuthenticated ? '/dashboard' : '/register'">
                             <Button size="lg" class="group h-11 px-5 text-base">
-                                Get access now
+                                {{
+                                    isAuthenticated
+                                        ? "Open dashboard"
+                                        : "Sign up free"
+                                }}
                                 <ArrowRight
                                     class="transition-transform group-hover:translate-x-0.5"
                                 />
                             </Button>
-                        </a>
+                        </Link>
                         <Link :href="isAuthenticated ? '/dashboard' : '/login'">
                             <Button
                                 size="lg"

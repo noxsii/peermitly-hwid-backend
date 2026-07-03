@@ -80,9 +80,20 @@ const features = [
                         </li>
                     </ul>
 
-                    <Link href="/login" class="mt-8 block">
-                        <Button class="w-full" size="lg">Get started</Button>
+                    <Link href="/register" class="mt-8 block">
+                        <Button class="w-full" size="lg">
+                            Create your free account
+                        </Button>
                     </Link>
+                    <p class="text-muted-foreground mt-3 text-center text-xs">
+                        Already have an account?
+                        <Link
+                            href="/login"
+                            class="text-primary font-medium hover:underline"
+                        >
+                            Sign in
+                        </Link>
+                    </p>
                 </div>
             </Reveal>
 
@@ -92,8 +103,9 @@ const features = [
                 <p class="text-muted-foreground text-sm">
                     Peermitly is currently in an open
                     <span class="text-foreground font-medium">test phase</span>
-                    — free to use while we're in beta. Got feedback or need a
-                    hand?
+                    — free to use while we're in beta. Create your account to
+                    get started, and hop into our Discord if you have feedback or
+                    need a hand.
                 </p>
                 <a
                     href="https://discord.gg/GhKjAES2z"
