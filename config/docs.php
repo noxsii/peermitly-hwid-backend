@@ -49,6 +49,15 @@ return [
             ],
         ],
         [
+            'title' => 'Databases',
+            'items' => [
+                ['slug' => 'mariadb', 'title' => 'MariaDB'],
+                ['slug' => 'mysql', 'title' => 'MySQL'],
+                ['slug' => 'postgresql', 'title' => 'PostgreSQL'],
+                ['slug' => 'mongodb', 'title' => 'MongoDB', 'pro' => true],
+            ],
+        ],
+        [
             'title' => 'Search',
             'items' => [
                 ['slug' => 'meilisearch', 'title' => 'Meilisearch'],

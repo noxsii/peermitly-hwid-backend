@@ -86,6 +86,15 @@ test('the typesense guide slug renders', function (): void {
         );
 });
 
+test('the database guide slugs render', function (string $slug): void {
+    get('/guide/'.$slug)
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', $slug),
+        );
+})->with(['mariadb', 'mysql', 'postgresql', 'mongodb']);
+
 test('an unknown doc slug returns 404', function (): void {
     get('/guide/does-not-exist')->assertNotFound();
 });

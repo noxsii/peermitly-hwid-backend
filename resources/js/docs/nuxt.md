@@ -7,6 +7,8 @@ description: Create a new Nuxt site in Peermitly — scaffolded with create-nuxt
 
 Peermitly can scaffold a brand-new **Nuxt** app for you and serve it over **HTTPS** on a `.peer` domain. Like Vue and React, a Nuxt app runs on its own **dev server** (Nuxt uses Vite under the hood); Peermitly puts nginx in front of it as a secure reverse proxy, so `https://your-name.peer` transparently reaches your running dev server — with hot module reload working over the domain.
 
+> **Pro feature.** Nuxt sites are part of Peermitly **Pro**.
+
 ## ⚙️ How it's built
 
 When you create a Nuxt site, Peermitly runs the official **`npm create nuxt@latest`** scaffolder, installs the dependencies, and adds any modules you selected. It also patches your `nuxt.config` automatically so the dev server binds to the right **port**, allows the `.peer` host, and runs HMR over your domain — you don't touch any config by hand.

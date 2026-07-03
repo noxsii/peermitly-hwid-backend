@@ -7,6 +7,8 @@ description: Create a new Astro site in Peermitly — scaffolded with create-ast
 
 Peermitly can scaffold a brand-new **Astro** app for you and serve it over **HTTPS** on a `.peer` domain. Like Vue and React, an Astro app runs on its own **dev server** (Astro uses Vite under the hood); Peermitly puts nginx in front of it as a secure reverse proxy, so `https://your-name.peer` transparently reaches your running dev server — with hot module reload working over the domain.
 
+> **Pro feature.** Astro sites are part of Peermitly **Pro**.
+
 ## ⚙️ How it's built
 
 When you create an Astro site, Peermitly runs the official **`npm create astro@latest`** scaffolder with the template you pick, installs the dependencies, and adds any UI integrations you selected. It also patches your `astro.config` automatically so the dev server binds to the right **port**, allows the `.peer` host, and runs HMR over your domain — you don't touch any config by hand.

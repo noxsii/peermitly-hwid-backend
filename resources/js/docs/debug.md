@@ -9,6 +9,8 @@ The **Debug** tool gives you **live insights from your sites**. Call `dd()`, `du
 
 Think of it as a built-in dump viewer. Instead of dumping into the middle of your HTML response (and breaking the page), your values are sent to a separate window where you can read them in peace.
 
+> **Pro feature.** The Debug tool is part of Peermitly **Pro**.
+
 ![The Debug window showing a dump](/images/screenshots/dump_1.png)
 
 ## 🔌 Turn it on and off
