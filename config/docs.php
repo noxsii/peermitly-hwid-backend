@@ -44,7 +44,8 @@ return [
                 ['slug' => 'symfony', 'title' => 'Symfony'],
                 ['slug' => 'vue', 'title' => 'Vue'],
                 ['slug' => 'react', 'title' => 'React'],
-                ['slug' => 'astro', 'title' => 'Astro'],
+                ['slug' => 'nuxt', 'title' => 'Nuxt', 'pro' => true],
+                ['slug' => 'astro', 'title' => 'Astro', 'pro' => true],
             ],
         ],
         [
@@ -57,6 +58,7 @@ return [
             'title' => 'Tools',
             'items' => [
                 ['slug' => 'debug', 'title' => 'Debug', 'pro' => true],
+                ['slug' => 'sidebar-editor', 'title' => 'Sidebar Editor', 'pro' => true],
             ],
         ],
         [
