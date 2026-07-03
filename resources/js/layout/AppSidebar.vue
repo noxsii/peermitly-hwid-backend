@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
-import { LayoutDashboard, Newspaper, Settings } from "@lucide/vue";
+import { LayoutDashboard, Newspaper, Settings, UserRound } from "@lucide/vue";
 import { computed } from "vue";
 import {
     Tooltip,
@@ -22,6 +22,7 @@ const primary: NavItem[] = [
 ];
 
 const secondary: (NavItem | ExternalNavItem)[] = [
+    { label: "Profile", href: "/profile", icon: UserRound },
     { label: "Changelog", href: "/changelog", icon: Newspaper },
     { label: "Settings", href: "/settings", icon: Settings },
 ];

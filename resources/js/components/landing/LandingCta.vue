@@ -38,7 +38,9 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
                     <div
                         class="mt-8 flex flex-wrap items-center justify-center gap-3"
                     >
-                        <Link :href="isAuthenticated ? '/dashboard' : '/register'">
+                        <Link
+                            :href="isAuthenticated ? '/dashboard' : '/register'"
+                        >
                             <Button size="lg" class="group h-11 px-5 text-base">
                                 {{
                                     isAuthenticated

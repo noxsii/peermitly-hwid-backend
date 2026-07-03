@@ -104,8 +104,8 @@ const features = [
                     Peermitly is currently in an open
                     <span class="text-foreground font-medium">test phase</span>
                     — free to use while we're in beta. Create your account to
-                    get started, and hop into our Discord if you have feedback or
-                    need a hand.
+                    get started, and hop into our Discord if you have feedback
+                    or need a hand.
                 </p>
                 <a
                     href="https://discord.gg/GhKjAES2z"

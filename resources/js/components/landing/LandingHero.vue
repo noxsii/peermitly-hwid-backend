@@ -72,7 +72,9 @@ const frameworks = [
             <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
                 <Link :href="isAuthenticated ? '/dashboard' : '/register'">
                     <Button size="lg" class="group h-11 px-5 text-base">
-                        {{ isAuthenticated ? "Open dashboard" : "Sign up free" }}
+                        {{
+                            isAuthenticated ? "Open dashboard" : "Sign up free"
+                        }}
                         <ArrowRight
                             class="transition-transform group-hover:translate-x-0.5"
                         />

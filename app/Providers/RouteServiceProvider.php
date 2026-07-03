@@ -18,5 +18,10 @@ final class RouteServiceProvider extends ServiceProvider
             ->prefix('settings')
             ->name('settings.')
             ->group(base_path('routes/settings.php'));
+
+        Route::middleware('web')
+            ->prefix('profile')
+            ->name('profile.')
+            ->group(base_path('routes/profile.php'));
     }
 }
