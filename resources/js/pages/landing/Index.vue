@@ -7,6 +7,7 @@ import LandingFooter from "@/components/landing/LandingFooter.vue";
 import LandingHero from "@/components/landing/LandingHero.vue";
 import LandingNav from "@/components/landing/LandingNav.vue";
 import LandingPricing from "@/components/landing/LandingPricing.vue";
+import LandingShowcase from "@/components/landing/LandingShowcase.vue";
 import LandingStacks from "@/components/landing/LandingStacks.vue";
 import LandingStats from "@/components/landing/LandingStats.vue";
 import LandingSteps from "@/components/landing/LandingSteps.vue";
@@ -89,6 +90,7 @@ const imageAlt =
             <LandingHero />
             <LandingStats />
             <LandingFeatures />
+            <LandingShowcase />
             <LandingSteps />
             <LandingStacks />
             <LandingPricing />
