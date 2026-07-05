@@ -76,6 +76,7 @@ return [
             'items' => [
                 ['slug' => 'homebrew-php-path', 'title' => 'Shell is not using the Homebrew PHP'],
                 ['slug' => 'homebrew-node-path', 'title' => 'Shell is not using the Homebrew Node'],
+                ['slug' => 'homebrew-database-path', 'title' => 'Shell is not using the managed database'],
             ],
         ],
     ],

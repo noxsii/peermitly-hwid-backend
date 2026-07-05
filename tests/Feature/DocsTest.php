@@ -95,6 +95,15 @@ test('the database guide slugs render', function (string $slug): void {
         );
 })->with(['mariadb', 'mysql', 'postgresql', 'mongodb']);
 
+test('the homebrew database path guide renders', function (): void {
+    get('/guide/homebrew-database-path')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'homebrew-database-path'),
+        );
+});
+
 test('an unknown doc slug returns 404', function (): void {
     get('/guide/does-not-exist')->assertNotFound();
 });
