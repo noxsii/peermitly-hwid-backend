@@ -33,6 +33,7 @@ const next = computed<DocNavItem | null>(() =>
         <Link
             v-if="previous"
             :href="`/guide/${previous.slug}`"
+            preserve-state
             class="border-border/60 hover:border-primary/40 hover:bg-muted/40 hover:shadow-primary/5 group flex flex-col gap-1 rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
         >
             <span class="text-muted-foreground flex items-center gap-1 text-xs">
@@ -52,6 +53,7 @@ const next = computed<DocNavItem | null>(() =>
         <Link
             v-if="next"
             :href="`/guide/${next.slug}`"
+            preserve-state
             class="border-border/60 hover:border-primary/40 hover:bg-muted/40 hover:shadow-primary/5 group flex flex-col gap-1 rounded-xl border p-4 text-right transition-all hover:-translate-y-0.5 hover:shadow-lg sm:col-start-2"
         >
             <span

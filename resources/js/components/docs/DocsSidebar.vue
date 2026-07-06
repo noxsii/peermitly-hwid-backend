@@ -25,6 +25,7 @@ defineEmits<{
                 <li v-for="item in section.items" :key="item.slug">
                     <Link
                         :href="`/guide/${item.slug}`"
+                        preserve-state
                         class="group relative block rounded-lg px-3 py-1.5 text-sm transition-colors"
                         :class="
                             item.slug === currentSlug

@@ -33,7 +33,7 @@ watch(open, (value) => {
 
 function go(slug: string): void {
     open.value = false;
-    router.visit(`/guide/${slug}`);
+    router.visit(`/guide/${slug}`, { preserveState: true });
 }
 </script>
 
