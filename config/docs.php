@@ -27,6 +27,7 @@ return [
             'items' => [
                 ['slug' => 'php', 'title' => 'PHP versions & settings'],
                 ['slug' => 'node', 'title' => 'Node versions'],
+                ['slug' => 'python', 'title' => 'Python versions'],
             ],
         ],
         [
@@ -76,6 +77,7 @@ return [
             'items' => [
                 ['slug' => 'homebrew-php-path', 'title' => 'Shell is not using the Homebrew PHP'],
                 ['slug' => 'homebrew-node-path', 'title' => 'Shell is not using the Homebrew Node'],
+                ['slug' => 'homebrew-python-path', 'title' => 'Shell is not using the Homebrew Python'],
                 ['slug' => 'homebrew-database-path', 'title' => 'Shell is not using the managed database'],
             ],
         ],

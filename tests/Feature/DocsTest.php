@@ -50,6 +50,15 @@ test('the debug guide slug renders', function (): void {
         );
 });
 
+test('the python guide slug renders', function (): void {
+    get('/guide/python')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'python'),
+        );
+});
+
 test('the meilisearch guide slug renders', function (): void {
     get('/guide/meilisearch')
         ->assertOk()
@@ -94,6 +103,15 @@ test('the database guide slugs render', function (string $slug): void {
             ->where('slug', $slug),
         );
 })->with(['mariadb', 'mysql', 'postgresql', 'mongodb']);
+
+test('the homebrew python path guide renders', function (): void {
+    get('/guide/homebrew-python-path')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'homebrew-python-path'),
+        );
+});
 
 test('the homebrew database path guide renders', function (): void {
     get('/guide/homebrew-database-path')
