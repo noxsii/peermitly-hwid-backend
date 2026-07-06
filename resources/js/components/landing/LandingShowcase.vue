@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Reveal from "@/components/landing/Reveal.vue";
 
-const featured = "/images/screenshots/landing/1.png";
+const featured = "/images/screenshots/landing/1.png?v=2";
 
 const tiles = [
     {
@@ -47,8 +47,8 @@ const tiles = [
                     One calm dashboard for everything
                 </h2>
                 <p class="text-muted-foreground mt-4 text-lg">
-                    Every runtime, service and database in a single, native app —
-                    no terminal gymnastics required.
+                    Every runtime, service and database in a single, native app
+                    — no terminal gymnastics required.
                 </p>
             </Reveal>
 

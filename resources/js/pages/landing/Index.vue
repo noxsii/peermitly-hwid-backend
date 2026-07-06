@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head } from "@inertiajs/vue3";
 import LandingCta from "@/components/landing/LandingCta.vue";
+import LandingDownload from "@/components/landing/LandingDownload.vue";
 import LandingFaq from "@/components/landing/LandingFaq.vue";
 import LandingFeatures from "@/components/landing/LandingFeatures.vue";
 import LandingFooter from "@/components/landing/LandingFooter.vue";
@@ -93,6 +94,7 @@ const imageAlt =
             <LandingShowcase />
             <LandingSteps />
             <LandingStacks />
+            <LandingDownload />
             <LandingPricing />
             <LandingFaq />
             <LandingCta />

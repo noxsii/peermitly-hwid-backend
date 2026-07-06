@@ -17,6 +17,7 @@ const links = [
     { label: "Product", href: "#product" },
     { label: "How it works", href: "#how" },
     { label: "Stacks", href: "#stacks" },
+    { label: "Download", href: "#download" },
     { label: "Pricing", href: "#pricing" },
     { label: "Docs", href: "/guide" },
     { label: "FAQ", href: "#faq" },
