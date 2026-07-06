@@ -77,6 +77,15 @@ test('the nuxt guide slug renders', function (): void {
         );
 });
 
+test('the ide guide slug renders', function (): void {
+    get('/guide/ide')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'ide'),
+        );
+});
+
 test('the sidebar editor guide slug renders', function (): void {
     get('/guide/sidebar-editor')
         ->assertOk()
