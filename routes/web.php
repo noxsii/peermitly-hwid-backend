@@ -15,11 +15,10 @@ Route::get('/', [LandingController::class, 'show'])->name('home');
 Route::get('/privacy', [PrivacyController::class, 'show'])->name('privacy');
 Route::get('/imprint', [ImprintController::class, 'show'])->name('imprint');
 Route::get('/guide/{slug?}', [DocsController::class, 'show'])->name('guide.show');
+Route::get('/changelog', [ChangelogController::class, 'index'])->name('changelog.index');
 
 Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    Route::get('/changelog', [ChangelogController::class, 'index'])->name('changelog.index');
 
     Route::post('/notifications/{notification}/read', [NotificationController::class, 'markRead'])->name('notifications.read');
     Route::post('/notifications/read-all', [NotificationController::class, 'markAllRead'])->name('notifications.read-all');

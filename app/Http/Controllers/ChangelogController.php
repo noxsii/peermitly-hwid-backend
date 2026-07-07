@@ -14,12 +14,12 @@ final class ChangelogController
     public function index(): Response
     {
         return Inertia::render('changelog/Index', [
-            'entries' => Inertia::defer(static fn () => ChangelogResource::collection(
+            'entries' => Inertia::scroll(static fn () => ChangelogResource::collection(
                 Changelog::query()
                     ->whereNotNull('published_at')
                     ->latest('published_at')
-                    ->paginate(10)
-                    ->withQueryString(),
+                    ->orderByDesc('id')
+                    ->cursorPaginate(10),
             )),
         ]);
     }
