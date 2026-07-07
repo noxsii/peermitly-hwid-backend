@@ -38,3 +38,17 @@ test('home route passes seo props for meta tags', function (): void {
             ->where('canonical', url('/'))
             ->where('ogImage', url('/og-image.png')));
 });
+
+test('server-rendered html contains open graph meta tags for crawlers', function (): void {
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('property="og:title"', escape: false)
+        ->assertSee('property="og:description"', escape: false)
+        ->assertSee('property="og:image" content="'.url('/og-image.png').'"', escape: false)
+        ->assertSee('name="twitter:card" content="summary_large_image"', escape: false)
+        ->assertSee('<title>Peermitly', escape: false);
+});
+
+test('og image file exists and is publicly served', function (): void {
+    expect(file_exists(public_path('og-image.png')))->toBeTrue();
+});
