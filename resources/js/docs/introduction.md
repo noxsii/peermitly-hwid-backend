@@ -5,7 +5,7 @@ description: Peermitly is a fast, beautiful local development environment for ev
 
 # 👋 Introduction
 
-Peermitly is a blazing-fast local development environment for **macOS, Windows and Linux**. Drop a project into your folder and it is instantly served on a secure `.peer` domain — no config files, no containers, no terminal gymnastics.
+Peermitly is a blazing-fast local development environment for **macOS**. Drop a project into your folder and it is instantly served on a secure `.peer` domain — no config files, no containers, no terminal gymnastics.
 
 ## 🔥 Why Peermitly
 
