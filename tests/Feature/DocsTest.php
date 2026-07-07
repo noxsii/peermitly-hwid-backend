@@ -138,3 +138,15 @@ test('an unknown doc slug returns 404', function (): void {
 test('the old /docs path is not used by the guide', function (): void {
     get('/docs')->assertNotFound();
 });
+
+test('the sitemap lists every doc slug from the config', function (): void {
+    $sitemap = file_get_contents(public_path('sitemap.xml'));
+
+    $slugs = collect(config('docs.sections'))
+        ->flatMap(static fn (array $section): array => $section['items'])
+        ->map(static fn (array $item): string => $item['slug']);
+
+    foreach ($slugs as $slug) {
+        expect($sitemap)->toContain('/guide/'.$slug.'</loc>');
+    }
+});

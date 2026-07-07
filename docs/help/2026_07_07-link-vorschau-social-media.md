@@ -32,6 +32,7 @@ Beim Teilen eines peermitly.de-Links wurde keine Vorschau angezeigt. Die Meta-Ta
 - Landingpage (Startseite) und alle weiteren Inertia-Seiten (Docs, Changelog, Impressum usw.)
 - `resources/views/app.blade.php`
 - `public/og-image.png` (neu)
+- `public/sitemap.xml` — auf alle 28 Guide-Seiten aus `config/docs.php` sowie die Changelog-Seite erweitert; ein Test stellt sicher, dass neue Guide-Slugs künftig nicht in der Sitemap vergessen werden
 
 ## Wichtige Hinweise
 
