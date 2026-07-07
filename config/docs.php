@@ -41,6 +41,7 @@ return [
         [
             'title' => 'Sites',
             'items' => [
+                ['slug' => 'blank-php', 'title' => 'Blank PHP'],
                 ['slug' => 'laravel', 'title' => 'Laravel'],
                 ['slug' => 'symfony', 'title' => 'Symfony'],
                 ['slug' => 'vue', 'title' => 'Vue'],
