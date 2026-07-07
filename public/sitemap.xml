@@ -7,11 +7,30 @@
     <url><loc>https://peermitly.de/guide/starter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
     <url><loc>https://peermitly.de/guide/php</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
     <url><loc>https://peermitly.de/guide/node</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/python</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
     <url><loc>https://peermitly.de/guide/nginx</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
     <url><loc>https://peermitly.de/guide/dns</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
     <url><loc>https://peermitly.de/guide/mail</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/laravel</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/symfony</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/vue</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/react</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/nuxt</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/astro</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/mariadb</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/mysql</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/postgresql</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/mongodb</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/meilisearch</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/typesense</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/ide</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/debug</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://peermitly.de/guide/sidebar-editor</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
     <url><loc>https://peermitly.de/guide/homebrew-php-path</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
     <url><loc>https://peermitly.de/guide/homebrew-node-path</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://peermitly.de/guide/homebrew-python-path</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://peermitly.de/guide/homebrew-database-path</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://peermitly.de/changelog</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
     <url><loc>https://peermitly.de/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
     <url><loc>https://peermitly.de/imprint</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
