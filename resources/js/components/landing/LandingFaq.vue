@@ -37,6 +37,10 @@ const faqs = [
         a: "Yes. Turn on the Debug tool and call dd(), dump() or peer() in any PHP site — values appear live in a searchable window, tagged with the site, request and exact file and line. No package to install.",
     },
     {
+        q: "Can I profile my PHP code?",
+        a: "Yes. The built-in profiler (powered by SPX) records your requests with wall time, memory and call counts, and opens full flame-graph reports at your-site.peer/peermitly-profiler. Installed and configured in one click — no extension building, no php.ini editing.",
+    },
+    {
         q: "Is local HTTPS included?",
         a: "Yes. Every site gets a secure .peer domain with a trusted local certificate automatically — no manual cert setup, no browser warnings.",
     },

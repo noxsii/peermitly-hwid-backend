@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+    Activity,
     Boxes,
     Bug,
     Database,
@@ -66,6 +67,12 @@ const features = [
         title: "Live debug tool",
         description:
             "Call dd(), dump() or peer() in any PHP site and see the values live in a searchable window. No package to install.",
+    },
+    {
+        icon: Activity,
+        title: "PHP profiler built in",
+        description:
+            "One-click SPX profiling for every PHP site. Record requests, see time, memory and calls, and open full flame-graph reports.",
     },
 ];
 </script>

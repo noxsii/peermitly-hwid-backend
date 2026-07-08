@@ -71,6 +71,7 @@ return [
             'items' => [
                 ['slug' => 'ide', 'title' => 'IDE integration'],
                 ['slug' => 'debug', 'title' => 'Debug', 'pro' => true],
+                ['slug' => 'profiler', 'title' => 'Profiler', 'pro' => true],
                 ['slug' => 'sidebar-editor', 'title' => 'Sidebar Editor', 'pro' => true],
             ],
         ],

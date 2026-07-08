@@ -50,6 +50,15 @@ test('the debug guide slug renders', function (): void {
         );
 });
 
+test('the profiler guide slug renders', function (): void {
+    get('/guide/profiler')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'profiler'),
+        );
+});
+
 test('the python guide slug renders', function (): void {
     get('/guide/python')
         ->assertOk()
