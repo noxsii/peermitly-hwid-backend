@@ -65,7 +65,7 @@ The defaults are right for everyday use — you only need this view when you dig
 ## 💡 Notes
 
 - **Local only.** The profiler is bound to your machine (localhost) and protected by a private key that Peermitly manages for you. Nothing is exposed to the network, and profile data is stored locally on your Mac.
-- **Works on every PHP site.** Laravel, Symfony, WordPress or a blank PHP folder — every PHP site gets the `/peermitly-profiler` route. Node-based sites (Vue, React, Nuxt, Astro) are not profiled.
+- **Works on every PHP site.** Laravel, Symfony, WordPress or a blank PHP folder — every PHP site gets the `/peermitly-profiler` route. Node-based sites (Vue, React, Nuxt, Next.js, Astro) are not profiled.
 - **Switched PHP versions?** The extension is built per PHP version. After switching, the app shows a short notice — click **Install** once and it is rebuilt for the new version.
 - **Overhead.** Recording adds a little overhead per request. Leave the Profiling switch off when you are not measuring — with it off, your sites behave exactly as before.
 - **Uninstall** removes the extension, all configuration and all recorded profiles.

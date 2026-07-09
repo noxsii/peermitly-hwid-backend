@@ -48,6 +48,7 @@ return [
                 ['slug' => 'react', 'title' => 'React'],
                 ['slug' => 'nuxt', 'title' => 'Nuxt', 'pro' => true],
                 ['slug' => 'astro', 'title' => 'Astro', 'pro' => true],
+                ['slug' => 'nextjs', 'title' => 'Next.js', 'pro' => true],
             ],
         ],
         [

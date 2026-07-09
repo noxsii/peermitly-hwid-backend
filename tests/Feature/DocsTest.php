@@ -77,6 +77,15 @@ test('the meilisearch guide slug renders', function (): void {
         );
 });
 
+test('the nextjs guide slug renders', function (): void {
+    get('/guide/nextjs')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'nextjs'),
+        );
+});
+
 test('the nuxt guide slug renders', function (): void {
     get('/guide/nuxt')
         ->assertOk()
