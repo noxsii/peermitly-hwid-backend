@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\Builders;
 
+use App\Enums\SubscriptionPlan;
 use App\Enums\SubscriptionStatus;
 use App\Models\Subscription;
 use Illuminate\Database\Eloquent\Builder;
@@ -23,6 +24,14 @@ final class SubscriptionBuilder extends Builder
     {
         return $this->where('status', SubscriptionStatus::ACTIVE->value)
             ->where('ends_at', '>=', now());
+    }
+
+    /**
+     * Limit the query to paid (non-free) subscriptions.
+     */
+    public function wherePro(): static
+    {
+        return $this->where('plan', '!=', SubscriptionPlan::FREE->value);
     }
 
     /**

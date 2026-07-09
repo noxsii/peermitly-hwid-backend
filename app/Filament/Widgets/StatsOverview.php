@@ -17,6 +17,10 @@ use Laravel\Sanctum\PersonalAccessToken;
 
 final class StatsOverview extends StatsOverviewWidget
 {
+    protected static ?int $sort = 0;
+
+    protected int|array|null $columns = 4;
+
     protected function getStats(): array
     {
         $userTrend = $this->trend(User::query());
@@ -41,6 +45,13 @@ final class StatsOverview extends StatsOverviewWidget
                 ->descriptionIcon(Heroicon::Key)
                 ->chart($tokenTrend)
                 ->color('info'),
+
+            Stat::make('Läuft bald ab', Subscription::whereActive()
+                ->where('ends_at', '<=', now()->addDays(7))
+                ->count())
+                ->description('aktive Abos mit Ende in 7 Tagen')
+                ->descriptionIcon(Heroicon::Clock)
+                ->color('warning'),
         ];
     }
 

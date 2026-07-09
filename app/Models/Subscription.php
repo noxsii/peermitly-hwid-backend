@@ -41,6 +41,7 @@ use Illuminate\Support\Carbon;
  * @method static SubscriptionBuilder<static>|Subscription whereEndsAt($value)
  * @method static SubscriptionBuilder<static>|Subscription whereId($value)
  * @method static SubscriptionBuilder<static>|Subscription wherePlan($value)
+ * @method static SubscriptionBuilder<static>|Subscription wherePro()
  * @method static SubscriptionBuilder<static>|Subscription whereStartsAt($value)
  * @method static SubscriptionBuilder<static>|Subscription whereStatus($value)
  * @method static SubscriptionBuilder<static>|Subscription whereStripeCustomerId($value)
