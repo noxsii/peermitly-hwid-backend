@@ -15,6 +15,7 @@ Peermitly manages PHP for you. You can install several PHP versions, switch the 
 - **Manages PHP-FPM** — shows whether the FPM process is running and lets you restart it.
 - **Keeps versions up to date** with one click.
 - **Edits the key `php.ini` settings** (memory, upload size, execution time) per version.
+- **Manages PHP extensions per version** — install, enable, disable and remove them from the app.
 
 Everything runs **natively** on your machine — no Docker, no virtual machine.
 
@@ -77,6 +78,42 @@ To change them:
 4. Click **Restart FPM** so the new values take effect for your sites.
 
 > Settings are **per version**. Changing `memory_limit` on PHP 8.3 does not affect PHP 8.4. Switch the dialog to the other version to configure it too.
+
+## 🧱 Manage extensions
+
+Every installed PHP version has its own set of **extensions**, and Peermitly manages them for you — no `pecl` commands, no editing `php.ini` by hand. Click the **puzzle icon** on a version to open its extensions dialog.
+
+![Managing extensions for a PHP version](/images/screenshots/php_extensions.png)
+
+### What you can do
+
+- **Install** an extension with one click. Peermitly builds it for exactly that PHP version and shows the progress live. When it's done, the extension is enabled automatically and FPM is restarted.
+- **Enable / Disable** an installed extension without uninstalling it — handy for something like Xdebug, which you only want active while debugging.
+- **Remove** an extension you no longer need. The `php.ini` entry is cleaned up too.
+- **Install anything else by its pecl name** using the field at the bottom — you're not limited to the curated list.
+
+### The curated list
+
+The dialog offers the most common extensions out of the box:
+
+| Extension       | What it's for                                        |
+| --------------- | ---------------------------------------------------- |
+| **Redis**       | Fast cache and queue backend                         |
+| **Xdebug**      | Step debugging and profiling                         |
+| **ImageMagick** | Image processing beyond GD                           |
+| **MongoDB**     | The MongoDB database driver                          |
+| **APCu**        | In-memory user cache                                 |
+| **Memcached**   | Distributed cache backend                            |
+| **Swoole**      | Async / coroutine runtime (e.g. for Laravel Octane) |
+
+The dialog also lists extensions you installed yourself, with their version and whether they are currently enabled.
+
+### Good to know
+
+- **Per version.** Extensions are installed for **one** PHP version. Installing Redis on PHP 8.4 does not add it to PHP 8.3 — open the other version's dialog to install it there too.
+- **Xcode Command Line Tools required.** Extensions are compiled on your machine. If the tools are missing, run `xcode-select --install` in a terminal, then try again.
+- **Applied immediately.** Peermitly updates `php.ini` and restarts FPM for you — your sites pick up the change right away.
+- Verify with `php -m` in a terminal: the enabled extensions show up in the list.
 
 ## 🔄 Update a version
 
