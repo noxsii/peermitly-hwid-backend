@@ -313,6 +313,10 @@
         color: color-mix(in oklch, var(--primary) 85%, var(--foreground));
     }
 
+    .docs-prose img {
+        cursor: zoom-in;
+    }
+
     .docs-prose blockquote {
         position: relative;
         border: 1px solid color-mix(in oklch, var(--primary) 25%, transparent);
