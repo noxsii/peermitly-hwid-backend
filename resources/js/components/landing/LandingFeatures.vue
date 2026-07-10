@@ -7,6 +7,7 @@ import {
     Gauge,
     Globe,
     Lock,
+    Network,
     Search,
     Sparkles,
     Zap,
@@ -73,6 +74,12 @@ const features = [
         title: "PHP profiler built in",
         description:
             "One-click SPX profiling for every PHP site. Record requests, see time, memory and calls, and open full flame-graph reports.",
+    },
+    {
+        icon: Network,
+        title: "Composer dependency graph",
+        description:
+            "Turn any composer.lock into an interactive map. See prod vs dev packages, inspect versions and licenses, and spot stale dependencies.",
     },
 ];
 </script>

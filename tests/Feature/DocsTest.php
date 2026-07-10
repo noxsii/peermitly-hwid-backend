@@ -59,6 +59,15 @@ test('the profiler guide slug renders', function (): void {
         );
 });
 
+test('the composer guide slug renders', function (): void {
+    get('/guide/composer')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('docs/Show')
+            ->where('slug', 'composer'),
+        );
+});
+
 test('the python guide slug renders', function (): void {
     get('/guide/python')
         ->assertOk()

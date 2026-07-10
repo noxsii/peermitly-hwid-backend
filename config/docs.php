@@ -73,6 +73,7 @@ return [
                 ['slug' => 'ide', 'title' => 'IDE integration'],
                 ['slug' => 'debug', 'title' => 'Debug', 'pro' => true],
                 ['slug' => 'profiler', 'title' => 'Profiler', 'pro' => true],
+                ['slug' => 'composer', 'title' => 'Composer graph', 'pro' => true],
                 ['slug' => 'sidebar-editor', 'title' => 'Sidebar Editor', 'pro' => true],
             ],
         ],
