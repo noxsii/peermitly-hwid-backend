@@ -96,14 +96,14 @@ Every installed PHP version has its own set of **extensions**, and Peermitly man
 
 The dialog offers the most common extensions out of the box:
 
-| Extension       | What it's for                                        |
-| --------------- | ---------------------------------------------------- |
-| **Redis**       | Fast cache and queue backend                         |
-| **Xdebug**      | Step debugging and profiling                         |
-| **ImageMagick** | Image processing beyond GD                           |
-| **MongoDB**     | The MongoDB database driver                          |
-| **APCu**        | In-memory user cache                                 |
-| **Memcached**   | Distributed cache backend                            |
+| Extension       | What it's for                                       |
+| --------------- | --------------------------------------------------- |
+| **Redis**       | Fast cache and queue backend                        |
+| **Xdebug**      | Step debugging and profiling                        |
+| **ImageMagick** | Image processing beyond GD                          |
+| **MongoDB**     | The MongoDB database driver                         |
+| **APCu**        | In-memory user cache                                |
+| **Memcached**   | Distributed cache backend                           |
 | **Swoole**      | Async / coroutine runtime (e.g. for Laravel Octane) |
 
 The dialog also lists extensions you installed yourself, with their version and whether they are currently enabled.

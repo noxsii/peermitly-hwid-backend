@@ -19,7 +19,7 @@ final class ChangelogController
             ->whereNotNull('published_at')
             ->latest('published_at')
             ->orderByDesc('id')
-            ->cursorPaginate(20);
+            ->cursorPaginate(5);
 
         return ChangelogResource::collection($changelogs);
     }

@@ -32,6 +32,17 @@ test('it returns published changelogs newest first', function (): void {
         ]);
 });
 
+test('it paginates five entries per page', function (): void {
+    Changelog::factory()->count(6)->create(['published_at' => now()->subDay()]);
+
+    Sanctum::actingAs(User::factory()->create(), ['app:use']);
+
+    $this->getJson('/api/changelogs')
+        ->assertOk()
+        ->assertJsonCount(5, 'data')
+        ->assertJsonPath('meta.per_page', 5);
+});
+
 test('it excludes unpublished changelogs', function (): void {
     Changelog::factory()->create(['published_at' => null]);
 
