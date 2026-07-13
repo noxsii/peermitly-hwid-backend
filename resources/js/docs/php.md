@@ -81,7 +81,7 @@ To change them:
 
 ## 🧱 Manage extensions
 
-Every installed PHP version has its own set of **extensions**, and Peermitly manages them for you — no `pecl` commands, no editing `php.ini` by hand. Click the **puzzle icon** on a version to open its extensions dialog.
+Every installed PHP version has its own set of **extensions**, and Peermitly manages them for you — no command line, no editing `php.ini` by hand. Under the hood Peermitly uses [PIE](https://github.com/php/pie) (the official PHP Installer for Extensions, the modern successor to `pecl`) to build and install them. Click the **puzzle icon** on a version to open its extensions dialog.
 
 ![Managing extensions for a PHP version](/images/screenshots/php_extensions.png)
 
@@ -90,7 +90,7 @@ Every installed PHP version has its own set of **extensions**, and Peermitly man
 - **Install** an extension with one click. Peermitly builds it for exactly that PHP version and shows the progress live. When it's done, the extension is enabled automatically and FPM is restarted.
 - **Enable / Disable** an installed extension without uninstalling it — handy for something like Xdebug, which you only want active while debugging.
 - **Remove** an extension you no longer need. The `php.ini` entry is cleaned up too.
-- **Install anything else by its pecl name** using the field at the bottom — you're not limited to the curated list.
+- **Install anything else by its PIE package name** (`vendor/package`, e.g. `xdebug/xdebug`) using the field at the bottom — you're not limited to the curated list.
 
 ### The curated list
 
