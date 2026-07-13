@@ -81,7 +81,7 @@ To change them:
 
 ## 🧱 Manage extensions
 
-Every installed PHP version has its own set of **extensions**, and Peermitly manages them for you — no command line, no editing `php.ini` by hand. Under the hood Peermitly uses [PIE](https://github.com/php/pie) (the official PHP Installer for Extensions, the modern successor to `pecl`) to build and install them. Click the **puzzle icon** on a version to open its extensions dialog.
+Every installed PHP version has its own set of **extensions**, and Peermitly manages them for you — no command line, no editing `php.ini` by hand. Under the hood Peermitly uses [PIE](https://github.com/php/pie), the official PHP Installer for Extensions, to build and install them. Click the **puzzle icon** on a version to open its extensions dialog.
 
 ![Managing extensions for a PHP version](/images/screenshots/php_extensions.png)
 
