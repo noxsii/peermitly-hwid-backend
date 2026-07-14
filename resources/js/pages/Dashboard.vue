@@ -8,6 +8,7 @@ import {
     ShieldCheck,
 } from "@lucide/vue";
 import { computed } from "vue";
+import LandingDownload from "@/components/landing/LandingDownload.vue";
 import { useAccess } from "@/composables/useAccess";
 import PageLayout from "@/layout/PageLayout.vue";
 import type { PageProps } from "@/types";
@@ -158,6 +159,11 @@ const neverExpires = computed(
                     your identity when you open a ticket.
                 </p>
             </div>
+
+            <!-- Download -->
+            <LandingDownload
+                class="border-border/70 rounded-3xl border shadow-sm sm:col-span-2"
+            />
         </div>
     </PageLayout>
 </template>
