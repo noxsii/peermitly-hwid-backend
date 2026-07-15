@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DeleteAccountCard from "@/components/settings/DeleteAccountCard.vue";
 import ProfileCard from "@/components/settings/ProfileCard.vue";
 import PageLayout from "@/layout/PageLayout.vue";
 </script>
@@ -7,6 +8,7 @@ import PageLayout from "@/layout/PageLayout.vue";
     <PageLayout title="Profile">
         <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
             <ProfileCard />
+            <DeleteAccountCard />
         </div>
     </PageLayout>
 </template>
