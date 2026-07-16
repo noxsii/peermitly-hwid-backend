@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Head, InfiniteScroll, Link } from "@inertiajs/vue3";
+import { Head, InfiniteScroll } from "@inertiajs/vue3";
 import { Newspaper } from "@lucide/vue";
-import LandingFooter from "@/components/landing/LandingFooter.vue";
-import LogoMark from "@/components/Logo.vue";
+import NewsCard from "@/components/news/NewsCard.vue";
+import NewsPageShell from "@/components/news/NewsPageShell.vue";
 import type { News } from "@/types";
 
 defineOptions({ layout: "" });
@@ -10,19 +10,6 @@ defineOptions({ layout: "" });
 defineProps<{
     entries: { data: News[] };
 }>();
-
-const formatDate = (iso: string | null): string => {
-    if (!iso) return "";
-    try {
-        return new Date(iso).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        });
-    } catch {
-        return "";
-    }
-};
 </script>
 
 <template>
@@ -34,32 +21,16 @@ const formatDate = (iso: string | null): string => {
         />
     </Head>
 
-    <div class="bg-background text-foreground min-h-screen">
-        <header
-            class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5"
-        >
-            <Link href="/" class="flex items-center gap-2.5">
-                <LogoMark size="size-9" />
-                <span class="text-lg font-semibold tracking-tight"
-                    >Peermitly</span
-                >
-            </Link>
-            <Link
-                href="/login"
-                class="text-muted-foreground hover:text-foreground text-sm"
-                >Log in</Link
-            >
-        </header>
-
+    <NewsPageShell>
         <main class="mx-auto max-w-5xl px-6 py-16 md:py-24">
             <header class="mb-16 space-y-3">
                 <p
-                    class="text-muted-foreground text-xs font-medium tracking-[0.18em] uppercase"
+                    class="text-primary text-xs font-semibold tracking-[0.18em] uppercase"
                 >
                     What's new
                 </p>
                 <h1
-                    class="text-foreground text-4xl font-semibold tracking-tight md:text-5xl"
+                    class="from-foreground to-primary bg-gradient-to-br bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl"
                 >
                     News
                 </h1>
@@ -76,48 +47,11 @@ const formatDate = (iso: string | null): string => {
                 preserve-url
             >
                 <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    <Link
+                    <NewsCard
                         v-for="entry in entries.data"
                         :key="entry.uuid"
-                        :href="`/news/${entry.slug}`"
-                        class="group border-border/60 bg-card hover:border-primary/40 flex flex-col overflow-hidden rounded-xl border transition-colors"
-                    >
-                        <div
-                            class="bg-muted aspect-video w-full overflow-hidden"
-                        >
-                            <img
-                                v-if="entry.image_url"
-                                :src="entry.image_url"
-                                :alt="entry.title"
-                                loading="lazy"
-                                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                            <div
-                                v-else
-                                class="from-primary/20 to-primary/5 h-full w-full bg-gradient-to-br"
-                                aria-hidden="true"
-                            />
-                        </div>
-                        <div class="flex flex-1 flex-col gap-2 p-5">
-                            <time
-                                v-if="entry.published_at"
-                                :datetime="entry.published_at"
-                                class="text-muted-foreground text-xs"
-                            >
-                                {{ formatDate(entry.published_at) }}
-                            </time>
-                            <h2
-                                class="text-foreground group-hover:text-primary text-lg font-semibold tracking-tight transition-colors"
-                            >
-                                {{ entry.title }}
-                            </h2>
-                            <p
-                                class="text-muted-foreground line-clamp-3 text-sm leading-6"
-                            >
-                                {{ entry.description }}
-                            </p>
-                        </div>
-                    </Link>
+                        :article="entry"
+                    />
                 </div>
 
                 <template #loading>
@@ -147,7 +81,5 @@ const formatDate = (iso: string | null): string => {
                 </p>
             </div>
         </main>
-
-        <LandingFooter />
-    </div>
+    </NewsPageShell>
 </template>
