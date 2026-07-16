@@ -69,7 +69,9 @@ const features = [
                             :key="feature"
                             class="flex items-start gap-2 text-sm"
                         >
-                            <Check class="text-primary mt-0.5 size-4 shrink-0" />
+                            <Check
+                                class="text-primary mt-0.5 size-4 shrink-0"
+                            />
                             <span>{{ feature }}</span>
                         </li>
                     </ul>
