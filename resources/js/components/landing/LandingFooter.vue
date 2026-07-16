@@ -32,6 +32,12 @@ const links = [
                         {{ link.label }}
                     </a>
                     <Link
+                        href="/news"
+                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                        News
+                    </Link>
+                    <Link
                         href="/changelog"
                         class="text-muted-foreground hover:text-foreground text-sm transition-colors"
                     >
