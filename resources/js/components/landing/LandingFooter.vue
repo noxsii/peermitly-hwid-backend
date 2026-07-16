@@ -4,7 +4,7 @@ import LogoMark from "@/components/Logo.vue";
 
 const links = [
     { label: "Features", href: "/#features" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: "Free", href: "/#pricing" },
     { label: "FAQ", href: "/#faq" },
 ];
 </script>

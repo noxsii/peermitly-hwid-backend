@@ -1,13 +1,13 @@
 ---
 title: Sidebar Editor
-description: Shape the Peermitly sidebar exactly how you want — show or hide entries, group them into your own categories, reorder everything by drag and drop. A Pro feature.
+description: Shape the Peermitly sidebar exactly how you want — show or hide entries, group them into your own categories, reorder everything by drag and drop. Free for everyone.
 ---
 
 # 🎛️ Sidebar Editor
 
 The **Sidebar Editor** lets you shape Peermitly's left navigation exactly how you like it. Hide the things you never use, group the rest into your own categories, rename and reorder them, and drag entries wherever they make sense to you. Your layout is saved automatically and stays that way across restarts.
 
-> **Pro feature.** The Sidebar Editor is part of Peermitly **Pro**. On a Free plan you can still see your sidebar, but customizing it requires Pro.
+> **Free for everyone.** The Sidebar Editor is available on every plan — no Pro license required.
 
 There are two ways to tailor the sidebar — a quick on/off list, and the full drag-and-drop editor.
 

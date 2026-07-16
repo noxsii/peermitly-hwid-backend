@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
 import { useWindowScroll } from "@vueuse/core";
+import { Moon, Sun } from "@lucide/vue";
 import { computed } from "vue";
 import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
+import { useAppearance } from "@/composables/useAppearance";
 import type { PageProps } from "@/types";
 
 const page = usePage<PageProps>();
 const isAuthenticated = computed(() => page.props.auth?.user != null);
+
+const { toggle: toggleAppearance } = useAppearance();
 
 const { y } = useWindowScroll();
 const scrolled = computed(() => y.value > 16);
@@ -18,7 +22,7 @@ const links = [
     { label: "How it works", href: "#how" },
     { label: "Stacks", href: "#stacks" },
     { label: "Download", href: "#download" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Free", href: "#pricing" },
     { label: "Docs", href: "/guide" },
     { label: "FAQ", href: "#faq" },
 ];
@@ -59,6 +63,17 @@ const links = [
             </nav>
 
             <div class="flex items-center gap-2">
+                <Button
+                    size="icon-sm"
+                    variant="ghost"
+                    class="rounded-full"
+                    aria-label="Toggle dark mode"
+                    @click="toggleAppearance"
+                >
+                    <Sun class="size-4 dark:hidden" />
+                    <Moon class="hidden size-4 dark:block" />
+                </Button>
+
                 <Link v-if="isAuthenticated" href="/dashboard">
                     <Button size="sm">Dashboard</Button>
                 </Link>

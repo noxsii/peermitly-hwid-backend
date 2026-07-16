@@ -9,7 +9,7 @@ The **Composer graph** turns a project's `composer.lock` into an **interactive m
 
 It answers the questions a lock file makes hard to see at a glance: _What does this project actually pull in? Which packages are dev-only? What PHP version and extensions does it need? And how old are my dependencies?_
 
-> **Pro feature.** The Composer graph is part of Peermitly **Pro**.
+> **Free for everyone.** The Composer graph is available on every plan — no Pro license required.
 
 ![The Composer graph showing a project's dependency map next to the composer.lock file](/images/screenshots/composer_lock.png)
 

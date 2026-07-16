@@ -7,7 +7,7 @@ description: Catch and inspect the emails your local apps send with Peermitly's 
 
 The **Mail** service is a local mail catcher built on **Mailpit**. Every email your apps try to send during development is captured here instead of being delivered to a real inbox — so you can build and test sign-ups, password resets, receipts and notifications without ever sending a real message.
 
-> **Pro feature.** Mail is part of Peermitly **Pro**.
+> **Free for everyone.** Mail is available on every plan — no Pro license required.
 
 ## 🧩 What Peermitly uses Mail for
 

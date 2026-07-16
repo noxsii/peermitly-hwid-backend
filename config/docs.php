@@ -13,6 +13,7 @@ return [
             'title' => 'Setup',
             'items' => [
                 ['slug' => 'setup', 'title' => 'Setup'],
+                ['slug' => 'auto-update', 'title' => 'Auto-update', 'pro' => true],
             ],
         ],
         [
@@ -35,7 +36,7 @@ return [
             'items' => [
                 ['slug' => 'nginx', 'title' => 'nginx'],
                 ['slug' => 'dns', 'title' => 'DNS'],
-                ['slug' => 'mail', 'title' => 'Mail', 'pro' => true],
+                ['slug' => 'mail', 'title' => 'Mail'],
             ],
         ],
         [
@@ -46,9 +47,9 @@ return [
                 ['slug' => 'symfony', 'title' => 'Symfony'],
                 ['slug' => 'vue', 'title' => 'Vue'],
                 ['slug' => 'react', 'title' => 'React'],
-                ['slug' => 'nuxt', 'title' => 'Nuxt', 'pro' => true],
-                ['slug' => 'astro', 'title' => 'Astro', 'pro' => true],
-                ['slug' => 'nextjs', 'title' => 'Next.js', 'pro' => true],
+                ['slug' => 'nuxt', 'title' => 'Nuxt'],
+                ['slug' => 'astro', 'title' => 'Astro'],
+                ['slug' => 'nextjs', 'title' => 'Next.js'],
             ],
         ],
         [
@@ -57,7 +58,7 @@ return [
                 ['slug' => 'mariadb', 'title' => 'MariaDB'],
                 ['slug' => 'mysql', 'title' => 'MySQL'],
                 ['slug' => 'postgresql', 'title' => 'PostgreSQL'],
-                ['slug' => 'mongodb', 'title' => 'MongoDB', 'pro' => true],
+                ['slug' => 'mongodb', 'title' => 'MongoDB'],
             ],
         ],
         [
@@ -71,10 +72,10 @@ return [
             'title' => 'Tools',
             'items' => [
                 ['slug' => 'ide', 'title' => 'IDE integration'],
-                ['slug' => 'debug', 'title' => 'Debug', 'pro' => true],
-                ['slug' => 'profiler', 'title' => 'Profiler', 'pro' => true],
-                ['slug' => 'composer', 'title' => 'Composer graph', 'pro' => true],
-                ['slug' => 'sidebar-editor', 'title' => 'Sidebar Editor', 'pro' => true],
+                ['slug' => 'debug', 'title' => 'Debug'],
+                ['slug' => 'profiler', 'title' => 'Profiler'],
+                ['slug' => 'composer', 'title' => 'Composer graph'],
+                ['slug' => 'sidebar-editor', 'title' => 'Sidebar Editor'],
             ],
         ],
         [
