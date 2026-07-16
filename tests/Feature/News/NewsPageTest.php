@@ -3,7 +3,29 @@
 declare(strict_types=1);
 
 use App\Models\News;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Testing\AssertableInertia;
+
+test('deleting a news article removes its uploaded image from disk', function (): void {
+    Storage::fake('public');
+    Storage::disk('public')->put('news/cover.jpg', 'binary');
+
+    $news = News::factory()->create(['image_path' => 'news/cover.jpg']);
+
+    $news->delete();
+
+    Storage::disk('public')->assertMissing('news/cover.jpg');
+});
+
+test('deleting a news article without an image does not error', function (): void {
+    Storage::fake('public');
+
+    $news = News::factory()->withoutImage()->create();
+
+    $news->delete();
+
+    expect(News::query()->whereKey($news->getKey())->exists())->toBeFalse();
+});
 
 test('news index is public and lists only published entries', function (): void {
     News::factory()->create(['title' => 'Published one']);

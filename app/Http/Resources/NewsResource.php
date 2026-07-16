@@ -17,7 +17,7 @@ final class NewsResource extends JsonResource
     /**
      * @var string|null
      */
-    public static $wrap = null;
+    public static $wrap;
 
     /**
      * @return array<string, mixed>

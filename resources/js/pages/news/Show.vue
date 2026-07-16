@@ -25,9 +25,7 @@ const formatDate = (iso: string | null): string => {
     }
 };
 
-const twitterCard = props.article.image_url
-    ? "summary_large_image"
-    : "summary";
+const twitterCard = props.article.image_url ? "summary_large_image" : "summary";
 </script>
 
 <template>
@@ -40,8 +38,16 @@ const twitterCard = props.article.image_url
         <link rel="canonical" :href="url" head-key="canonical" />
 
         <meta property="og:type" content="article" head-key="og:type" />
-        <meta property="og:site_name" content="Peermitly" head-key="og:site_name" />
-        <meta property="og:title" :content="article.title" head-key="og:title" />
+        <meta
+            property="og:site_name"
+            content="Peermitly"
+            head-key="og:site_name"
+        />
+        <meta
+            property="og:title"
+            :content="article.title"
+            head-key="og:title"
+        />
         <meta
             property="og:description"
             :content="article.description"
@@ -61,7 +67,11 @@ const twitterCard = props.article.image_url
             head-key="article:published_time"
         />
 
-        <meta name="twitter:card" :content="twitterCard" head-key="twitter:card" />
+        <meta
+            name="twitter:card"
+            :content="twitterCard"
+            head-key="twitter:card"
+        />
         <meta
             name="twitter:title"
             :content="article.title"
@@ -86,7 +96,9 @@ const twitterCard = props.article.image_url
         >
             <Link href="/" class="flex items-center gap-2.5">
                 <LogoMark size="size-9" />
-                <span class="text-lg font-semibold tracking-tight">Peermitly</span>
+                <span class="text-lg font-semibold tracking-tight"
+                    >Peermitly</span
+                >
             </Link>
             <Link
                 href="/login"

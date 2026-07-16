@@ -18,9 +18,9 @@ final class CreateNews extends CreateRecord
      */
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        if (empty($data['slug'])) {
+        if (blank($data['slug'] ?? null)) {
             $title = is_string($data['title'] ?? null) ? $data['title'] : '';
-            $data['slug'] = app(GenerateNewsSlugAction::class)->handle($title);
+            $data['slug'] = resolve(GenerateNewsSlugAction::class)->handle($title);
         }
 
         return $data;

@@ -11,6 +11,7 @@ use App\Filament\Resources\News\Schemas\NewsForm;
 use App\Filament\Resources\News\Tables\NewsTable;
 use App\Models\News;
 use BackedEnum;
+use Filament\Resources\Pages\PageRegistration;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -63,7 +64,7 @@ final class NewsResource extends Resource
     }
 
     /**
-     * @return array<string, \Filament\Resources\Pages\PageRegistration>
+     * @return array<string, PageRegistration>
      */
     public static function getPages(): array
     {

@@ -40,7 +40,9 @@ const formatDate = (iso: string | null): string => {
         >
             <Link href="/" class="flex items-center gap-2.5">
                 <LogoMark size="size-9" />
-                <span class="text-lg font-semibold tracking-tight">Peermitly</span>
+                <span class="text-lg font-semibold tracking-tight"
+                    >Peermitly</span
+                >
             </Link>
             <Link
                 href="/login"

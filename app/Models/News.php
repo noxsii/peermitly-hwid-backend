@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Observers\NewsObserver;
 use Database\Factories\NewsFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,6 +33,7 @@ use Illuminate\Support\Carbon;
  *
  * @mixin Model
  */
+#[ObservedBy(NewsObserver::class)]
 #[Fillable('slug', 'title', 'description', 'image_path', 'content', 'published_at')]
 final class News extends Model
 {
