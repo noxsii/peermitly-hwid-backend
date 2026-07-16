@@ -11,7 +11,7 @@ Before Peermitly can serve your projects, a few command-line tools must be prese
 
 After checkout, your download and license appear in your dashboard on the start page. Download Peermitly there, move it to your **Applications** folder, and open it.
 
-> The very first version is installed manually. After that, the app keeps itself up to date automatically.
+> The very first version is installed manually. After that, [Auto-update](/guide/auto-update) keeps the app up to date automatically — the one Pro feature. Without Pro you simply update manually the same way you installed it.
 
 ## 🍺 2. Install Homebrew (required first)
 

@@ -7,7 +7,7 @@ description: Run MongoDB in Peermitly — install one of the latest community ve
 
 **MongoDB** is a popular open-source document database. Peermitly installs and runs the **Community** edition for you like any other service — no terminal setup. Install a version, start it, and connect right away.
 
-> **Pro feature.** MongoDB is part of Peermitly **Pro**.
+> **Free for everyone.** MongoDB is available on every plan — no Pro license required.
 
 ## ⚙️ How it's built
 

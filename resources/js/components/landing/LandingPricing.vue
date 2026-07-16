@@ -10,8 +10,8 @@ const features = [
     "Databases & services",
     "Secure .peer HTTPS",
     "macOS (Apple Silicon & Intel)",
+    "Debug, Profiler & Composer graph",
     "All future features",
-    "Priority support",
 ];
 </script>
 
@@ -26,15 +26,16 @@ const features = [
                     class="text-primary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase"
                 >
                     <span class="bg-primary/60 size-1.5 rounded-full" />
-                    Pricing
+                    Free
                 </span>
                 <h2
                     class="from-foreground to-primary/70 mt-3 bg-gradient-to-br bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
                 >
-                    One plan. Everything included.
+                    Everything's free.
                 </h2>
                 <p class="text-muted-foreground mt-4 text-lg">
-                    No tiers, no add-ons. Every feature for a single flat price.
+                    Every feature, unlimited use — no plans, no credit card, no
+                    catch. Just create an account and start building.
                 </p>
             </Reveal>
 
@@ -48,22 +49,17 @@ const features = [
                         All features included
                     </span>
 
-                    <h3 class="text-base font-semibold">Peermitly Pro</h3>
+                    <h3 class="text-base font-semibold">Peermitly</h3>
                     <p class="text-muted-foreground mt-1 text-sm">
                         Everything you need for fast local development.
                     </p>
 
                     <div class="mt-5 flex items-baseline gap-2">
-                        <span
-                            class="text-muted-foreground/60 text-2xl font-semibold line-through"
-                        >
-                            €4.99
-                        </span>
                         <span class="text-5xl font-bold tracking-tight">
                             Free
                         </span>
                         <span class="text-muted-foreground text-sm">
-                            during the test phase
+                            forever, for everyone
                         </span>
                     </div>
 
@@ -101,9 +97,7 @@ const features = [
                 class="mx-auto mt-8 flex max-w-md flex-col items-center text-center"
             >
                 <p class="text-muted-foreground text-sm">
-                    Peermitly is currently in an open
-                    <span class="text-foreground font-medium">test phase</span>
-                    — free to use while we're in beta. Create your account to
+                    Every feature is free for everyone. Create your account to
                     get started, and hop into our Discord if you have feedback
                     or need a hand.
                 </p>

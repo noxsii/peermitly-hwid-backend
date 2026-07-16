@@ -4,7 +4,7 @@ import LogoMark from "@/components/Logo.vue";
 
 const links = [
     { label: "Features", href: "/#features" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: "Free", href: "/#pricing" },
     { label: "FAQ", href: "/#faq" },
 ];
 </script>
@@ -31,6 +31,12 @@ const links = [
                     >
                         {{ link.label }}
                     </a>
+                    <Link
+                        href="/news"
+                        class="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                        News
+                    </Link>
                     <Link
                         href="/changelog"
                         class="text-muted-foreground hover:text-foreground text-sm transition-colors"

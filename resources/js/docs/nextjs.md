@@ -7,7 +7,7 @@ description: Create a new Next.js site in Peermitly — scaffolded with create-n
 
 Peermitly can scaffold a brand-new **Next.js** app for you and serve it over **HTTPS** on a `.peer` domain. Like Vue and React, a Next.js app runs on its own **dev server**; Peermitly puts nginx in front of it as a secure reverse proxy, so `https://your-name.peer` transparently reaches your running dev server — with Fast Refresh working over the domain.
 
-> **Pro feature.** Next.js sites are part of Peermitly **Pro**.
+> **Free for everyone.** Next.js sites are available on every plan — no Pro license required.
 
 ## ⚙️ How it's built
 

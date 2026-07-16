@@ -9,7 +9,7 @@ The **Profiler** shows you **where your PHP code spends its time**. It is powere
 
 No Composer package, no manual extension builds, no php.ini editing — Peermitly handles all of it.
 
-> **Pro feature.** The Profiler is part of Peermitly **Pro**.
+> **Free for everyone.** The Profiler is available on every plan — no Pro license required.
 
 ![The Peermitly Profiler showing a recorded request](/images/screenshots/php-spx.png)
 

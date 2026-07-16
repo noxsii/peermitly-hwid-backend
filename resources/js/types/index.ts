@@ -10,6 +10,7 @@ export type {
 export type { DashboardSubscription } from "./dashboard";
 export type { AuthUser, User, UserRole } from "./user";
 export type { LucideIcon, NavItem } from "./navigation";
+export type { News } from "./news";
 export type { NotificationItem, NotificationsPayload } from "./notification";
 export type { PageProps } from "./inertia";
 export type { PasskeyRow } from "./passkey";
