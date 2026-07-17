@@ -39,7 +39,7 @@ watch(
     >
         <!-- top bar -->
         <header
-            class="border-border bg-background/95 sticky top-0 z-40 border-b backdrop-blur"
+            class="border-border bg-background sticky top-0 z-40 h-20 border-b"
         >
             <div
                 class="mx-auto flex h-20 max-w-[90rem] items-center gap-3 px-5 sm:px-8"

@@ -42,7 +42,7 @@ const tiles = [
                     A look inside
                 </span>
                 <h2
-                    class="from-foreground to-primary/70 mt-3 bg-gradient-to-br bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
+                    class="from-foreground to-primary/70 mt-3 bg-linear-to-br bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
                 >
                     One calm dashboard for everything
                 </h2>
@@ -55,7 +55,7 @@ const tiles = [
             <!-- Featured window -->
             <Reveal class="relative mt-14">
                 <div
-                    class="from-primary/25 pointer-events-none absolute inset-x-0 -top-10 bottom-0 -z-10 bg-gradient-to-b to-transparent opacity-60 blur-[90px] sm:-inset-x-8"
+                    class="from-primary/25 pointer-events-none absolute inset-x-0 -top-10 bottom-0 -z-10 bg-linear-to-b to-transparent opacity-60 blur-[90px] sm:-inset-x-8"
                     aria-hidden="true"
                 />
                 <figure
@@ -89,7 +89,7 @@ const tiles = [
                         class="group bg-card border-border/60 hover:border-primary/40 h-full overflow-hidden rounded-2xl border transition-colors"
                     >
                         <div
-                            class="border-border/60 bg-muted/30 aspect-[16/10] overflow-hidden border-b"
+                            class="border-border/60 bg-muted/30 aspect-16/10 overflow-hidden border-b"
                         >
                             <img
                                 :src="tile.src"

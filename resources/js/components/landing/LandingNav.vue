@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
-import { useWindowScroll } from "@vueuse/core";
 import { Menu, Moon, Newspaper, Sun } from "@lucide/vue";
 import { computed, ref } from "vue";
 import LogoMark from "@/components/Logo.vue";
@@ -13,9 +12,6 @@ const page = usePage<PageProps>();
 const isAuthenticated = computed(() => page.props.auth?.user != null);
 
 const { toggle: toggleAppearance } = useAppearance();
-
-const { y } = useWindowScroll();
-const scrolled = computed(() => y.value > 16);
 
 const desktopLinks = [
     { label: "Features", href: "#features" },
@@ -40,12 +36,7 @@ function closeMobileNav(): void {
 
 <template>
     <header
-        class="border-border bg-background/95 fixed inset-x-0 top-0 z-50 border-b shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-200 md:shadow-none"
-        :class="
-            scrolled
-                ? 'md:border-border md:bg-background/95 md:shadow-sm'
-                : 'md:border-transparent md:bg-background/75'
-        "
+        class="border-border bg-background fixed inset-x-0 top-0 z-50 h-16 border-b"
     >
         <div
             class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:px-6"
