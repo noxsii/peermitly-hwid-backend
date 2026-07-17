@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Reveal from "@/components/landing/Reveal.vue";
 
-const featured = "/images/screenshots/landing/1.png?v=2";
+const featured = "/images/screenshots/landing/1.png";
 
 const tiles = [
     {
