@@ -32,7 +32,7 @@ const tiles = [
 </script>
 
 <template>
-    <section id="product" class="scroll-mt-20 py-24">
+    <section id="product" class="scroll-mt-20 overflow-x-clip py-24">
         <div class="mx-auto max-w-6xl px-6">
             <Reveal class="mx-auto max-w-2xl text-center">
                 <span
@@ -55,7 +55,7 @@ const tiles = [
             <!-- Featured window -->
             <Reveal class="relative mt-14">
                 <div
-                    class="from-primary/25 pointer-events-none absolute -inset-x-8 -top-10 bottom-0 -z-10 bg-gradient-to-b to-transparent opacity-60 blur-[90px]"
+                    class="from-primary/25 pointer-events-none absolute inset-x-0 -top-10 bottom-0 -z-10 bg-gradient-to-b to-transparent opacity-60 blur-[90px] sm:-inset-x-8"
                     aria-hidden="true"
                 />
                 <figure

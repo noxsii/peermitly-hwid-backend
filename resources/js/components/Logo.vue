@@ -28,9 +28,9 @@ withDefaults(
                 y2="54"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop offset="0" stop-color="#fdba74" />
-                <stop offset="0.5" stop-color="#f97316" />
-                <stop offset="1" stop-color="#c2410c" />
+                <stop offset="0" stop-color="#86efac" />
+                <stop offset="0.5" stop-color="#22c55e" />
+                <stop offset="1" stop-color="#15803d" />
             </linearGradient>
             <linearGradient
                 id="logo-ghost"
@@ -40,8 +40,8 @@ withDefaults(
                 y2="46"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop offset="0" stop-color="#fff7ed" />
-                <stop offset="1" stop-color="#fed7aa" />
+                <stop offset="0" stop-color="#f0fdf4" />
+                <stop offset="1" stop-color="#bbf7d0" />
             </linearGradient>
             <radialGradient
                 id="logo-glow"
@@ -50,8 +50,8 @@ withDefaults(
                 r="26"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop offset="0" stop-color="#f97316" stop-opacity="0.45" />
-                <stop offset="1" stop-color="#f97316" stop-opacity="0" />
+                <stop offset="0" stop-color="#22c55e" stop-opacity="0.45" />
+                <stop offset="1" stop-color="#22c55e" stop-opacity="0" />
             </radialGradient>
         </defs>
 
@@ -88,7 +88,7 @@ withDefaults(
         />
 
         <!-- circuit nodes inside the die -->
-        <g fill="#f97316" opacity="0.55">
+        <g fill="#22c55e" opacity="0.55">
             <circle cx="17.5" cy="17.5" r="1.4" />
             <circle cx="46.5" cy="17.5" r="1.4" />
             <circle cx="17.5" cy="46.5" r="1.4" />
@@ -124,7 +124,7 @@ withDefaults(
 
 <style scoped>
 .logo {
-    filter: drop-shadow(0 2px 8px rgba(249, 115, 22, 0.35));
+    filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.35));
 }
 
 .logo-glitch {

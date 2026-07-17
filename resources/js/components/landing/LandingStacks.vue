@@ -29,7 +29,7 @@ const track = [...stacks, ...stacks];
 </script>
 
 <template>
-    <section id="stacks" class="scroll-mt-20 py-24">
+    <section id="stacks" class="max-w-full scroll-mt-20 overflow-x-clip py-24">
         <div class="mx-auto max-w-6xl px-6">
             <Reveal class="mx-auto max-w-2xl text-center">
                 <span
@@ -51,7 +51,7 @@ const track = [...stacks, ...stacks];
         </div>
 
         <div
-            class="relative mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]"
+            class="relative mt-12 w-full max-w-full contain-inline-size overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]"
         >
             <div class="flex w-max animate-marquee gap-4">
                 <div

@@ -33,7 +33,9 @@ const description =
         <meta name="robots" content="index, follow" head-key="robots" />
     </Head>
 
-    <div class="bg-background text-foreground min-h-screen">
+    <div
+        class="bg-background text-foreground min-h-screen w-full overflow-x-clip"
+    >
         <LandingNav />
         <main>
             <LandingHero />

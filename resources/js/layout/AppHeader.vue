@@ -28,10 +28,14 @@ const appearanceOptions: Array<{
 
 <template>
     <header
-        class="bg-background flex h-14 shrink-0 items-center gap-2 px-3 sm:gap-3 sm:px-4"
+        class="border-border bg-background/95 sticky top-0 z-40 flex h-20 shrink-0 items-center gap-3 border-b px-5 backdrop-blur sm:px-8"
     >
         <div class="flex shrink-0 items-center">
             <Logo />
+            <span
+                class="text-muted-foreground ml-4 hidden border-l pl-4 text-xs tracking-[0.18em] uppercase sm:inline"
+                >Workspace</span
+            >
         </div>
 
         <div class="min-w-0 flex-1"></div>
