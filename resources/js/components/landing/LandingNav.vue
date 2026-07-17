@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { Link, usePage } from "@inertiajs/vue3";
 import { useWindowScroll } from "@vueuse/core";
-import { Moon, Sun } from "@lucide/vue";
-import { computed } from "vue";
+import { Menu, Moon, Newspaper, Sun } from "@lucide/vue";
+import { computed, ref } from "vue";
 import LogoMark from "@/components/Logo.vue";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { useAppearance } from "@/composables/useAppearance";
 import type { PageProps } from "@/types";
 
@@ -16,16 +17,25 @@ const { toggle: toggleAppearance } = useAppearance();
 const { y } = useWindowScroll();
 const scrolled = computed(() => y.value > 16);
 
-const links = [
+const desktopLinks = [
     { label: "Features", href: "#features" },
     { label: "Product", href: "#product" },
     { label: "How it works", href: "#how" },
     { label: "Stacks", href: "#stacks" },
     { label: "Download", href: "#download" },
-    { label: "Free", href: "#pricing" },
+    { label: "Pricing", href: "#pricing" },
     { label: "Docs", href: "/guide" },
+    { label: "News", href: "/news" },
     { label: "FAQ", href: "#faq" },
 ];
+
+const mobileLinks = [...desktopLinks];
+
+const mobileNav = ref(false);
+
+function closeMobileNav(): void {
+    mobileNav.value = false;
+}
 </script>
 
 <template>
@@ -55,15 +65,27 @@ const links = [
                 >
             </Link>
 
-            <nav class="hidden items-center gap-1 md:flex">
-                <a
-                    v-for="link in links"
-                    :key="link.href"
-                    :href="link.href"
-                    class="text-muted-foreground hover:text-foreground rounded-md px-3 py-2 text-sm font-medium transition-colors"
-                >
-                    {{ link.label }}
-                </a>
+            <nav
+                class="hidden items-center gap-1 min-[1180px]:flex"
+                aria-label="Main navigation"
+            >
+                <template v-for="link in desktopLinks" :key="link.href">
+                    <Link
+                        v-if="link.href.startsWith('/')"
+                        :href="link.href"
+                        prefetch
+                        class="text-muted-foreground hover:text-foreground border-b border-transparent px-2.5 py-2 text-xs font-medium transition-colors hover:border-primary/60 xl:px-3 xl:text-sm"
+                    >
+                        {{ link.label }}
+                    </Link>
+                    <a
+                        v-else
+                        :href="link.href"
+                        class="text-muted-foreground hover:text-foreground border-b border-transparent px-2.5 py-2 text-xs font-medium transition-colors hover:border-primary/60 xl:px-3 xl:text-sm"
+                    >
+                        {{ link.label }}
+                    </a>
+                </template>
             </nav>
 
             <div class="flex shrink-0 items-center gap-1 sm:gap-2">
@@ -76,6 +98,16 @@ const links = [
                 >
                     <Sun class="size-4 dark:hidden" />
                     <Moon class="hidden size-4 dark:block" />
+                </Button>
+
+                <Button
+                    size="icon-sm"
+                    variant="ghost"
+                    class="rounded-full min-[1180px]:hidden"
+                    aria-label="Open menu"
+                    @click="mobileNav = true"
+                >
+                    <Menu class="size-5" />
                 </Button>
 
                 <Link v-if="isAuthenticated" href="/dashboard">
@@ -94,4 +126,82 @@ const links = [
             </div>
         </div>
     </header>
+
+    <Sheet v-model:open="mobileNav">
+        <SheetContent
+            side="right"
+            class="w-[min(88vw,22rem)] gap-0 p-0"
+            aria-describedby="landing-menu-description"
+        >
+            <div
+                class="border-border flex items-center gap-3 border-b px-6 py-5"
+            >
+                <LogoMark size="size-9" />
+                <div>
+                    <SheetTitle class="text-base tracking-[-0.03em]">
+                        Peermitly
+                    </SheetTitle>
+                    <p
+                        id="landing-menu-description"
+                        class="text-muted-foreground text-xs"
+                    >
+                        Local development, simplified.
+                    </p>
+                </div>
+            </div>
+
+            <nav
+                class="flex flex-1 flex-col overflow-y-auto px-3 py-4"
+                aria-label="Mobile navigation"
+            >
+                <template v-for="link in mobileLinks" :key="link.href">
+                    <Link
+                        v-if="link.href.startsWith('/')"
+                        :href="link.href"
+                        prefetch
+                        class="hover:bg-muted flex items-center justify-between rounded-md px-4 py-3 text-base font-medium transition-colors"
+                        @click="closeMobileNav"
+                    >
+                        <span class="flex items-center gap-3">
+                            <Newspaper
+                                v-if="link.href === '/news'"
+                                class="text-primary size-4"
+                            />
+                            {{ link.label }}
+                        </span>
+                        <span class="text-muted-foreground text-xs">↗</span>
+                    </Link>
+                    <a
+                        v-else
+                        :href="link.href"
+                        class="hover:bg-muted flex items-center justify-between rounded-md px-4 py-3 text-base font-medium transition-colors"
+                        @click="closeMobileNav"
+                    >
+                        {{ link.label }}
+                        <span class="text-muted-foreground text-xs">↓</span>
+                    </a>
+                </template>
+            </nav>
+
+            <div class="border-border grid gap-2 border-t p-4">
+                <Link
+                    v-if="isAuthenticated"
+                    href="/dashboard"
+                    @click="closeMobileNav"
+                >
+                    <Button class="w-full">Open dashboard</Button>
+                </Link>
+                <template v-else>
+                    <Link href="/register" @click="closeMobileNav">
+                        <Button class="w-full">Sign up free</Button>
+                    </Link>
+                    <Link href="/login" @click="closeMobileNav">
+                        <Button variant="outline" class="w-full">
+                            Member login
+                        </Button>
+                    </Link>
+                </template>
+            </div>
+        </SheetContent>
+    </Sheet>
 </template>
