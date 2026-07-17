@@ -377,8 +377,11 @@
     }
 
     /* Shiki code blocks */
-    .docs-prose pre.shiki {
+    .docs-code-block {
         position: relative;
+    }
+
+    .docs-prose pre.shiki {
         background: var(--shiki-light-bg);
         border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
         border-radius: 0.85rem;
@@ -441,7 +444,7 @@
             transform 0.15s;
     }
 
-    .docs-prose pre.shiki:hover .docs-copy-btn {
+    .docs-code-block:hover .docs-copy-btn {
         opacity: 1;
     }
 

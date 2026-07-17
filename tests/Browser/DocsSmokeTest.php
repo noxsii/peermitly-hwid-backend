@@ -29,3 +29,22 @@ test('a guide image opens in a zoom overlay and closes again', function (): void
         ->click('[aria-label="Close"]')
         ->assertMissing('[role="dialog"]');
 });
+
+test('the copy button stays fixed while its code block scrolls', function (): void {
+    $page = visit('/guide/php');
+
+    $page->assertNoJavascriptErrors()->assertScript(
+        <<<'JS'
+        (() => {
+            const pre = document.querySelector('.docs-code-block pre');
+            const button = document.querySelector('.docs-copy-btn');
+            const initialRight = button.getBoundingClientRect().right;
+
+            pre.scrollLeft = pre.scrollWidth;
+
+            return Math.abs(button.getBoundingClientRect().right - initialRight) < 1;
+        })()
+        JS,
+        true,
+    );
+});

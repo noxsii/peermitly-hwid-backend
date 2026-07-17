@@ -41,9 +41,16 @@ function onKeydown(event: KeyboardEvent): void {
 }
 
 function mountCopyButton(pre: HTMLElement): void {
+    const parent = pre.parentNode;
+    const wrapper = document.createElement("div");
     const holder = document.createElement("div");
+
+    wrapper.className = "docs-code-block";
     holder.className = "docs-copy";
-    pre.appendChild(holder);
+
+    parent?.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+    wrapper.appendChild(holder);
 
     const copied = ref(false);
 
