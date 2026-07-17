@@ -1,0 +1,95 @@
+@import url("https://fonts.bunny.net/css?family=manrope:400,500,600,700&display=swap");
+@import "../../../../vendor/filament/filament/resources/css/theme.css";
+
+@source "../../../../app/Filament/**/*";
+@source "../../../../resources/views/filament/**/*";
+
+@theme {
+    --font-sans:
+        "Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+    body {
+        font-feature-settings: "ss01", "cv02", "cv03";
+    }
+}
+
+@layer components {
+    .fi-body {
+        @apply bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50;
+    }
+
+    .fi-topbar {
+        @apply border-b border-slate-200/80 bg-white/90 shadow-none ring-0 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/90;
+    }
+
+    .fi-sidebar {
+        @apply border-r border-slate-200/80 bg-white dark:border-white/10 dark:bg-slate-950;
+    }
+
+    .fi-sidebar-nav {
+        @apply gap-y-6 px-4 py-6;
+    }
+
+    .fi-sidebar-nav-groups {
+        @apply mx-0 gap-y-6;
+    }
+
+    .fi-sidebar-group-btn {
+        @apply px-3 py-1;
+    }
+
+    .fi-sidebar-group-label {
+        @apply text-[0.6875rem] font-semibold tracking-[0.14em] text-slate-400 uppercase dark:text-slate-500;
+    }
+
+    .fi-sidebar-item-btn {
+        @apply rounded-md px-3 py-2.5;
+    }
+
+    .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+        @apply bg-green-50 dark:bg-green-400/10;
+    }
+
+    .fi-sidebar-item.fi-sidebar-item-has-url > .fi-sidebar-item-btn {
+        @apply hover:bg-slate-100 focus-visible:bg-slate-100 dark:hover:bg-white/5 dark:focus-visible:bg-white/5;
+    }
+
+    .fi-main {
+        @apply px-4 md:px-8 lg:px-10;
+    }
+
+    .fi-page-header-main-ctn {
+        @apply gap-4;
+    }
+
+    .fi-header-heading {
+        @apply text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl dark:text-white;
+    }
+
+    .fi-section:not(.fi-section-not-contained),
+    .fi-ta-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply rounded-lg border border-slate-200/80 bg-white shadow-none ring-0 dark:border-white/10 dark:bg-slate-900;
+    }
+
+    .fi-input-wrp,
+    .fi-fo-field-wrp .fi-select-input {
+        @apply rounded-md shadow-none;
+    }
+
+    .fi-dropdown-panel,
+    .fi-modal-window {
+        @apply rounded-lg border border-slate-200/80 shadow-xl ring-0 dark:border-white/10;
+    }
+
+    .fi-btn {
+        @apply rounded-md shadow-none;
+    }
+
+    .fi-wi-stats-overview-stat-value {
+        @apply tracking-tight;
+    }
+}

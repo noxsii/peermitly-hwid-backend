@@ -10,7 +10,11 @@ export default defineConfig({
     plugins: [
         docs(),
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.ts'],
+            input: [
+                'resources/css/app.css',
+                'resources/css/filament/admin/theme.css',
+                'resources/js/app.ts',
+            ],
             refresh: true,
         }),
         tailwindcss(),

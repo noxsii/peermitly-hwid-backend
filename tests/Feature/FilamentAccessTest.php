@@ -4,6 +4,16 @@ declare(strict_types=1);
 
 use App\Enums\UserRole;
 use App\Models\User;
+use Filament\Facades\Filament;
+
+test('admin panel uses the Peermitly theme', function (): void {
+    $panel = Filament::getPanel('admin');
+
+    expect($panel->getColors()['primary'])->toBe('#22c55e')
+        ->and($panel->getViteTheme())->toBe('resources/css/filament/admin/theme.css')
+        ->and($panel->getSidebarWidth())->toBe('15rem')
+        ->and($panel->isSidebarCollapsibleOnDesktop())->toBeTrue();
+});
 
 test('guest is redirected to login when accessing filament panel', function (): void {
     $response = $this->get('/admin');
