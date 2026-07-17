@@ -13,18 +13,17 @@ const { copied, copy } = useCopyToClipboard();
 <template>
     <section
         id="download"
-        class="bg-muted/30 border-border/60 scroll-mt-20 border-y py-24"
+        class="bg-muted/30 border-border scroll-mt-20 border-y py-20 sm:py-24"
     >
         <div class="mx-auto max-w-2xl px-6 text-center">
             <Reveal>
                 <span
                     class="text-primary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase"
                 >
-                    <span class="bg-primary/60 size-1.5 rounded-full" />
                     Download
                 </span>
                 <h2
-                    class="from-foreground to-primary/70 mt-3 bg-gradient-to-br bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
+                    class="mt-4 text-3xl font-medium tracking-[-0.045em] sm:text-5xl"
                 >
                     Get Peermitly for macOS
                 </h2>
@@ -36,7 +35,10 @@ const { copied, copy } = useCopyToClipboard();
 
             <Reveal :delay="80" class="mt-8">
                 <a :href="DMG_URL" download class="inline-block">
-                    <Button size="lg" class="group h-12 px-6 text-base">
+                    <Button
+                        size="lg"
+                        class="group h-12 rounded-md px-6 text-base"
+                    >
                         <Download
                             class="transition-transform group-hover:-translate-y-0.5"
                         />
@@ -50,7 +52,7 @@ const { copied, copy } = useCopyToClipboard();
 
             <Reveal :delay="120" class="mt-10">
                 <div
-                    class="border-border/60 bg-card mx-auto max-w-xl rounded-2xl border p-5 text-left"
+                    class="border-border bg-card mx-auto max-w-xl border p-5 text-left"
                 >
                     <div class="flex items-start gap-3">
                         <span

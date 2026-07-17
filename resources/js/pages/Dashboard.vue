@@ -45,28 +45,34 @@ const neverExpires = computed(
 
 <template>
     <PageLayout :title="greeting">
-        <div class="mx-auto grid w-full max-w-3xl gap-4 sm:grid-cols-2">
-            <!-- Account status -->
-            <div
-                class="bg-card text-card-foreground border-border/70 rounded-3xl border p-8 text-center shadow-sm"
-            >
+        <div
+            class="grid w-full gap-px overflow-hidden border bg-border lg:grid-cols-2"
+        >
+            <section class="bg-card p-6 sm:p-8 lg:p-10">
+                <p
+                    class="text-muted-foreground mb-12 text-xs font-semibold tracking-[0.16em] uppercase"
+                >
+                    01 / Account
+                </p>
                 <div
                     :class="[
-                        'mx-auto flex size-16 items-center justify-center rounded-2xl',
+                        'flex size-12 items-center justify-center rounded-full',
                         isActive
                             ? 'bg-emerald-500/10 text-emerald-600'
                             : 'bg-amber-500/10 text-amber-600',
                     ]"
                     aria-hidden="true"
                 >
-                    <CircleCheck v-if="isActive" class="size-8" />
-                    <CircleSlash v-else class="size-8" />
+                    <CircleCheck v-if="isActive" class="size-6" />
+                    <CircleSlash v-else class="size-6" />
                 </div>
 
-                <h2 class="mt-5 text-xl font-semibold tracking-tight">
+                <h2 class="mt-6 text-2xl font-medium tracking-[-0.04em]">
                     {{ isActive ? "Account active" : "Account not active yet" }}
                 </h2>
-                <p class="text-muted-foreground mt-2 text-sm leading-6">
+                <p
+                    class="text-muted-foreground mt-3 max-w-sm text-sm leading-6"
+                >
                     <template v-if="isActive">
                         Your account is active and ready to use.
                     </template>
@@ -74,31 +80,34 @@ const neverExpires = computed(
                         An administrator needs to activate your account first.
                     </template>
                 </p>
-            </div>
+            </section>
 
             <!-- Subscription status -->
-            <div
-                class="bg-card text-card-foreground border-border/70 rounded-3xl border p-8 text-center shadow-sm"
-            >
+            <section class="bg-card p-6 sm:p-8 lg:p-10">
+                <p
+                    class="text-muted-foreground mb-12 text-xs font-semibold tracking-[0.16em] uppercase"
+                >
+                    02 / Subscription
+                </p>
                 <div
                     :class="[
-                        'mx-auto flex size-16 items-center justify-center rounded-2xl',
+                        'flex size-12 items-center justify-center rounded-full',
                         hasSubscription
                             ? 'bg-primary/10 text-primary'
                             : 'bg-muted text-muted-foreground',
                     ]"
                     aria-hidden="true"
                 >
-                    <KeyRound class="size-8" />
+                    <KeyRound class="size-6" />
                 </div>
 
                 <template v-if="hasSubscription">
-                    <h2 class="mt-5 text-xl font-semibold tracking-tight">
+                    <h2 class="mt-6 text-2xl font-medium tracking-[-0.04em]">
                         {{ subscription?.plan }}
                     </h2>
                     <template v-if="neverExpires">
                         <p
-                            class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
+                            class="text-muted-foreground mt-2 flex items-center gap-1.5 text-sm"
                         >
                             <Clock class="size-4" />
                             Never expires
@@ -106,7 +115,7 @@ const neverExpires = computed(
                     </template>
                     <template v-else>
                         <p
-                            class="text-muted-foreground mt-2 flex items-center justify-center gap-1.5 text-sm"
+                            class="text-muted-foreground mt-2 flex items-center gap-1.5 text-sm"
                         >
                             <Clock class="size-4" />
                             {{ daysLabel }}
@@ -124,7 +133,7 @@ const neverExpires = computed(
                 </template>
 
                 <template v-else>
-                    <h2 class="mt-5 text-xl font-semibold tracking-tight">
+                    <h2 class="mt-6 text-2xl font-medium tracking-[-0.04em]">
                         No active subscription
                     </h2>
                     <p class="text-muted-foreground mt-2 text-sm leading-6">
@@ -132,38 +141,46 @@ const neverExpires = computed(
                         start using the spoofer.
                     </p>
                 </template>
-            </div>
+            </section>
 
             <!-- Security code -->
-            <div
+            <section
                 v-if="securityCode"
-                class="bg-card text-card-foreground border-border/70 rounded-3xl border p-8 text-center shadow-sm sm:col-span-2"
+                class="bg-card p-6 sm:p-8 lg:col-span-2 lg:grid lg:grid-cols-2 lg:gap-12 lg:p-10"
             >
-                <div
-                    class="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-2xl"
-                    aria-hidden="true"
-                >
-                    <ShieldCheck class="size-8" />
+                <div>
+                    <p
+                        class="text-muted-foreground mb-12 text-xs font-semibold tracking-[0.16em] uppercase"
+                    >
+                        03 / Security
+                    </p>
+                    <div
+                        class="bg-primary/10 text-primary flex size-12 items-center justify-center rounded-full"
+                        aria-hidden="true"
+                    >
+                        <ShieldCheck class="size-6" />
+                    </div>
+                    <h2 class="mt-6 text-2xl font-medium tracking-[-0.04em]">
+                        Your security code
+                    </h2>
                 </div>
-
-                <h2 class="mt-5 text-xl font-semibold tracking-tight">
-                    Your security code
-                </h2>
-                <p
-                    class="text-primary mt-3 font-mono text-3xl font-bold tracking-[0.3em]"
-                >
-                    {{ securityCode }}
-                </p>
-                <p class="text-muted-foreground mt-3 text-sm leading-6">
-                    Keep this code private. Support will ask for it to confirm
-                    your identity when you open a ticket.
-                </p>
-            </div>
+                <div class="mt-8 flex flex-col justify-end lg:mt-0">
+                    <p
+                        class="font-mono text-4xl font-semibold tracking-[0.25em] sm:text-5xl"
+                    >
+                        {{ securityCode }}
+                    </p>
+                    <p
+                        class="text-muted-foreground mt-5 max-w-md text-sm leading-6"
+                    >
+                        Keep this code private. Support will ask for it to
+                        confirm your identity when you open a ticket.
+                    </p>
+                </div>
+            </section>
 
             <!-- Download -->
-            <LandingDownload
-                class="border-border/70 rounded-3xl border shadow-sm sm:col-span-2"
-            />
+            <LandingDownload class="bg-card lg:col-span-2" />
         </div>
     </PageLayout>
 </template>

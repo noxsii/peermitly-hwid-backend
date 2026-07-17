@@ -30,23 +30,27 @@ const links = [
 
 <template>
     <header
-        class="fixed inset-x-0 top-0 z-50 transform-gpu transition-all duration-300 [will-change:transform]"
+        class="border-border bg-background/95 fixed inset-x-0 top-0 z-50 border-b shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-200 md:shadow-none"
         :class="
             scrolled
-                ? 'border-border/50 bg-background/70 border-b backdrop-blur-xl'
-                : 'border-b border-transparent'
+                ? 'md:border-border md:bg-background/95 md:shadow-sm'
+                : 'md:border-transparent md:bg-background/75'
         "
     >
         <div
-            class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6"
+            class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:px-6"
         >
-            <Link href="/" class="group flex items-center gap-2.5">
+            <Link
+                href="/"
+                class="group flex min-w-0 items-center gap-2 sm:gap-2.5"
+            >
                 <span
-                    class="ring-border/60 group-hover:ring-primary/40 flex size-9 items-center justify-center rounded-xl ring-1 transition-all group-hover:scale-105"
+                    class="flex size-9 shrink-0 items-center justify-center transition-transform group-hover:rotate-3"
                 >
                     <LogoMark size="size-9" />
                 </span>
-                <span class="text-lg font-semibold tracking-tight"
+                <span
+                    class="hidden text-base font-semibold tracking-[-0.04em] min-[380px]:inline sm:text-lg"
                     >Peermitly</span
                 >
             </Link>
@@ -62,11 +66,11 @@ const links = [
                 </a>
             </nav>
 
-            <div class="flex items-center gap-2">
+            <div class="flex shrink-0 items-center gap-1 sm:gap-2">
                 <Button
                     size="icon-sm"
                     variant="ghost"
-                    class="rounded-full"
+                    class="rounded-full max-[360px]:hidden"
                     aria-label="Toggle dark mode"
                     @click="toggleAppearance"
                 >
@@ -82,7 +86,9 @@ const links = [
                         <Button size="sm" variant="ghost">Log in</Button>
                     </Link>
                     <Link href="/register">
-                        <Button size="sm">Sign up free</Button>
+                        <Button size="sm" class="whitespace-nowrap"
+                            >Sign up free</Button
+                        >
                     </Link>
                 </template>
             </div>

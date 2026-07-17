@@ -2,12 +2,6 @@
 import { Link, usePage } from "@inertiajs/vue3";
 import { LayoutDashboard, Settings, UserRound } from "@lucide/vue";
 import { computed } from "vue";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
 import type { LucideIcon, NavItem } from "@/types";
 
 interface ExternalNavItem {
@@ -34,57 +28,49 @@ const currentUrl = computed(() => page.url);
 </script>
 
 <template>
-    <TooltipProvider :delay-duration="100">
-        <aside
-            class="bg-background text-foreground flex w-16 shrink-0 flex-col items-center justify-between py-4"
+    <aside
+        class="border-border bg-background fixed inset-x-0 bottom-0 z-40 border-t md:sticky md:top-20 md:flex md:h-[calc(100vh-5rem)] md:w-60 md:shrink-0 md:flex-col md:justify-between md:border-t-0 md:border-r md:px-5 md:py-8"
+    >
+        <nav
+            aria-label="Workspace navigation"
+            class="flex items-center justify-around p-2 md:block md:space-y-1 md:p-0"
         >
-            <div class="flex flex-col items-center gap-1">
-                <Tooltip v-for="item in primary" :key="item.label">
-                    <TooltipTrigger as-child>
-                        <Link
-                            :href="item.href"
-                            :aria-label="item.label"
-                            :aria-current="
-                                currentUrl === item.href ? 'page' : undefined
-                            "
-                            class="text-foreground/70 hover:bg-muted hover:text-foreground aria-[current=page]:bg-muted aria-[current=page]:text-foreground flex size-9 items-center justify-center rounded-lg transition-colors"
-                        >
-                            <component :is="item.icon" class="size-4" />
-                        </Link>
-                    </TooltipTrigger>
-                    <TooltipContent side="right" :side-offset="8">
-                        {{ item.label }}
-                    </TooltipContent>
-                </Tooltip>
-            </div>
+            <Link
+                v-for="item in primary"
+                :key="item.label"
+                :href="item.href"
+                :aria-current="currentUrl === item.href ? 'page' : undefined"
+                class="text-muted-foreground hover:text-foreground aria-[current=page]:bg-foreground aria-[current=page]:text-background flex min-w-20 items-center justify-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors md:justify-start"
+            >
+                <component :is="item.icon" class="size-4" />
+                <span>{{ item.label }}</span>
+            </Link>
+        </nav>
 
-            <div class="flex flex-col items-center gap-1">
-                <Tooltip v-for="item in secondary" :key="item.label">
-                    <TooltipTrigger as-child>
-                        <a
-                            v-if="isExternal(item)"
-                            :href="item.href"
-                            :aria-label="item.label"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-foreground/70 hover:bg-muted hover:text-foreground flex size-9 items-center justify-center rounded-lg transition-colors"
-                        >
-                            <component :is="item.icon" class="size-4" />
-                        </a>
-                        <Link
-                            v-else
-                            :href="item.href"
-                            :aria-label="item.label"
-                            class="text-foreground/70 hover:bg-muted hover:text-foreground flex size-9 items-center justify-center rounded-lg transition-colors"
-                        >
-                            <component :is="item.icon" class="size-4" />
-                        </Link>
-                    </TooltipTrigger>
-                    <TooltipContent side="right" :side-offset="8">
-                        {{ item.label }}
-                    </TooltipContent>
-                </Tooltip>
-            </div>
-        </aside>
-    </TooltipProvider>
+        <nav aria-label="Account navigation" class="hidden space-y-1 md:block">
+            <template v-for="item in secondary" :key="item.label">
+                <a
+                    v-if="isExternal(item)"
+                    :href="item.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-muted-foreground hover:bg-muted hover:text-foreground flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors"
+                >
+                    <component :is="item.icon" class="size-4" />
+                    {{ item.label }}
+                </a>
+                <Link
+                    v-else
+                    :href="item.href"
+                    :aria-current="
+                        currentUrl === item.href ? 'page' : undefined
+                    "
+                    class="text-muted-foreground hover:bg-muted hover:text-foreground aria-[current=page]:text-foreground flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors"
+                >
+                    <component :is="item.icon" class="size-4" />
+                    {{ item.label }}
+                </Link>
+            </template>
+        </nav>
+    </aside>
 </template>

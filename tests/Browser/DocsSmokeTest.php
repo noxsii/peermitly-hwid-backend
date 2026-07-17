@@ -12,6 +12,14 @@ test('a guide page renders its content, sidebar and table of contents', function
         ->assertSee('Getting Started');
 });
 
+test('a guide page remains usable on mobile', function (): void {
+    $page = visit('/guide/introduction')->on()->mobile();
+
+    $page->assertNoJavascriptErrors()
+        ->assertSee('Introduction')
+        ->assertVisible('[aria-label="Open navigation"]');
+});
+
 test('a guide image opens in a zoom overlay and closes again', function (): void {
     $page = visit('/guide/php');
 

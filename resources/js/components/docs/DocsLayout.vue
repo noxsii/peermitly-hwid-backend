@@ -37,28 +37,12 @@ watch(
     <div
         class="bg-background text-foreground relative min-h-screen overflow-x-clip"
     >
-        <!-- decorative background -->
-        <div
-            class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-            aria-hidden="true"
-        >
-            <div
-                class="bg-primary/15 absolute -top-40 left-1/2 hidden h-[34rem] w-[34rem] -translate-x-1/2 rounded-full blur-[120px] sm:block"
-            />
-            <div
-                class="bg-primary/10 absolute top-1/3 -right-40 hidden h-[26rem] w-[26rem] rounded-full blur-[120px] sm:block"
-            />
-            <div
-                class="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,color-mix(in_oklch,var(--border)_60%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklch,var(--border)_60%,transparent)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
-            />
-        </div>
-
         <!-- top bar -->
         <header
-            class="border-border/50 bg-background/70 sticky top-0 z-40 border-b backdrop-blur-xl"
+            class="border-border bg-background/95 sticky top-0 z-40 border-b backdrop-blur"
         >
             <div
-                class="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6"
+                class="mx-auto flex h-20 max-w-[90rem] items-center gap-3 px-5 sm:px-8"
             >
                 <Button
                     variant="ghost"
@@ -72,7 +56,7 @@ watch(
 
                 <Link href="/" class="group flex items-center gap-2.5">
                     <span
-                        class="ring-border/60 group-hover:ring-primary/40 flex size-8 items-center justify-center rounded-xl ring-1 transition-all group-hover:scale-105"
+                        class="flex size-8 items-center justify-center transition-transform group-hover:rotate-3"
                     >
                         <LogoMark size="size-8" />
                     </span>
@@ -80,7 +64,7 @@ watch(
                         Peermitly
                     </span>
                     <span
-                        class="from-primary/15 to-primary/5 text-primary border-primary/20 ml-1 hidden rounded-full border bg-gradient-to-r px-2 py-0.5 text-xs font-semibold sm:inline"
+                        class="text-muted-foreground ml-2 hidden border-l pl-4 text-[11px] font-semibold tracking-[0.16em] uppercase sm:inline"
                     >
                         Docs
                     </span>
@@ -101,7 +85,7 @@ watch(
                     </Button>
 
                     <Link v-if="isAuthenticated" href="/dashboard">
-                        <Button size="sm" class="shadow-primary/20 shadow-sm">
+                        <Button size="sm" class="rounded-md">
                             Dashboard
                         </Button>
                     </Link>
@@ -112,17 +96,17 @@ watch(
             </div>
         </header>
 
-        <div class="mx-auto flex max-w-7xl gap-8 px-4 sm:px-6 lg:gap-12">
+        <div class="mx-auto flex max-w-[90rem] gap-10 px-5 sm:px-8 lg:gap-16">
             <!-- sidebar (desktop) -->
             <aside
-                class="sticky top-16 hidden h-[calc(100vh-4rem)] w-56 shrink-0 overflow-y-auto py-10 lg:block"
+                class="sticky top-20 hidden h-[calc(100vh-5rem)] w-60 shrink-0 overflow-y-auto border-r py-12 pr-8 lg:block"
             >
                 <DocsSidebar :sections="sections" :current-slug="currentSlug" />
             </aside>
 
             <!-- main content -->
-            <main class="min-w-0 flex-1 py-12">
-                <div class="mx-auto max-w-3xl">
+            <main class="min-w-0 flex-1 py-12 sm:py-16 lg:py-20">
+                <div class="mx-auto max-w-4xl">
                     <DocsContent
                         v-if="page"
                         :key="currentSlug"
@@ -141,7 +125,7 @@ watch(
 
             <!-- toc (desktop xl) -->
             <aside
-                class="sticky top-16 hidden h-[calc(100vh-4rem)] w-56 shrink-0 overflow-y-auto py-12 xl:block"
+                class="sticky top-20 hidden h-[calc(100vh-5rem)] w-52 shrink-0 overflow-y-auto border-l py-12 pl-8 xl:block"
             >
                 <DocsToc
                     v-if="page"
