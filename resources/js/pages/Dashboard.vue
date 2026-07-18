@@ -180,7 +180,7 @@ const neverExpires = computed(
             </section>
 
             <!-- Download -->
-            <LandingDownload class="bg-card lg:col-span-2" />
+            <LandingDownload dashboard class="bg-card lg:col-span-2" />
         </div>
     </PageLayout>
 </template>

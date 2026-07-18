@@ -18,3 +18,16 @@ test('the dashboard offers the macOS download with the same link as the landing 
             'https://peermitly.de/storage/releases/peermitly_universal.dmg',
         );
 });
+
+test('the dashboard navigation and download remain usable on mobile', function (): void {
+    $user = User::factory()->create();
+
+    $page = $this->actingAs($user)->visit('/dashboard')->on()->mobile();
+
+    $page->assertNoJavascriptErrors()
+        ->assertVisible('[aria-label="Mobile workspace navigation"] a[href="/dashboard"]')
+        ->assertVisible('[aria-label="Mobile workspace navigation"] a[href="/profile"]')
+        ->assertVisible('[aria-label="Mobile workspace navigation"] a[href="/settings"]')
+        ->assertVisible('[data-dashboard-download] a[download]')
+        ->assertScript('document.documentElement.scrollWidth <= window.innerWidth');
+});

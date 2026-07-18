@@ -7,15 +7,33 @@ import { useCopyToClipboard } from "@/composables/useCopyToClipboard";
 const DMG_URL = "https://peermitly.de/storage/releases/peermitly_universal.dmg";
 const FIX_COMMAND = "xattr -cr /Applications/peermitly.app";
 
+withDefaults(
+    defineProps<{
+        dashboard?: boolean;
+    }>(),
+    {
+        dashboard: false,
+    },
+);
+
 const { copied, copy } = useCopyToClipboard();
 </script>
 
 <template>
     <section
         id="download"
-        class="bg-muted/30 border-border scroll-mt-20 border-y py-20 sm:py-24"
+        :data-dashboard-download="dashboard ? '' : undefined"
+        :class="[
+            'bg-muted/30 border-border scroll-mt-20 border-y',
+            dashboard ? 'py-10 sm:py-14' : 'py-20 sm:py-24',
+        ]"
     >
-        <div class="mx-auto max-w-2xl px-6 text-center">
+        <div
+            :class="[
+                'mx-auto max-w-2xl text-center',
+                dashboard ? 'px-4 sm:px-6' : 'px-6',
+            ]"
+        >
             <Reveal>
                 <span
                     class="text-primary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase"
@@ -23,21 +41,40 @@ const { copied, copy } = useCopyToClipboard();
                     Download
                 </span>
                 <h2
-                    class="mt-4 text-3xl font-medium tracking-[-0.045em] sm:text-5xl"
+                    :class="[
+                        'mt-4 font-medium tracking-[-0.045em]',
+                        dashboard
+                            ? 'text-2xl sm:text-4xl'
+                            : 'text-3xl sm:text-5xl',
+                    ]"
                 >
                     Get Peermitly for macOS
                 </h2>
-                <p class="text-muted-foreground mt-4 text-lg">
+                <p
+                    :class="[
+                        'text-muted-foreground mt-4',
+                        dashboard ? 'text-base sm:text-lg' : 'text-lg',
+                    ]"
+                >
                     One universal app for Apple Silicon and Intel. Download,
                     drag to Applications, and you're running.
                 </p>
             </Reveal>
 
             <Reveal :delay="80" class="mt-8">
-                <a :href="DMG_URL" download class="inline-block">
+                <a
+                    :href="DMG_URL"
+                    download
+                    :class="
+                        dashboard ? 'block sm:inline-block' : 'inline-block'
+                    "
+                >
                     <Button
                         size="lg"
-                        class="group h-12 rounded-md px-6 text-base"
+                        :class="[
+                            'group h-12 rounded-md px-6 text-base',
+                            dashboard ? 'w-full sm:w-auto' : '',
+                        ]"
                     >
                         <Download
                             class="transition-transform group-hover:-translate-y-0.5"
@@ -52,7 +89,10 @@ const { copied, copy } = useCopyToClipboard();
 
             <Reveal :delay="120" class="mt-10">
                 <div
-                    class="border-border bg-card mx-auto max-w-xl border p-5 text-left"
+                    :class="[
+                        'border-border bg-card mx-auto max-w-xl border text-left',
+                        dashboard ? 'p-4 sm:p-5' : 'p-5',
+                    ]"
                 >
                     <div class="flex items-start gap-3">
                         <span
@@ -78,10 +118,20 @@ const { copied, copy } = useCopyToClipboard();
                             </p>
 
                             <div
-                                class="border-border/60 bg-muted/50 mt-3 flex items-center gap-2 rounded-lg border p-1.5 pl-3"
+                                :class="[
+                                    'border-border/60 bg-muted/50 mt-3 flex rounded-lg border',
+                                    dashboard
+                                        ? 'min-w-0 flex-col gap-1.5 p-2 sm:flex-row sm:items-center sm:gap-2 sm:p-1.5 sm:pl-3'
+                                        : 'items-center gap-2 p-1.5 pl-3',
+                                ]"
                             >
                                 <code
-                                    class="min-w-0 flex-1 overflow-x-auto font-mono text-xs whitespace-nowrap"
+                                    :class="[
+                                        'min-w-0 flex-1 overflow-x-auto font-mono text-xs whitespace-nowrap',
+                                        dashboard
+                                            ? 'w-full py-1 sm:w-auto sm:py-0'
+                                            : '',
+                                    ]"
                                 >
                                     {{ FIX_COMMAND }}
                                 </code>
@@ -89,7 +139,10 @@ const { copied, copy } = useCopyToClipboard();
                                     type="button"
                                     variant="ghost"
                                     size="sm"
-                                    class="shrink-0"
+                                    :class="[
+                                        'shrink-0',
+                                        dashboard ? 'w-full sm:w-auto' : '',
+                                    ]"
                                     :aria-label="
                                         copied ? 'Copied' : 'Copy command'
                                     "

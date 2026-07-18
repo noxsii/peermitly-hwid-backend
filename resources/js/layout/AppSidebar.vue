@@ -20,6 +20,8 @@ const secondary: (NavItem | ExternalNavItem)[] = [
     { label: "Settings", href: "/settings", icon: Settings },
 ];
 
+const mobileNavigation = [...primary, ...secondary];
+
 const isExternal = (item: NavItem | ExternalNavItem): item is ExternalNavItem =>
     "external" in item && item.external;
 
@@ -33,7 +35,7 @@ const currentUrl = computed(() => page.url);
     >
         <nav
             aria-label="Workspace navigation"
-            class="flex items-center justify-around p-2 md:block md:space-y-1 md:p-0"
+            class="hidden space-y-1 md:block"
         >
             <Link
                 v-for="item in primary"
@@ -44,6 +46,22 @@ const currentUrl = computed(() => page.url);
             >
                 <component :is="item.icon" class="size-4" />
                 <span>{{ item.label }}</span>
+            </Link>
+        </nav>
+
+        <nav
+            aria-label="Mobile workspace navigation"
+            class="grid grid-cols-3 gap-1 p-2 md:hidden"
+        >
+            <Link
+                v-for="item in mobileNavigation"
+                :key="item.label"
+                :href="item.href"
+                :aria-current="currentUrl === item.href ? 'page' : undefined"
+                class="text-muted-foreground hover:text-foreground aria-[current=page]:bg-foreground aria-[current=page]:text-background flex min-w-0 flex-col items-center justify-center gap-1 rounded-md px-2 py-2 text-xs font-medium transition-colors"
+            >
+                <component :is="item.icon" class="size-4" />
+                <span class="truncate">{{ item.label }}</span>
             </Link>
         </nav>
 
