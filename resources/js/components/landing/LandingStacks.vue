@@ -7,6 +7,7 @@ const stacks = [
     "Symfony",
     "WordPress",
     "Statamic",
+    "Grav",
     "Vue",
     "React",
     "Node.js",

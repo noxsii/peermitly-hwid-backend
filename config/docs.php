@@ -45,6 +45,7 @@ return [
                 ['slug' => 'blank-php', 'title' => 'Blank PHP'],
                 ['slug' => 'laravel', 'title' => 'Laravel'],
                 ['slug' => 'symfony', 'title' => 'Symfony'],
+                ['slug' => 'grav', 'title' => 'Grav CMS'],
                 ['slug' => 'vue', 'title' => 'Vue'],
                 ['slug' => 'react', 'title' => 'React'],
                 ['slug' => 'nuxt', 'title' => 'Nuxt'],

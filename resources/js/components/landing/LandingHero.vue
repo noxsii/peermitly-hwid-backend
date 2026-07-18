@@ -11,6 +11,7 @@ const isAuthenticated = computed(() => page.props.auth?.user != null);
 const frameworks = [
     "Laravel",
     "Symfony",
+    "Grav",
     "WordPress",
     "Node.js",
     "Next.js",

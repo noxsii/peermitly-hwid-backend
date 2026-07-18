@@ -12,6 +12,15 @@ test('a guide page renders its content, sidebar and table of contents', function
         ->assertSee('Getting Started');
 });
 
+test('the Grav CMS guide renders with its sidebar entry', function (): void {
+    $page = visit('/guide/grav');
+
+    $page->assertNoJavascriptErrors()
+        ->assertSee('Grav CMS')
+        ->assertSee('flat-file')
+        ->assertSee('On this page');
+});
+
 test('a guide page remains usable on mobile', function (): void {
     $page = visit('/guide/introduction')->on()->mobile();
 
